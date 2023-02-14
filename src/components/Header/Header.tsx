@@ -2,20 +2,28 @@ import React, { useState, ReactNode } from 'react';
 import styled from 'styled-components';
 import Modal from '../../components/Modal/Modal';
 import useModal from '../../components/Modal/useModal';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import * as C from "../../styles/global";
 import { useAuth } from '../../context/AuthProvider/useAuth';
 import { useNavigate } from "react-router-dom";
 
-const HeaderContainer = styled.header`
-  padding: 0 1.25rem;
-  height: 4rem;
+
+const HeaderWrapper = styled.header`
+  background-color: #FFC107;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 10%);
+`;
+
+
+const HeaderContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  border-bottom: 1px solid #979797;
+  height: 4rem;
+  @media (min-width: 800px) {
+    height: 5rem;
+  }
 `;
 
 const Title = styled.h1`
@@ -23,9 +31,6 @@ const Title = styled.h1`
   font-weight: 700;
   color: #000000;
   transition: .5s;
-  &:hover {
-    color: red;
-  }
 `;
 
 export const Navbar = styled.nav`
@@ -35,7 +40,7 @@ export const Navbar = styled.nav`
   transition: all 0.3s;
   height: 100%;
   @media (min-width: 800px) {
-    display: flex;
+    display: block;
   }
 `;
 
@@ -55,11 +60,11 @@ export const NavbarModal = styled.nav`
 `;
 
 export const NavbarList = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
   @media (min-width: 800px) {
     flex-direction: row;
     gap: 2rem;
@@ -72,6 +77,12 @@ export const NavbarListItem = styled.li`
     color: #000000;
     font-size: 1rem;
     font-weight: 400;
+    transition: .5s;
+  }
+   &:hover {
+    a{
+    color: #757575;
+    }
   }
 `;
 
@@ -94,6 +105,12 @@ display: none;
   font-weight: 400;
   a {
     color: #000000;
+    transition: .5s;
+  }
+  &:hover {
+    a{
+    color: #757575;
+    }
   }
   @media (min-width: 800px) {
     display: block;
@@ -101,11 +118,11 @@ display: none;
 `
 
 const Circle = styled.div`
-display: none;
+  display: none;
   width: 2.5rem;
   height: 2.5rem;
- background-color: grey;
- border-radius: 50%;
+  background-color: grey;
+  border-radius: 50%;
   @media (min-width: 800px) {
     display: block;
   }
@@ -118,89 +135,91 @@ const Wrapper = styled.div`
 `
 
 interface Props {
-    title: string;
+  title: string;
 }
 
 const Header: React.FC<Props> = ({ title }) => {
-    const { isOpen, toggle } = useModal();
+  const { isOpen, toggle } = useModal();
 
-    const auth = useAuth()
+  const auth = useAuth()
 
-    const UserLogged = () => {
-        if (!auth.email) {
-            return (
-                <Link to="/login">
-                    Login
-                </Link>
-            );
-        }
-
-        return <Circle />;
-    };
-
-    const navigate = useNavigate();
-
-    function onLogout() {
-        auth.logout()
-        navigate("/");
+  const UserLogged = () => {
+    if (!auth.email) {
+      return (
+        <Link to="/login">
+          Login
+        </Link>
+      );
     }
 
+    return <Circle />;
+  };
 
-    return (
-        <C.Container>
-            <HeaderContainer>
-                <Wrapper>
-                    <Link to="/">
-                        <Title>{title}</Title>
-                    </Link>
+  const navigate = useNavigate();
 
-                    <Navbar>
-                        <NavbarList>
-                            <NavbarListItem>
-                                <Link to="/" onClick={toggle}>Home</Link>
-                            </NavbarListItem>
-                            <NavbarListItem>
-                                <a href="#" onClick={toggle}>About</a>
-                            </NavbarListItem>
-                            <NavbarListItem>
-                                <a href="#" onClick={onLogout}>Services</a>
-                            </NavbarListItem>
-                            <NavbarListItem>
-                                <a href="#">Contact</a>
-                            </NavbarListItem>
-                        </NavbarList>
-                    </Navbar>
-                </Wrapper>
+  function onLogout() {
+    auth.logout()
+    navigate("/");
+  }
 
-                <Hamburger onClick={toggle}>
-                    Modal
-                </Hamburger>
 
-                <Login>
-                    {UserLogged()}
-                </Login>
+  return (
+    <HeaderWrapper>
+      <C.Container>
+        <HeaderContainer>
+          <Wrapper>
+            <Link to="/">
+              <Title>{title}</Title>
+            </Link>
 
-                <Modal isOpen={isOpen} toggle={toggle}>
-                    <NavbarModal>
-                        <NavbarList>
-                            <NavbarListItem>
-                                <a href="/login" onClick={toggle}>Home</a>
-                            </NavbarListItem>
-                            <NavbarListItem>
-                                <a href="#" onClick={toggle}>About</a>
-                            </NavbarListItem>
-                            <NavbarListItem>
-                                <a href="#">Services</a>
-                            </NavbarListItem>
-                            <NavbarListItem>
-                                <a href="#">Contact</a>
-                            </NavbarListItem>
-                        </NavbarList>
-                    </NavbarModal>
-                </Modal>
-            </HeaderContainer>
-        </C.Container>
-    );
+            <Navbar>
+              <NavbarList>
+                <NavbarListItem>
+                  <NavLink to="/" onClick={toggle}>Home</NavLink>
+                </NavbarListItem>
+                <NavbarListItem>
+                  <NavLink to="/products" onClick={toggle}>Products</NavLink>
+                </NavbarListItem>
+                <NavbarListItem>
+                  <NavLink to="/" onClick={onLogout}>About</NavLink>
+                </NavbarListItem>
+                <NavbarListItem>
+                  <NavLink to="/" onClick={toggle}>Contact</NavLink>
+                </NavbarListItem>
+              </NavbarList>
+            </Navbar>
+          </Wrapper>
+
+          <Hamburger onClick={toggle}>
+            Modal
+          </Hamburger>
+
+          <Login>
+            {UserLogged()}
+          </Login>
+
+          <Modal isOpen={isOpen} toggle={toggle}>
+            <NavbarModal>
+              <NavbarList>
+                <NavbarListItem>
+                  <NavLink to="/" onClick={toggle}>Home</NavLink>
+                </NavbarListItem>
+                <NavbarListItem>
+                  <NavLink to="/products" onClick={toggle}>Products</NavLink>
+                </NavbarListItem>
+                <NavbarListItem>
+                  <NavLink to="/">About</NavLink>
+                </NavbarListItem>
+                <NavbarListItem>
+                  <NavLink to="/">Contact</NavLink>
+                </NavbarListItem>
+              </NavbarList>
+            </NavbarModal>
+          </Modal>
+        </HeaderContainer>
+      </C.Container>
+    </HeaderWrapper>
+  );
 };
 
 export default Header;

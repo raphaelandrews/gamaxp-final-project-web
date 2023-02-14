@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 100vh;
     color: #000000;
-    background-color: #E5E5E5;
+    background-color: hsl(0, 0%, 100%);
     font-family: 'Inter', sans-serif;
   }
 
