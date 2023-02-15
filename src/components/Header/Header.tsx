@@ -7,6 +7,7 @@ import { NavLink, Link } from 'react-router-dom';
 import * as C from "../../styles/global";
 import { useAuth } from '../../context/AuthProvider/useAuth';
 import { useNavigate } from "react-router-dom";
+import { ShoppingCart, User } from 'iconsax-react';
 
 
 const HeaderWrapper = styled.header`
@@ -108,6 +109,7 @@ display: none;
     transition: .5s;
   }
   &:hover {
+    cursor: pointer;
     a{
     color: #757575;
     }
@@ -117,21 +119,17 @@ display: none;
   }
 `
 
-const Circle = styled.div`
-  display: none;
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: grey;
-  border-radius: 50%;
-  @media (min-width: 800px) {
-    display: block;
-  }
-`
-
 const Wrapper = styled.div`
   display:flex;
   align-items: center;
   gap: 2rem;
+`
+
+const CartWrapper = styled.div`
+  display: none;
+  @media (min-width: 800px) {
+    display: block;
+  }
 `
 
 interface Props {
@@ -152,7 +150,7 @@ const Header: React.FC<Props> = ({ title }) => {
       );
     }
 
-    return <Circle />;
+    return <User size="20" color="#000000" onClick={onLogout} />;
   };
 
   const navigate = useNavigate();
@@ -190,13 +188,21 @@ const Header: React.FC<Props> = ({ title }) => {
             </Navbar>
           </Wrapper>
 
-          <Hamburger onClick={toggle}>
-            Modal
-          </Hamburger>
+          <Wrapper>
+            <Hamburger onClick={toggle}>
+              Modal
+            </Hamburger>
 
-          <Login>
-            {UserLogged()}
-          </Login>
+
+            <CartWrapper>
+              <Link to="/">
+                <ShoppingCart size="20" color="#000000" />
+              </Link>
+            </CartWrapper>
+            <Login>
+              {UserLogged()}
+            </Login>
+          </Wrapper>
 
           <Modal isOpen={isOpen} toggle={toggle}>
             <NavbarModal>
