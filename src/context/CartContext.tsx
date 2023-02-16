@@ -1,17 +1,17 @@
-import { createContext, ReactNode, useContext, useState } from "react";
-import { ShoppingCart } from "../components/ShoppingCart";
-import { useLocalStorage } from "./useLocalStorage";
+import { createContext, ReactNode, useContext, useState } from "react"
+import { Cart } from "../components/Cart"
+import { useLocalStorage } from "../hooks/useLocalStorage"
 
-type ShoppingCartProviderProps = {
+type CartProviderProps = {
   children: ReactNode
 }
 
-type CartItem = {
+type CartProduct = {
   id: number
   quantity: number
 }
 
-type ShoppingCartContext = {
+type CartContext = {
   openCart: () => void
   closeCart: () => void
   getItemQuantity: (id: number) => number
@@ -19,22 +19,22 @@ type ShoppingCartContext = {
   decreaseCartQuantity: (id: number) => void
   removeFromCart: (id: number) => void
   cartQuantity: number
-  cartItems: CartItem[]
+  CartProducts: CartProduct[]
 }
 
-const ShoppingCartContext = createContext({} as ShoppingCartContext)
+const CartContext = createContext({} as CartContext)
 
-export function useShoppingCart() {
-  return useContext(ShoppingCartContext)
+export function useCart() {
+  return useContext(CartContext)
 }
-export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
+export function CartProvider({ children }: CartProviderProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
-    "shopping-cart",
+  const [CartProducts, setCartProducts] = useLocalStorage<CartProduct[]>(
+    "cart",
     []
   )
 
-  const cartQuantity = cartItems.reduce(
+  const cartQuantity = CartProducts.reduce(
     (quantity, item) => item.quantity + quantity,
     0
   )
@@ -42,10 +42,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const openCart = () => setIsOpen(true)
   const closeCart = () => setIsOpen(false)
   function getItemQuantity(id: number) {
-    return cartItems.find(item => item.id === id)?.quantity || 0
+    return CartProducts.find(item => item.id === id)?.quantity || 0
   }
   function increaseCartQuantity(id: number) {
-    setCartItems(currItems => {
+    setCartProducts(currItems => {
       if (currItems.find(item => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }]
       } else {
@@ -60,7 +60,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     })
   }
   function decreaseCartQuantity(id: number) {
-    setCartItems(currItems => {
+    setCartProducts(currItems => {
       if (currItems.find(item => item.id === id)?.quantity === 1) {
         return currItems.filter(item => item.id !== id)
       } else {
@@ -75,13 +75,13 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     })
   }
   function removeFromCart(id: number) {
-    setCartItems(currItems => {
+    setCartProducts(currItems => {
       return currItems.filter(item => item.id !== id)
     })
   }
 
   return (
-    <ShoppingCartContext.Provider
+    <CartContext.Provider
       value={{
         getItemQuantity,
         increaseCartQuantity,
@@ -89,12 +89,12 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         removeFromCart,
         openCart,
         closeCart,
-        cartItems,
+        CartProducts,
         cartQuantity,
       }}
     >
       {children}
-      <ShoppingCart isOpen={isOpen} />
-    </ShoppingCartContext.Provider>
+      <Cart isOpen={isOpen} />
+    </CartContext.Provider>
   )
 }

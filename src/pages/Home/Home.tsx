@@ -1,14 +1,14 @@
-import { Product } from "../../components/Product/Product";
-import storeItems from "../../context/CartContext/items.json";
+import { StoreProduct } from "../../components/StoreProduct"
+import StoreProducts from "../../data/items.json"
 
 const Home = () => {
   return (
     <>
-      <h1>Store</h1>
-      <div className="g-3">
-        {Product.map(item => (
+      <h1>Home</h1>
+      <div>
+        {StoreProducts.map(item => (
           <div key={item.id}>
-            <Product {...item} />
+            <StoreProduct {...item} />
           </div>
         ))}
       </div>

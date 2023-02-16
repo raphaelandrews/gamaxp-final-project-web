@@ -8,6 +8,7 @@ import * as C from "../../styles/global";
 import { useAuth } from '../../context/AuthContext/useAuth';
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, User } from 'iconsax-react';
+import { useCart } from "../../context/CartContext"
 
 
 const HeaderWrapper = styled.header`
@@ -138,6 +139,7 @@ interface Props {
 
 const Header: React.FC<Props> = ({ title }) => {
   const { isOpen, toggle } = useModal();
+  const { openCart, cartQuantity } = useCart()
 
   const auth = useAuth()
 
@@ -196,7 +198,8 @@ const Header: React.FC<Props> = ({ title }) => {
 
             <CartWrapper>
               <Link to="/">
-                <ShoppingCart size="20" color="#000000" />
+                <ShoppingCart size="20" color="#000000" onClick={openCart}/>
+                {cartQuantity}
               </Link>
             </CartWrapper>
             <Login>

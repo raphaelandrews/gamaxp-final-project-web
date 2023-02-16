@@ -1,5 +1,5 @@
 import { AuthProvider } from './context/AuthContext/AuthProvider'
-import { ShoppingCartProvider } from "./context/CartContext/CartProvider";
+import { CartProvider } from "./context/CartContext";
 import RoutesApp from './routes';
 import GlobalStyle from './styles/global';
 
@@ -7,10 +7,10 @@ function App() {
 
   return (
     <AuthProvider>
-      <ShoppingCartProvider>
+      <CartProvider>
         <RoutesApp />
         <GlobalStyle />
-        </ShoppingCartProvider>
+      </CartProvider>
     </AuthProvider>
   )
 }
