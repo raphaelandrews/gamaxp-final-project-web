@@ -5,7 +5,7 @@ import useModal from '../../components/Modal/useModal';
 import { NavLink, Link } from 'react-router-dom';
 
 import * as C from "../../styles/global";
-import { useAuth } from '../../context/AuthProvider/useAuth';
+import { useAuth } from '../../context/AuthContext/useAuth';
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, User } from 'iconsax-react';
 
