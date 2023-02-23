@@ -5,9 +5,13 @@ import useModal from '../../components/Modal/useModal';
 import { NavLink, Link } from 'react-router-dom';
 
 import * as C from "../../styles/global";
-import { useAuth } from '../../context/AuthProvider/useAuth';
+import { useAuth } from '../../context/AuthContext/useAuth';
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, User } from 'iconsax-react';
+import { useCart } from "../../context/CartContext"
+import OffCanvas from '../OffCanvas';
+import { Cart } from "../../components/Cart"
+
 
 
 const HeaderWrapper = styled.header`
@@ -138,6 +142,7 @@ interface Props {
 
 const Header: React.FC<Props> = ({ title }) => {
   const { isOpen, toggle } = useModal();
+  const { openCart, cartQuantity } = useCart()
 
   const auth = useAuth()
 
@@ -160,6 +165,15 @@ const Header: React.FC<Props> = ({ title }) => {
     navigate("/");
   }
 
+  const [isCanvasOpen, setIsCanvasOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsCanvasOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsCanvasOpen(false);
+  };
 
   return (
     <HeaderWrapper>
@@ -196,7 +210,11 @@ const Header: React.FC<Props> = ({ title }) => {
 
             <CartWrapper>
               <Link to="/">
-                <ShoppingCart size="20" color="#000000" />
+                <ShoppingCart size="20" color="#000000" onClick={handleOpen} />
+                <OffCanvas isCanvasOpen={isCanvasOpen} onClose={handleClose}>
+                <Cart isOpen={isOpen} />
+                </OffCanvas>
+                {cartQuantity}
               </Link>
             </CartWrapper>
             <Login>

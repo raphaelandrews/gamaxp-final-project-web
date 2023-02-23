@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getUserLocalStorage } from "../context/AuthProvider/util";
+import { getUserLocalStorage } from "../context/AuthContext/util";
 
 export const Api = axios.create({
     baseURL: "https://reqres.in/api/",

@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
-import Modal from '../../components/Modal/Modal';
-import useModal from '../../components/Modal/useModal';
-import {Navbar, NavbarList, NavbarListItem} from "../../components/Header/Header"
+import { StoreProduct } from "../../components/StoreProduct"
+import StoreProducts from "../../data/items.json"
 
 const Home = () => {
   return (
-    <div className="App">
-      Home
-    </div>
+    <>
+      <h1>Home</h1>
+      <div>
+        {StoreProducts.map(item => (
+          <div key={item.id}>
+            <StoreProduct {...item} />
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
 
