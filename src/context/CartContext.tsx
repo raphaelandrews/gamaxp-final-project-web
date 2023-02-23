@@ -94,7 +94,6 @@ export function CartProvider({ children }: CartProviderProps) {
       }}
     >
       {children}
-      <Cart isOpen={isOpen} />
     </CartContext.Provider>
   )
 }
