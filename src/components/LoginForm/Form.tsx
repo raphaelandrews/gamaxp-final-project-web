@@ -30,7 +30,9 @@ const Login: React.FC = () => {
             await auth.authenticate(values.email, values.password)
             navigate("/profile");
         } catch (error) {
-            console.log(error)
+            if(error) {
+                return alert("Login inválido")
+            }
         }
     };
 
