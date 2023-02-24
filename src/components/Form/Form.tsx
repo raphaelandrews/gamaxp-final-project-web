@@ -12,16 +12,12 @@ interface FormValues {
     password: string;
 }
 
-interface OtherProps {
-    title?: string;
-}
-
 interface MyFormProps {
     initialEmail?: string;
     initialPassword?: string;
 }
 
-const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
+const InnerForm = (props: FormikProps<FormValues>) => {
     const auth = useAuth();
     const navigate = useNavigate();
 
@@ -31,7 +27,6 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         touched,
         handleBlur,
         isSubmitting,
-        title
     } = props;
 
     async function onFinish(values: { email: string, password: string }) {
@@ -60,7 +55,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
     return (
         <Wrapper>
-            <Title>{title}</Title>
+            <Title>Welcome back</Title>
             <Form onSubmit={handleSubmit}>
                 <FormInputs>
                     <InputWrapper>
