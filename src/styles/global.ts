@@ -15,11 +15,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    font-family: 'Inter', sans-serif;
     width: 100vw;
     height: 100vh;
     color: #000000;
     background-color: hsl(0, 0%, 100%);
-    font-family: 'Inter', sans-serif;
   }
 
   a {

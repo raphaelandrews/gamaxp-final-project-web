@@ -86,11 +86,12 @@ export const Input = styled.input<InputProps>`
 `;
 
 export const Button = styled.button`
-    background: #FFC107;
-    border-radius: .25rem;
-    border: 0px;
-    font-weight: 700;
-    height: 3rem;
     font-size: 1rem;
+    font-weight: 700;
     text-transform: uppercase;
+    height: 3rem;
+    border: 0px;
+    border-radius: .25rem;
+    background: #FFC107;
+    cursor: pointer;
 `
