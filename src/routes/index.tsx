@@ -22,7 +22,7 @@ function RoutesApp() {
         <Route path='/profile' element={<ProtectedLayout><h2>Olá</h2></ProtectedLayout>}>
         </Route>
         <Route path='/login' element={<Login />}></Route>
-        <Route path='/register' element={<Signup />}></Route>
+        <Route path='/signup' element={<Signup />}></Route>
       </Routes>
     </BrowserRouter>
   )

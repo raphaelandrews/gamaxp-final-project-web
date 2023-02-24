@@ -1,3 +1,4 @@
+import { IAuthProvider } from './../../context/AuthContext/types';
 import styled from "styled-components";
 
 export const Title = styled.h1`
@@ -14,16 +15,19 @@ export const Wrapper = styled.div`
     height: calc(100vh - 4rem);
     @media (min-width: 800px) {
         height: calc(100vh - 5rem);
-  }
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 480px;
+        border-radius: .25rem;
+        padding: 4rem;
+    }
 `;
 
-export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 480px;
-    border-radius: .25rem;
-    padding: 4rem;
+export const InnerForm = styled.form`
+   
 `
 
 export const FormInputs = styled.section`
@@ -31,6 +35,19 @@ export const FormInputs = styled.section`
     grid-auto-flow: row;
     gap: .75rem;
     margin-bottom: 1.25rem;
+    a {
+        text-align: center;
+        color: hsl(234, 13%, 70%);
+        transition: .5s;
+        span {
+            font-weight: 600;
+        }
+
+        &:hover {
+            text-decoration: underline;
+           
+        }
+    }
 `
 
 export const InputWrapper = styled.div`
@@ -42,25 +59,16 @@ export const InputWrapper = styled.div`
         transform: translateY(-50%);
         font-size: .875rem;
     }
-`;
-
-interface InputProps {
-    maxWidth?: number;
-    height?: number;
-    maxHeight?: number;
-    marginLeft?: number;
-}
-
-export const Input = styled.input<InputProps>`
-    width: 100%;
-    height: 3rem;
-    padding: 0px 1em 0px 2.65em;
-    background-color: hsl(0, 0%, 80%);
-    border: 2px solid;
-    border-color: hsl(0, 0%, 80%);
-    border-radius: .25rem;
-    font-size: 1rem;
-    cursor: pointer;
+    input{
+        width: 100%;
+        height: 3rem;
+        padding: 0px 1em 0px 2.65em;
+        background-color: hsl(0, 0%, 80%);
+        border: 2px solid;
+        border-color: hsl(0, 0%, 80%);
+        border-radius: .25rem;
+        font-size: 1rem;
+        cursor: pointer;
 
 
     ::-webkit-input-placeholder {
@@ -83,7 +91,12 @@ export const Input = styled.input<InputProps>`
         opacity: 0;
         transform: translateX(10px);
     }
-`;
+    }
+`
+
+export const Message = styled.div`
+    color: red;
+`
 
 export const Button = styled.button`
     font-size: 1rem;
