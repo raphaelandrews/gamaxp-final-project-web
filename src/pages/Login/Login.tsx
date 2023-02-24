@@ -3,7 +3,7 @@ import LoginForm from "../../components/Form/Form";
 
 const Form: React.FC = () => {
     return (
-        <LoginForm />
+        <LoginForm title="Welcome back" />
     );
 };
 
