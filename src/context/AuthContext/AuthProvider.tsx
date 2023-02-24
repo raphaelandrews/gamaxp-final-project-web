@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { IContext, IAuthProvider, IUser } from './types'
-import { getUserLocalStorage, LoginRequest, setUserLocalStorage } from './util'
+import { getUserLocalStorage, LoginRequest, setUserLocalStorage, SignUpRequest } from './util'
 
 export const AuthContext = createContext<IContext>({} as IContext)
 
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     }
 
     async function register(email: string, password: string) {
-        const response = await LoginRequest(email, password)
+        const response = await SignUpRequest(email, password)
 
         const payload = { token: response.token, email }
 

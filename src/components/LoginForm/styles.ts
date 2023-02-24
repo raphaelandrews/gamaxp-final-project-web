@@ -1,4 +1,3 @@
-import { IAuthProvider } from './../../context/AuthContext/types';
 import styled from "styled-components";
 
 export const Title = styled.h1`
