@@ -34,9 +34,8 @@ export const ProductPrice = styled.span`
     font-weight: 700;
 `
 
-export const ProductButton = styled.a`
-    display: block;
-    color: #000;
+export const ProductButton = styled.div`
+    font-weight: 600;
     width: 100%;
     text-align: center;
     border-radius: .75rem;
@@ -45,6 +44,10 @@ export const ProductButton = styled.a`
     background-color: hsl(45, 100%, 51%);
     transition: .5s;
     cursor: pointer;
+
+    a {
+        color: #000;
+    }
 
     &:hover {
         background-color: hsl(45, 100%, 45%);

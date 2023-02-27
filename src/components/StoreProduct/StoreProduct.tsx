@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { formatCurrency } from "../../util/formatCurrency";
 import { ProductBox, ProductButton, ProductImage, ProductPreview, ProductPrice, ProductTitle } from "./styles";
@@ -27,8 +28,10 @@ export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
       <ProductBox>
         <ProductTitle>{name}</ProductTitle>
         <ProductPrice>{formatCurrency(price)}</ProductPrice>
-        <ProductButton href="/products">
+        <ProductButton>
+          <Link to="/products">
           Comprar
+          </Link>
         </ProductButton>
        {/* <div>
           {quantity === 0 ? (
