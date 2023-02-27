@@ -1,5 +1,5 @@
-import { useCart } from "../context/CartContext"
-import { formatCurrency } from "../util/formatCurrency"
+import { useCart } from "../../context/CartContext";
+import { formatCurrency } from "../../util/formatCurrency";
 
 type StoreProductProps = {
   id: number
@@ -17,10 +17,11 @@ export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
   } = useCart()
   const quantity = getItemQuantity(id)
 
+
   return (
-    <div>
+    <>
       <img
-        
+
         src={imgUrl}
         height="200px"
       />
@@ -52,6 +53,6 @@ export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
           )}
         </div>
       </div>
-    </div>
+    </>
   )
 }
