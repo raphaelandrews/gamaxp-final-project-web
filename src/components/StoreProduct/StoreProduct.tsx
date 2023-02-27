@@ -1,5 +1,7 @@
-import { useCart } from "../context/CartContext"
-import { formatCurrency } from "../util/formatCurrency"
+import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
+import { formatCurrency } from "../../util/formatCurrency";
+import { ProductBox, ProductButton, ProductImage, ProductPreview, ProductPrice, ProductTitle } from "./styles";
 
 type StoreProductProps = {
   id: number
@@ -17,19 +19,21 @@ export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
   } = useCart()
   const quantity = getItemQuantity(id)
 
+
   return (
-    <div>
-      <img
-        
+    <ProductPreview>
+      <ProductImage
         src={imgUrl}
-        height="200px"
       />
-      <div>
-        <div>
-          <span>{name}</span>
-          <span>{formatCurrency(price)}</span>
-        </div>
-        <div>
+      <ProductBox>
+        <ProductTitle>{name}</ProductTitle>
+        <ProductPrice>{formatCurrency(price)}</ProductPrice>
+        <ProductButton>
+          <Link to="/products">
+          Comprar
+          </Link>
+        </ProductButton>
+       {/* <div>
           {quantity === 0 ? (
             <button onClick={() => increaseCartQuantity(id)}>
               + Add To Cart
@@ -49,9 +53,9 @@ export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
                 Remove
               </button>
             </div>
-          )}
-        </div>
-      </div>
-    </div>
+          )} 
+        </div>*/}
+      </ProductBox>
+    </ProductPreview>
   )
 }
