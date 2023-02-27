@@ -1,5 +1,6 @@
 import { useCart } from "../../context/CartContext";
 import { formatCurrency } from "../../util/formatCurrency";
+import { ProductBox, ProductButton, ProductImage, ProductPreview, ProductPrice, ProductTitle } from "./styles";
 
 type StoreProductProps = {
   id: number
@@ -19,18 +20,17 @@ export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
 
 
   return (
-    <>
-      <img
-
+    <ProductPreview>
+      <ProductImage
         src={imgUrl}
-        height="200px"
       />
-      <div>
-        <div>
-          <span>{name}</span>
-          <span>{formatCurrency(price)}</span>
-        </div>
-        <div>
+      <ProductBox>
+        <ProductTitle>{name}</ProductTitle>
+        <ProductPrice>{formatCurrency(price)}</ProductPrice>
+        <ProductButton href="/products">
+          Comprar
+        </ProductButton>
+       {/* <div>
           {quantity === 0 ? (
             <button onClick={() => increaseCartQuantity(id)}>
               + Add To Cart
@@ -50,9 +50,9 @@ export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
                 Remove
               </button>
             </div>
-          )}
-        </div>
-      </div>
-    </>
+          )} 
+        </div>*/}
+      </ProductBox>
+    </ProductPreview>
   )
 }

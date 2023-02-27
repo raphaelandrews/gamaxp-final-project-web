@@ -5,16 +5,27 @@ export const Wrapper = styled.div`
 `
 
 export const Slider = styled.div`
-
+    &:not([data-keen-slider-disabled]) {
+        position: relative;
+        display: flex;
+        align-content: flex-start;
+        width: 100%;
+        border-radius: .75rem;
+        overflow: hidden;
+        touch-action: pan-y;
+        user-select: none;
+    }
 `
-
 export const Slide = styled.div`
-    
+    min-width: 268px;
+    max-width: 268px;
+    transform: translate3d(0px, 0px, 0px);
 `
 
 export const ArrowButton = styled.button`
     position: absolute;
     top: 50%;
+    left: -3rem;
     transform: translateY(-50%);
     font-size: 2rem;
     line-height: 1;
@@ -27,7 +38,7 @@ export const ArrowButton = styled.button`
 export const ArrowButtonR = styled.button`
     position: absolute;
     top: 50%;
-    right: 0;
+    right: -3rem;
     transform: translateY(-50%);
     font-size: 2rem;
     line-height: 1;

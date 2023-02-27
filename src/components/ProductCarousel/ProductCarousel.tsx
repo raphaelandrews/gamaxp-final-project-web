@@ -28,7 +28,7 @@ export default function ProductCarousel() {
   return (
     <Container>
       <Wrapper>
-        <Slider ref={sliderRef} className="keen-slider">
+        <Slider ref={sliderRef}>
           {StoreProducts.map((item, index) => (
             <Slide key={index + 1} className="keen-slider__slide">
               <StoreProduct {...item} />
