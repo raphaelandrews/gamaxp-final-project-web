@@ -42,217 +42,217 @@
     "imgUrl": "../src/assets/img/game-of-thrones.jpg"
   },
   {
-    "id": 1,
-    "name": "Game Of Thrones",
-    "price": 10.99,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 2,
-    "name": "Harry Potter",
-    "price": 1199,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 3,
-    "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 4,
-    "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 5,
-    "name": "Dom Casmurro",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 6,
-    "name": "O Cortiço",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 7,
-    "name": "The Key",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 1,
-    "name": "Game Of Thrones",
-    "price": 10.99,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 2,
-    "name": "Harry Potter",
-    "price": 1199,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 3,
-    "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 4,
-    "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 5,
-    "name": "Dom Casmurro",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 6,
-    "name": "O Cortiço",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 7,
-    "name": "The Key",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 1,
-    "name": "Game Of Thrones",
-    "price": 10.99,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 2,
-    "name": "Harry Potter",
-    "price": 1199,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 3,
-    "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 4,
-    "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 5,
-    "name": "Dom Casmurro",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 6,
-    "name": "O Cortiço",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 7,
-    "name": "The Key",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 1,
-    "name": "Game Of Thrones",
-    "price": 10.99,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 2,
-    "name": "Harry Potter",
-    "price": 1199,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 3,
-    "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 4,
-    "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 5,
-    "name": "Dom Casmurro",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 6,
-    "name": "O Cortiço",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 7,
-    "name": "The Key",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 1,
-    "name": "Game Of Thrones",
-    "price": 10.99,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 2,
-    "name": "Harry Potter",
-    "price": 1199,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 3,
-    "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 4,
-    "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 5,
-    "name": "Dom Casmurro",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 6,
-    "name": "O Cortiço",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
-    "id": 7,
-    "name": "The Key",
-    "price": 1.05,
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
-  },
-  {
     "id": 8,
+    "name": "Game Of Thrones",
+    "price": 10.99,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Harry Potter",
+    "price": 1199,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 10,
+    "name": "20.000 Léguas Submarinas",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 11,
+    "name": "A Volta ao Mundo em 80 dias",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Dom Casmurro",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 13,
+    "name": "O Cortiço",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 14,
+    "name": "The Key",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Game Of Thrones",
+    "price": 10.99,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Harry Potter",
+    "price": 1199,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 17,
+    "name": "20.000 Léguas Submarinas",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 18,
+    "name": "A Volta ao Mundo em 80 dias",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Dom Casmurro",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 20,
+    "name": "O Cortiço",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 21,
+    "name": "The Key",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Game Of Thrones",
+    "price": 10.99,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Harry Potter",
+    "price": 1199,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 24,
+    "name": "20.000 Léguas Submarinas",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 25,
+    "name": "A Volta ao Mundo em 80 dias",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Dom Casmurro",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 27,
+    "name": "O Cortiço",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 28,
+    "name": "The Key",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Game Of Thrones",
+    "price": 10.99,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Harry Potter",
+    "price": 1199,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 31,
+    "name": "20.000 Léguas Submarinas",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 32,
+    "name": "A Volta ao Mundo em 80 dias",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Dom Casmurro",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 34,
+    "name": "O Cortiço",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 35,
+    "name": "The Key",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Game Of Thrones",
+    "price": 10.99,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 37,
+    "name": "Harry Potter",
+    "price": 1199,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 38,
+    "name": "20.000 Léguas Submarinas",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 39,
+    "name": "A Volta ao Mundo em 80 dias",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Dom Casmurro",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 41,
+    "name": "O Cortiço",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 42,
+    "name": "The Key",
+    "price": 1.05,
+    "imgUrl": "../src/assets/img/game-of-thrones.jpg"
+  },
+  {
+    "id": 43,
     "name": "The Secret",
     "price": 14000,
     "imgUrl": "../src/assets/img/game-of-thrones.jpg"
