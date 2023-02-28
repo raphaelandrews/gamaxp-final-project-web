@@ -61,6 +61,14 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
     setCurrentPage(page);
   };
 
+  const goToFirstPage = () => {
+    setCurrentPage(1);
+  };
+
+  const goToLastPage = () => {
+    setCurrentPage(totalPages);
+  };
+
   const start = (currentPage - 1) * productsPerPage;
   const end = start + productsPerPage;
 
@@ -87,7 +95,15 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
           </ProductItem>
         ))}
       </GalleryContainer>
-      <PaginationContainer>{pageButtons}</PaginationContainer>
+      <PaginationContainer>
+        <PageButton onClick={goToFirstPage} disabled={currentPage === 1}>
+          First Page
+        </PageButton>
+        {pageButtons}
+        <PageButton onClick={goToLastPage} disabled={currentPage === totalPages}>
+          Last Page
+        </PageButton>
+      </PaginationContainer>
     </>
   );
 };
