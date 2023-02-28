@@ -3,7 +3,7 @@ import StoreProducts from "../../data/items.json";
 
 const Products = () => {
   return (
-    <ProductGallery products={StoreProducts } productsPerPage={10} />
+    <ProductGallery products={StoreProducts} productsPerPage={10} />
   )
 }
 

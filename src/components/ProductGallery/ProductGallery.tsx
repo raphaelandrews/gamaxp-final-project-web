@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 
-
 interface Product {
   id: number;
   price: number
@@ -74,7 +73,7 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const [totalPages, setTotalPages] = useState(Math.ceil(products.length / productsPerPage));
+  const [activeProducts, setActiveProducts] = useState(products);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -82,9 +81,15 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
 
   const handleCategoryFilter = (category: string) => {
     setSelectedCategory(category);
+    if (category == "All") {
+      setActiveProducts(products);
+    } else {
+      setActiveProducts(products.filter((product) => product.category === selectedCategory));
+    }
     setCurrentPage(1);
-    setTotalPages(Math.ceil(products.length / productsPerPage))
   };
+
+  const totalPages = (Math.ceil(activeProducts.length / productsPerPage));
 
   const goToFirstPage = () => {
     setCurrentPage(1);
@@ -114,7 +119,8 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
 
   const StoreProducts = filteredProducts.slice(start, end);
   //const StoreProducts = products.slice(start, end);
-
+  console.log(activeProducts)
+  console.log(products)
   const pageButtons = [];
 
   let startPage = 1;
@@ -129,6 +135,17 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
     endPage = totalPages;
     startPage = endPage - 4;
   }
+
+  if (currentPage == 1) {
+    startPage = currentPage
+  }
+
+  if (currentPage == 2) {
+    startPage = 1
+  }
+
+  console.log(startPage)
+  console.log(endPage)
 
   for (let i = startPage; i <= endPage; i++) {
     pageButtons.push(
