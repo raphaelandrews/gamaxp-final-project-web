@@ -1,8 +1,9 @@
-import React from 'react';
+import ProductGallery from '../../components/ProductGallery/ProductGallery';
+import StoreProducts from "../../data/items.json";
 
 const Products = () => {
   return (
-    <div>Products</div>
+    <ProductGallery products={StoreProducts } productsPerPage={5} />
   )
 }
 
