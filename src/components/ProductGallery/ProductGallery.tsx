@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 
@@ -116,6 +116,15 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
 
   const filteredProducts =
     selectedCategory === 'All' ? products : products.filter((product) => product.category === selectedCategory);
+
+
+  useEffect(() => {
+    if (selectedCategory == "All") {
+      setActiveProducts(products);
+    } else {
+      setActiveProducts(products.filter((product) => product.category === selectedCategory));
+    }
+  }, [selectedCategory]);
 
   const StoreProducts = filteredProducts.slice(start, end);
   //const StoreProducts = products.slice(start, end);
