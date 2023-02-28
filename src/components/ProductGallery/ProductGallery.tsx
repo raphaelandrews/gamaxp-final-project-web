@@ -8,6 +8,7 @@ interface Product {
   price: number
   name: string;
   imgUrl: string;
+  category: string;
 }
 
 interface Props {
@@ -52,13 +53,37 @@ const PageButton = styled.button<{ active?: boolean }>`
   cursor: ${({ active }) => (active ? 'default' : 'pointer')};
 `;
 
+const FilterContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+const FilterButton = styled.button<{ active?: boolean }>`
+  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: ${({ active }) => (active ? '#2196f3' : 'transparent')};
+  color: ${({ active }) => (active ? '#fff' : '#333')};
+  cursor: ${({ active }) => (active ? 'default' : 'pointer')};
+`;
+
 const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const totalPages = Math.ceil(products.length / productsPerPage);
+  const [totalPages, setTotalPages] = useState(Math.ceil(products.length / productsPerPage));
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+  };
+
+  const handleCategoryFilter = (category: string) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+    setTotalPages(Math.ceil(products.length / productsPerPage))
   };
 
   const goToFirstPage = () => {
@@ -81,12 +106,14 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
     }
   };
 
-
   const start = (currentPage - 1) * productsPerPage;
   const end = start + productsPerPage;
 
-  const StoreProducts = products.slice(start, end);
+  const filteredProducts =
+    selectedCategory === 'All' ? products : products.filter((product) => product.category === selectedCategory);
 
+  const StoreProducts = filteredProducts.slice(start, end);
+  //const StoreProducts = products.slice(start, end);
 
   const pageButtons = [];
 
@@ -113,6 +140,24 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
 
   return (
     <>
+      <FilterContainer>
+        <FilterButton active={selectedCategory === 'All'} onClick={() => handleCategoryFilter('All')}>
+          All
+        </FilterButton>
+        <FilterButton active={selectedCategory === 'Terror'} onClick={() => handleCategoryFilter('Terror')}>
+          Terror
+        </FilterButton>
+        <FilterButton active={selectedCategory === 'Romance'} onClick={() => handleCategoryFilter('Romance')}>
+          Romance
+        </FilterButton>
+        <FilterButton active={selectedCategory === 'Ficção'} onClick={() => handleCategoryFilter('Ficção')}>
+          Ficção
+        </FilterButton>
+        <FilterButton active={selectedCategory === 'Futurista'} onClick={() => handleCategoryFilter('Futurista')}>
+          Futurista
+        </FilterButton>
+      </FilterContainer>
+
       <GalleryContainer>
         {StoreProducts.map((product) => (
           <ProductItem key={product.id}>
