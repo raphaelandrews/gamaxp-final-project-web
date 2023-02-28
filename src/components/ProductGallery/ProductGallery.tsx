@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-
+import * as C from "./styles"
 
 interface Product {
   id: number;
@@ -15,60 +14,6 @@ interface Props {
   productsPerPage: number;
 }
 
-const GalleryContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 20px;
-`;
-
-const ProductItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-`;
-
-const ProductImage = styled.img`
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-`;
-
-const PaginationContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-`;
-
-const PageButton = styled.button<{ active?: boolean }>`
-  margin: 0 5px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: ${({ active }) => (active ? '#2196f3' : 'transparent')};
-  color: ${({ active }) => (active ? '#fff' : '#333')};
-  cursor: ${({ active }) => (active ? 'default' : 'pointer')};
-`;
-
-const FilterContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-const FilterButton = styled.button<{ active?: boolean }>`
-  margin: 0 5px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: ${({ active }) => (active ? '#2196f3' : 'transparent')};
-  color: ${({ active }) => (active ? '#fff' : '#333')};
-  cursor: ${({ active }) => (active ? 'default' : 'pointer')};
-`;
-
 const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -81,11 +26,6 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
 
   const handleCategoryFilter = (category: string) => {
     setSelectedCategory(category);
-    if (category == "All") {
-      setActiveProducts(products);
-    } else {
-      setActiveProducts(products.filter((product) => product.category === selectedCategory));
-    }
     setCurrentPage(1);
   };
 
@@ -128,8 +68,7 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
 
   const StoreProducts = filteredProducts.slice(start, end);
   //const StoreProducts = products.slice(start, end);
-  console.log(activeProducts)
-  console.log(products)
+
   const pageButtons = [];
 
   let startPage = 1;
@@ -153,60 +92,57 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
     startPage = 1
   }
 
-  console.log(startPage)
-  console.log(endPage)
-
   for (let i = startPage; i <= endPage; i++) {
     pageButtons.push(
-      <PageButton key={i} onClick={() => handlePageChange(i)} active={i === currentPage}>
+      <C.PageButton key={i} onClick={() => handlePageChange(i)} active={i === currentPage}>
         {i}
-      </PageButton>
+      </C.PageButton>
     );
   }
 
   return (
     <>
-      <FilterContainer>
-        <FilterButton active={selectedCategory === 'All'} onClick={() => handleCategoryFilter('All')}>
+      <C.FilterContainer>
+        <C.FilterButton active={selectedCategory === 'All'} onClick={() => handleCategoryFilter('All')}>
           All
-        </FilterButton>
-        <FilterButton active={selectedCategory === 'Terror'} onClick={() => handleCategoryFilter('Terror')}>
+        </C.FilterButton>
+        <C.FilterButton active={selectedCategory === 'Terror'} onClick={() => handleCategoryFilter('Terror')}>
           Terror
-        </FilterButton>
-        <FilterButton active={selectedCategory === 'Romance'} onClick={() => handleCategoryFilter('Romance')}>
+        </C.FilterButton>
+        <C.FilterButton active={selectedCategory === 'Romance'} onClick={() => handleCategoryFilter('Romance')}>
           Romance
-        </FilterButton>
-        <FilterButton active={selectedCategory === 'Ficção'} onClick={() => handleCategoryFilter('Ficção')}>
+        </C.FilterButton>
+        <C.FilterButton active={selectedCategory === 'Ficção'} onClick={() => handleCategoryFilter('Ficção')}>
           Ficção
-        </FilterButton>
-        <FilterButton active={selectedCategory === 'Futurista'} onClick={() => handleCategoryFilter('Futurista')}>
+        </C.FilterButton>
+        <C.FilterButton active={selectedCategory === 'Futurista'} onClick={() => handleCategoryFilter('Futurista')}>
           Futurista
-        </FilterButton>
-      </FilterContainer>
+        </C.FilterButton>
+      </C.FilterContainer>
 
-      <GalleryContainer>
+      <C.GalleryContainer>
         {StoreProducts.map((product) => (
-          <ProductItem key={product.id}>
-            <ProductImage src={product.imgUrl} alt={product.name} />
+          <C.ProductItem key={product.id}>
+            <C.ProductImage src={product.imgUrl} alt={product.name} />
             <span>{product.name}</span>
-          </ProductItem>
+          </C.ProductItem>
         ))}
-      </GalleryContainer>
-      <PaginationContainer>
-        <PageButton onClick={goToFirstPage} disabled={currentPage === 1}>
+      </C.GalleryContainer>
+      <C.PaginationContainer>
+        <C.PageButton onClick={goToFirstPage} disabled={currentPage === 1}>
           1
-        </PageButton>
-        <PageButton onClick={goToPreviousPage} disabled={currentPage === 1}>
+        </C.PageButton>
+        <C.PageButton onClick={goToPreviousPage} disabled={currentPage === 1}>
           Previous
-        </PageButton>
+        </C.PageButton>
         {pageButtons}
-        <PageButton onClick={goToNextPage} disabled={currentPage === totalPages}>
+        <C.PageButton onClick={goToNextPage} disabled={currentPage === totalPages}>
           Next
-        </PageButton>
-        <PageButton onClick={goToLastPage} disabled={currentPage === totalPages}>
+        </C.PageButton>
+        <C.PageButton onClick={goToLastPage} disabled={currentPage === totalPages}>
           {totalPages}
-        </PageButton>
-      </PaginationContainer>
+        </C.PageButton>
+      </C.PaginationContainer>
     </>
   );
 };
