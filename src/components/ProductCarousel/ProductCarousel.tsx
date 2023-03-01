@@ -1,134 +1,66 @@
-import React, { useState } from "react";
-import { Wrapper, Slider, Slide, ArrowButton, ArrowButtonR, Dots, Dot } from "../ProductCarousel/styles";
-import "./style.css";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
+import * as C from "./styles";
+import { formatCurrency } from "../../util/formatCurrency";
 
-import { Container } from "../../styles/global"
-import { StoreProduct } from "../../components/StoreProduct/StoreProduct"
-import StoreProducts from "../../data/items.json";
+import img from "../../assets/img/game-of-thrones.jpg";
+import { useCart } from "../../context/CartContext";
 
-export default function ProductCarousel() {
-    const [currentSlide, setCurrentSlide] = React.useState(0)
-    const [loaded, setLoaded] = useState(false)
-    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-        initial: 0,
-        slideChanged(slider) {
-            setCurrentSlide(slider.track.details.rel)
-        },
-        created() {
-            setLoaded(true)
-        },
-        slides: {
-            perView: 4,
-            spacing: 16,
-        },
-    })
+interface ProductProps {
+    title: string;
+    description: string;
+    price: number;
+    id: number
+    /* name: string
+     imgUrl: string*/
+}
+
+
+const ProductCarousel = (props: ProductProps) => {
+    const {
+        getItemQuantity,
+        increaseCartQuantity,
+        decreaseCartQuantity,
+        removeFromCart,
+    } = useCart()
+    const quantity = getItemQuantity(props.id)
 
     return (
-        <Container>
-            <Wrapper>
-                <Slider ref={sliderRef}>
-                    {StoreProducts.map((item, index) => (
-                        <Slide key={index + 1} className="keen-slider__slide">
-                            <StoreProduct {...item} />
-                        </Slide>
-                    ))}
-                </Slider>
-                {loaded && instanceRef.current && (
-                    <>
-                        <ArrowButton
-                            onClick={(e: any) =>
-                                e.stopPropagation() || instanceRef.current?.prev()
-                            }
-                            disabled={currentSlide === 0}
+        <C.ProductContainer>
+            <C.ProducImgWrapper>
+                <C.ProductImg src={img} alt="" />
+            </C.ProducImgWrapper>
+            <C.ProductContent>
+                <C.ProductTitle>
+                    {props.title}
+                </C.ProductTitle>
+                <C.ProductPrice>
+                    {formatCurrency(props.price)}
+                </C.ProductPrice>
+                <C.ProductDescription>
+                    {props.description}
+                </C.ProductDescription>
+                {quantity === 0 ? (
+                    <C.ProductButton onClick={() => increaseCartQuantity(props.id)}>
+                        Add to Cart
+                    </C.ProductButton>
+                ) : (
+                    <div>
+                        <div>
+                            <button onClick={() => decreaseCartQuantity(props.id)}>-</button>
+                            <div>
+                                <span>{quantity}</span> in cart
+                            </div>
+                            <button onClick={() => increaseCartQuantity(props.id)}>+</button>
+                        </div>
+                        <button
+                            onClick={() => removeFromCart(props.id)}
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none">
-                                <path
-                                    stroke="#000000"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="2"
-                                    d="M15 19.92L8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08">
-                                </path>
-                            </svg>
-                        </ArrowButton>
-
-                        <ArrowButtonR
-                            onClick={(e: any) =>
-                                e.stopPropagation() || instanceRef.current?.next()
-                            }
-                            disabled={
-                                currentSlide ===
-                                instanceRef.current.track.details.slides.length - 1
-                            }
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none">
-                                <path stroke="#000000"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="2"
-                                    d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08">
-                                </path>
-                            </svg>
-                        </ArrowButtonR>
-                    </>
+                            Remove
+                        </button>
+                    </div>
                 )}
-            </Wrapper>
-            {loaded && instanceRef.current && (
-                <Dots>
-                    {[
-                        ...Array(instanceRef.current.track.details.slides.length - 3).keys(),
-                    ].map((idx) => {
-                        return (
-                            <Dot
-                                key={idx}
-                                onClick={() => {
-                                    instanceRef.current?.moveToIdx(idx)
-                                }}
-                                className={"dot" + (currentSlide === idx ? " active" : "")}
-                            >
-                            </Dot>
-                        )
-                    })}
-                </Dots>
-            )}
-        </Container>
+            </C.ProductContent>
+        </C.ProductContainer>
     )
 }
 
-function Arrow(props: {
-    disabled: boolean
-    left?: boolean
-    onClick: (e: any) => void
-}) {
-    const disabeld = props.disabled ? " arrow--disabled" : ""
-    return (
-        <svg
-            onClick={props.onClick}
-            className={`arrow ${props.left ? "arrow--left" : "arrow--right"
-                } ${disabeld}`}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-        >
-            {props.left && (
-                <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-            )}
-            {!props.left && (
-                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-            )}
-        </svg>
-    )
-}
+export default ProductCarousel

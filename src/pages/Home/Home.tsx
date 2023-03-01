@@ -1,4 +1,4 @@
-import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
+import ProductCarousel from "../../components/ProductsCarousel/ProductsCarousel";
 import { StoreProduct } from "../../components/StoreProduct/StoreProduct"
 import StoreProducts from "../../data/items.json";
 

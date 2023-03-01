@@ -1,77 +1,60 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-    position: relative;
-    margin-top: 2rem;
-`
-
-export const Slider = styled.div`
-    &:not([data-keen-slider-disabled]) {
-        position: relative;
+export const ProductContainer = styled.section`
+     @media (min-width: 800px) {
         display: flex;
-        align-content: flex-start;
-        width: 100%;
-        border-radius: .75rem;
-        overflow: hidden;
-        touch-action: pan-y;
-        user-select: none;
+        margin-top: 4rem;
     }
 `
-export const Slide = styled.div`
-    min-width: 268px;
-    max-width: 268px;
-    transform: translate3d(0px, 0px, 0px);
+
+export const ProductContent = styled.div`
+
 `
 
-export const ArrowButton = styled.button`
+export const ProducImgWrapper = styled.div`
     display: flex;
-    position: absolute;
-    top: 50%;
-    left: -3rem;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    line-height: 1;
-    padding: .5rem;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-`;
-
-export const ArrowButtonR = styled.button`
-    display: flex;
-    position: absolute;
-    top: 50%;
-    right: -3rem;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    line-height: 1;
-    padding: .5rem;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-`;
-
-export const Dots = styled.div`
-    display: flex;
-    padding: 1.25rem 0;
     justify-content: center;
+    width: 100%;
+    height: auto;
 `
 
-export const Dot = styled.div`
-    border: none;
-    width: .75rem;
-    height: .75rem;
-    background: #c5c5c5;
-    border-radius: 50%;
-    margin: 0 5px;
-    padding: 5px;
-    cursor: pointer;
-
-    &:focus {
-        outline: none;
+export const ProductImg = styled.img`
+    width: 60%;
+    margin-top: 2rem;
+    aspect-ratio: 4/5;
+    //object-fit: cover;
+    @media (min-width: 800px) {
+        margin-top: 0;
     }
+`
 
-    &:active {
-        background: #000;
+export const ProductTitle = styled.h2`
+    font-size: 2rem;
+    margin-bottom: .5em;
+`
+
+export const ProductPrice = styled.span`
+    font-size: 1.5rem;
+`
+
+export const ProductDescription = styled.p`
+    margin-top: 1em;
+`
+
+export const ProductButton = styled.button`
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    width: 100%;
+    border: none;
+    background-color: hsl(45, 100%, 51%);
+    padding: .75em 1em;
+    margin: 2rem 0 8rem;
+    transition: .5s;
+
+    &:hover {
+        background-color: hsl(45, 100%, 45%);
+        cursor: pointer;
     }
 `
