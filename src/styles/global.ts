@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
     width: 100vw;
     height: 100vh;
     color: #000000;

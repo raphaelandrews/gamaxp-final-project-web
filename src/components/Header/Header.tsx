@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { ShoppingCart, User } from 'iconsax-react';
 import { useCart } from "../../context/CartContext"
 import OffCanvas from '../OffCanvas';
-import { Cart } from "../../components/Cart"
+import { Cart } from "../Cart/Cart"
 
 
 

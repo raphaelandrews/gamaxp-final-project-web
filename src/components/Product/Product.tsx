@@ -14,7 +14,7 @@ interface ProductProps {
 }
 
 
-const ProductCarousel = (props: ProductProps) => {
+const Product = (props: ProductProps) => {
     const {
         getItemQuantity,
         increaseCartQuantity,
@@ -63,4 +63,4 @@ const ProductCarousel = (props: ProductProps) => {
     )
 }
 
-export default ProductCarousel
+export default Product;

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/Header/Header";
 import { ProtectedLayout } from '../components/ProtectedLayout';
+import Checkout from "../pages/Checkout/Checkout";
 import Home from "../pages/Home/Home";
 import Login from '../pages/Login/Login';
 import Product from "../pages/Product/Product";
@@ -23,6 +24,7 @@ function RoutesApp() {
         </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
+        <Route path='/checkout' element={<Checkout/>}></Route>
       </Routes>
     </BrowserRouter>
   )
