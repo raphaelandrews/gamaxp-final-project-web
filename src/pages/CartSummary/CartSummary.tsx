@@ -3,7 +3,7 @@ import { Cart } from '../../components/Cart/Cart'
 import * as C from "../../styles/global"
 import * as S from "./styles"
 
-const Checkout = () => {
+const CartSummary = () => {
   return (
     <C.Container>
       <S.CheckoutTitle>Your Cart</S.CheckoutTitle>
@@ -12,4 +12,4 @@ const Checkout = () => {
   )
 }
 
-export default Checkout
+export default CartSummary;
