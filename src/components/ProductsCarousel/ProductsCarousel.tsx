@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Wrapper, Slider, Slide, ArrowButton, ArrowButtonR, Dots, Dot } from "../ProductCarousel/styles";
+import { Wrapper, Slider, Slide, ArrowButton, ArrowButtonR, Dots, Dot } from "./styles";
 import "./style.css";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
 import { Container } from "../../styles/global"
-import { StoreProduct } from "../../components/StoreProduct/StoreProduct"
+import { StoreProduct } from "../StoreProduct/StoreProduct"
 import StoreProducts from "../../data/items.json";
 
-export default function ProductCarousel() {
+export default function ProductsCarousel() {
     const [currentSlide, setCurrentSlide] = React.useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -24,17 +24,17 @@ export default function ProductCarousel() {
             spacing: 16,
         },
     })
-
+    
     return (
         <Container>
             <Wrapper>
-                <Slider ref={sliderRef}>
+                {<Slider ref={sliderRef}>
                     {StoreProducts.map((item, index) => (
                         <Slide key={index + 1} className="keen-slider__slide">
                             <StoreProduct {...item} />
                         </Slide>
                     ))}
-                </Slider>
+                </Slider>}
                 {loaded && instanceRef.current && (
                     <>
                         <ArrowButton
