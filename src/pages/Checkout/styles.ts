@@ -12,9 +12,19 @@ export const CheckoutSteps = styled.div`
     margin-top: 1em;
 `
 
-export const Step = styled.span`
+interface CoresStep {
+    [key: string]: string;
+}
 
-     &:active {
-       color: green;
-    }
+const coresStep: CoresStep = {
+    active: "green",
+    normal: "black"
+};
+
+interface StepDefaultProps {
+    color: string;
+}
+
+export const Step = styled.span<StepDefaultProps>`
+ color: ${(props) => coresStep[props.color]};
 `

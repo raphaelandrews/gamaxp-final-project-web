@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
+import * as G from "../../styles/global";
+import * as C from "./styles";
 
 interface AddressFormValues {
   street: string;
@@ -45,8 +47,11 @@ const initialValues: FormData = {
   },
 };
 
+
+
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);
+
 
   const handleNextStep = () => {
     setStep((prevStep) => prevStep + 1);
@@ -61,85 +66,103 @@ const MultiStepForm = () => {
     console.log(values);
   };
 
-  const handleAddressStep = (step: string) => {
-    if (step == "Address") {
+  const [isAddressColor, setIsAddressColor] = useState("active")
+  const [isShippingColor, setIsShippingColor] = useState("normal")
+  const [isPaymentColor, setIsPaymentColor] = useState("normal")
+
+  const handleAddressStep = (step: number) => {
+    if (step == 1) {
       setStep(1)
-    } else if (step == "Shipping") {
+      setIsAddressColor("active")
+      setIsShippingColor("normal")
+      setIsPaymentColor("normal")
+    } else if (step == 2) {
       setStep(2)
+      setIsAddressColor("normal")
+      setIsShippingColor("active")
+      setIsPaymentColor("normal")
     } else {
       setStep(3)
+      setIsAddressColor("normal")
+      setIsShippingColor("normal")
+      setIsPaymentColor("active")
     }
   };
 
+  useEffect(() => {
+    handleAddressStep(step);
+  }, [handlePrevStep]);
+
   return (
-    <>
-    <div>
-      <div onClick={() => handleAddressStep("Address")}>Adress</div>
-      <div onClick={() => handleAddressStep("Shipping")}>Shipping</div>
-      <div onClick={() => handleAddressStep("")}>Payment</div>
-    </div>
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      {({ values }) => (
-        <Form>
-          {step === 1 && (
-            <>
-              <label htmlFor="address.street">Street:</label>
-              <Field id="address.street" name="address.street" />
+    <G.Container>
+      <C.Title>Checkout</C.Title>
+      <C.CheckoutSteps>
+        <C.Step onClick={() => handleAddressStep(1)} color={isAddressColor}>Address</C.Step>
+        <C.Step onClick={() => handleAddressStep(2)} color={isShippingColor}>Shipping</C.Step>
+        <C.Step onClick={() => handleAddressStep(3)} color={isPaymentColor}>Payment</C.Step>
+      </C.CheckoutSteps>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        {({ values }) => (
+          <Form>
+            {step === 1 && (
+              <>
+                <label htmlFor="address.street">Street:</label>
+                <Field id="address.street" name="address.street" />
 
-              <label htmlFor="address.city">City:</label>
-              <Field id="address.city" name="address.city" />
+                <label htmlFor="address.city">City:</label>
+                <Field id="address.city" name="address.city" />
 
-              <label htmlFor="address.state">State:</label>
-              <Field id="address.state" name="address.state" />
+                <label htmlFor="address.state">State:</label>
+                <Field id="address.state" name="address.state" />
 
-              <label htmlFor="address.zipcode">Zipcode:</label>
-              <Field id="address.zipcode" name="address.zipcode" />
-            </>
-          )}
+                <label htmlFor="address.zipcode">Zipcode:</label>
+                <Field id="address.zipcode" name="address.zipcode" />
+              </>
+            )}
 
-          {step === 2 && (
-            <>
-              <label htmlFor="shipping.shippingMethod">Shipping Method:</label>
-              <Field id="shipping.shippingMethod" name="shipping.shippingMethod" />
+            {step === 2 && (
+              <>
+                <label htmlFor="shipping.shippingMethod">Shipping Method:</label>
+                <Field id="shipping.shippingMethod" name="shipping.shippingMethod" />
 
-              <label htmlFor="shipping.deliveryDate">Delivery Date:</label>
-              <Field id="shipping.deliveryDate" name="shipping.deliveryDate" />
-            </>
-          )}
+                <label htmlFor="shipping.deliveryDate">Delivery Date:</label>
+                <Field id="shipping.deliveryDate" name="shipping.deliveryDate" />
+              </>
+            )}
 
-          {step === 3 && (
-            <>
-              <label htmlFor="payment.cardNumber">Card Number:</label>
-              <Field id="payment.cardNumber" name="payment.cardNumber" />
+            {step === 3 && (
+              <>
+                <label htmlFor="payment.cardNumber">Card Number:</label>
+                <Field id="payment.cardNumber" name="payment.cardNumber" />
 
-              <label htmlFor="payment.cardholderName">Cardholder Name:</label>
-              <Field id="payment.cardholderName" name="payment.cardholderName" />
+                <label htmlFor="payment.cardholderName">Cardholder Name:</label>
+                <Field id="payment.cardholderName" name="payment.cardholderName" />
 
-              <label htmlFor="payment.expirationDate">Expiration Date:</label>
-              <Field id="payment.expirationDate" name="payment.expirationDate" />
+                <label htmlFor="payment.expirationDate">Expiration Date:</label>
+                <Field id="payment.expirationDate" name="payment.expirationDate" />
 
-              <label htmlFor="payment.cvv">CVV:</label>
-              <Field id="payment.cvv" name="payment.cvv" />
-            </>
-          )}
+                <label htmlFor="payment.cvv">CVV:</label>
+                <Field id="payment.cvv" name="payment.cvv" />
+              </>
+            )}
 
-          {step > 1 && (
-            <button type="button" onClick={handlePrevStep}>
-              Previous
-            </button>
-          )}
+            {step > 1 && (
+              <button type="button" onClick={handlePrevStep}>
+                Previous
+              </button>
+            )}
 
-          {step < 3 ? (
-            <button type="button" onClick={handleNextStep}>
-              Next
-            </button>
-          ) : (
-            <button type="submit">Submit</button>
-          )}
-        </Form>
-      )}
-    </Formik>
-    </>
+            {step < 3 ? (
+              <button type="button" onClick={handleNextStep}>
+                Next
+              </button>
+            ) : (
+              <button type="submit">Submit</button>
+            )}
+          </Form>
+        )}
+      </Formik>
+    </G.Container>
   )
 }
 

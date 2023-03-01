@@ -7,7 +7,7 @@ const CartSummary = () => {
   return (
     <G.Container>
       <C.Title>Your Cart</C.Title>
-      <Cart isOpen={false} />
+      <Cart />
     </G.Container>
   )
 }
