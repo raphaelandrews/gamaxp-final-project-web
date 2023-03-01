@@ -1,14 +1,14 @@
 import React from 'react'
 import { Cart } from '../../components/Cart/Cart'
-import * as C from "../../styles/global"
-import * as S from "./styles"
+import * as G from "../../styles/global"
+import * as C from "./styles"
 
 const CartSummary = () => {
   return (
-    <C.Container>
-      <S.CheckoutTitle>Your Cart</S.CheckoutTitle>
+    <G.Container>
+      <C.Title>Your Cart</C.Title>
       <Cart isOpen={false} />
-    </C.Container>
+    </G.Container>
   )
 }
 

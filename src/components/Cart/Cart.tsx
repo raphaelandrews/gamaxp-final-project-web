@@ -9,7 +9,7 @@ type CartProps = {
   isOpen: boolean
 }
 
-export function Cart({ isOpen }: CartProps) {
+export function Cart() {
   const { closeCart, CartProducts } = useCart();
 
   return (
