@@ -49,7 +49,6 @@ const initialValues: FormData = {
 const MultiStepForm = () => {
     const [step, setStep] = useState(1);
 
-
     const handleNextStep = () => {
         setStep((prevStep) => prevStep + 1);
     };

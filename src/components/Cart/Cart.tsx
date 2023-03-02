@@ -10,7 +10,7 @@ type CartProps = {
 }
 
 export function Cart() {
-  const { closeCart, CartProducts } = useCart();
+  const { CartProducts } = useCart();
 
   return (
     <C.CartWrapper>
