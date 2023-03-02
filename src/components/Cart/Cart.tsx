@@ -9,8 +9,8 @@ type CartProps = {
   isOpen: boolean
 }
 
-export function Cart({ isOpen }: CartProps) {
-  const { closeCart, CartProducts } = useCart();
+export function Cart() {
+  const { CartProducts } = useCart();
 
   return (
     <C.CartWrapper>

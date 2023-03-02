@@ -5,3 +5,9 @@ export const Title = styled.h1`
     font-weight: 700;
     margin-top: 2rem;
 `
+
+export const CartContent = styled.div`
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+`

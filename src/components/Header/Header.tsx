@@ -211,7 +211,7 @@ const Header: React.FC<Props> = ({ title }) => {
             <CartWrapper>
                 <ShoppingCart size="20" color="#000000" onClick={handleOpen} />
                 <OffCanvas isCanvasOpen={isCanvasOpen} onClose={handleClose}>
-                  <Cart isOpen={isOpen} />
+                  <Cart />
                 </OffCanvas>
                 {cartQuantity}
             </CartWrapper>
