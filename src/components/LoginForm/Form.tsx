@@ -28,6 +28,7 @@ const Login: React.FC = () => {
     const onSubmit = async (values: LoginFormValues) => {
         try {
             await auth.authenticate(values.email, values.password)
+            
             navigate("/profile");
         } catch (error) {
             if(error) {
@@ -35,7 +36,7 @@ const Login: React.FC = () => {
             }
         }
     };
-    
+
     return (
         <Formik
             initialValues={initialValues}

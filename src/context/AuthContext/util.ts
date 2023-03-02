@@ -1,11 +1,11 @@
 import { IUser } from './types';
 import { Api } from "../../services/api";
 
-export function setUserLocalStorage ( user: IUser | null) {
+export function setUserLocalStorage(user: IUser | null) {
     localStorage.setItem("u", JSON.stringify(user));
 }
 
-export function getUserLocalStorage () {
+export function getUserLocalStorage() {
     const json = localStorage.getItem("u")
 
     if (!json) {
@@ -19,18 +19,17 @@ export function getUserLocalStorage () {
 
 export async function LoginRequest(email: string, password: string) {
     try {
-        const request = await Api.post("login", { email, password });
-
+        const request = await Api.post("login", { email, senha:password });
+        
         return request.data;
     } catch (error) {
         return null;
     }
 }
 
-export async function SignUpRequest(email: string, password: string) {
+export async function SignUpRequest(username: string, email: string, password: string) {
     try {
-        const request = await Api.post("register", { email, password });
-
+        const request = await Api.post("usuario", { username, email, senha: password });
         return request.data;
     } catch (error) {
         return null;
