@@ -1,27 +1,40 @@
 import styled from "styled-components";
 
-export const Title = styled.h1`
-font-size: 2rem;
-font-weight: 700;
-`;
+export const CheckoutSteps = styled.div`
+    display: flex;
+    gap: 2rem;
+    margin-top: 1em;
+`
+
+interface CoresStep {
+    [key: string]: string;
+}
+
+const coresStep: CoresStep = {
+    active: "green",
+    normal: "black"
+};
+
+interface StepDefaultProps {
+    color: string;
+}
+
+export const Step = styled.span<StepDefaultProps>`
+    color: ${(props) => coresStep[props.color]};
+`
 
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: calc(100vh - 4rem);
-    @media (min-width: 800px) {
-        height: calc(100vh - 5rem);
-    }
     form {
         display: flex;
         flex-direction: column;
         width: 100%;
         max-width: 480px;
         border-radius: .25rem;
-        padding: 4rem;
+        margin-top: 2rem;
     }
 `;
 
@@ -89,14 +102,16 @@ export const InputWrapper = styled.div`
     }
 `
 
-export const Message = styled.div`
-    color: red;
+export const InputWrapperRadio = styled.div`
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
 `
 
 export const Button = styled.button`
     font-size: 1rem;
     font-weight: 700;
-    text-transform: uppercase;
     height: 3rem;
     border: 0px;
     border-radius: .25rem;
