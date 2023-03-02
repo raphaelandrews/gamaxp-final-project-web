@@ -163,18 +163,31 @@ const MultiStepForm = () => {
                                     </>
                                 )}
 
-                                {step > 1 && (
-                                    <C.Button type="button" onClick={handlePrevStep}>
-                                        Previous
+                                {step == 1 && (
+                                    <C.Button type="button" onClick={handleNextStep}>
+                                        Continue to Shipping
                                     </C.Button>
                                 )}
 
-                                {step < 3 ? (
-                                    <C.Button type="button" onClick={handleNextStep}>
-                                        Next
-                                    </C.Button>
-                                ) : (
-                                    <C.Button type="submit">Submit</C.Button>
+                                {step == 2 && (
+                                    <>
+                                        <C.Button type="button" onClick={handlePrevStep}>
+                                            Back to Address
+                                        </C.Button>
+                                        <C.Button type="button" onClick={handleNextStep}>
+                                            Continue to Payment
+                                        </C.Button>
+                                    </>
+                                )}
+
+
+                                {step == 3 && (
+                                    <>
+                                        <C.Button type="button" onClick={handlePrevStep}>
+                                            Back to Shipping
+                                        </C.Button>
+                                        <C.Button type="submit">Submit</C.Button>
+                                    </>
                                 )}
                             </C.FormInputs>
                         </Form>
