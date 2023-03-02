@@ -20,7 +20,7 @@ export function getUserLocalStorage() {
 export async function LoginRequest(email: string, password: string) {
     try {
         const request = await Api.post("login", { email, senha:password });
-        
+       
         return request.data;
     } catch (error) {
         return null;
@@ -29,7 +29,8 @@ export async function LoginRequest(email: string, password: string) {
 
 export async function SignUpRequest(username: string, email: string, password: string) {
     try {
-        const request = await Api.post("usuario", { username, email, senha: password });
+        const request = await Api.post("usuario", { user_name: username, email, senha: password });
+       
         return request.data;
     } catch (error) {
         return null;
