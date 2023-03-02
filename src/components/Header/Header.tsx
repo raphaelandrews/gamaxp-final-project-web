@@ -11,6 +11,7 @@ import { ShoppingCart, User } from 'iconsax-react';
 import { useCart } from "../../context/CartContext"
 import OffCanvas from '../OffCanvas';
 import { Cart } from "../Cart/Cart"
+import { getUserLocalStorage } from '../../context/AuthContext/util';
 
 
 
@@ -143,6 +144,7 @@ interface Props {
 const Header: React.FC<Props> = ({ title }) => {
   const { isOpen, toggle } = useModal();
   const { openCart, cartQuantity } = useCart()
+  const user = getUserLocalStorage();
 
   const auth = useAuth()
 
@@ -157,6 +159,14 @@ const Header: React.FC<Props> = ({ title }) => {
 
     return <User size="20" color="#000000" onClick={onLogout} />;
   };
+  
+  const AdminPanel = () => {
+    if (user.type === "admin") {
+      return <NavLink to="/dashboard" onClick={toggle}>Admin</NavLink>
+    } else {
+      return
+    }
+  }
 
   const navigate = useNavigate();
 
@@ -198,6 +208,9 @@ const Header: React.FC<Props> = ({ title }) => {
                 <NavbarListItem>
                   <NavLink to="/" onClick={toggle}>Contact</NavLink>
                 </NavbarListItem>
+                <NavbarListItem>
+                  {user ? AdminPanel() : ""}
+                </NavbarListItem>
               </NavbarList>
             </Navbar>
           </Wrapper>
@@ -209,11 +222,11 @@ const Header: React.FC<Props> = ({ title }) => {
 
 
             <CartWrapper>
-                <ShoppingCart size="20" color="#000000" onClick={handleOpen} />
-                <OffCanvas isCanvasOpen={isCanvasOpen} onClose={handleClose}>
-                  <Cart />
-                </OffCanvas>
-                {cartQuantity}
+              <ShoppingCart size="20" color="#000000" onClick={handleOpen} />
+              <OffCanvas isCanvasOpen={isCanvasOpen} onClose={handleClose}>
+                <Cart />
+              </OffCanvas>
+              {cartQuantity}
             </CartWrapper>
             <Login>
               {UserLogged()}

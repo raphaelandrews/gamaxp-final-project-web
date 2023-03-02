@@ -7,17 +7,18 @@ export const AuthContext = createContext<IContext>({} as IContext)
 export const AuthProvider = ({ children }: IAuthProvider) => {
     const [user, setUser] = useState<IUser | null>()
 
-    useEffect(() =>{
+    useEffect(() => {
         const user = getUserLocalStorage();
 
-        if(user) {
+        if (user) {
             setUser(user);
         }
     }, []);
 
     async function authenticate(email: string, password: string) {
         const response = await LoginRequest(email, password)
-        const payload = { password, email }
+
+        const payload = { token: response.senha, email, id: response.id, type: response.type }
 
         setUser(payload);
         setUserLocalStorage(payload)
@@ -26,8 +27,8 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     async function register(username: string, email: string, password: string) {
         const response = await SignUpRequest(username, email, password)
 
-        const payload = { password, username, email }
-        
+        const payload = { token: response.senha, email: response.email , id: response.id, type: "user" }
+  
         setUser(payload);
         setUserLocalStorage(payload)
     }
