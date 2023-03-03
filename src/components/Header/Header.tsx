@@ -27,7 +27,7 @@ const Header: React.FC<Props> = ({ title }) => {
   const UserLogged = () => {
     if (!auth.email) {
       return (
-        <Link to="/login">
+        <Link to="/login" onClick={toggle}>
           Login
         </Link>
       );
@@ -38,7 +38,13 @@ const Header: React.FC<Props> = ({ title }) => {
 
   const AdminPanel = () => {
     if (user.type === "admin") {
-      return <NavLink to="/dashboard" onClick={toggle}>Admin</NavLink>
+      return (
+        <NavLink to="/dashboard" onClick={toggle}
+          style={({ isActive }) =>
+            isActive ? activeStyle : undefined}>
+          Admin
+        </NavLink>
+      )
     } else {
       return
     }
@@ -77,19 +83,40 @@ const Header: React.FC<Props> = ({ title }) => {
             <C.Navbar>
               <C.NavbarList>
                 <C.NavbarListItem>
-                  <NavLink to="/" style={({ isActive }) =>
-                    isActive ? activeStyle : undefined
-                  }
-                  onClick={toggle}>Home</NavLink>
+                  <NavLink
+                    to="/"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined}
+                    onClick={toggle}>
+                    Home
+                  </NavLink>
                 </C.NavbarListItem>
                 <C.NavbarListItem>
-                  <NavLink to="/products" onClick={toggle}>Products</NavLink>
+                  <NavLink
+                    to="/products"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined}
+                    onClick={toggle}>
+                    Products
+                  </NavLink>
                 </C.NavbarListItem>
                 <C.NavbarListItem>
-                  <NavLink to="/" onClick={onLogout}>About</NavLink>
+                  <NavLink
+                    to="/about"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined}
+                    onClick={onLogout}>
+                    About
+                  </NavLink>
                 </C.NavbarListItem>
                 <C.NavbarListItem>
-                  <NavLink to="/" onClick={toggle}>Contact</NavLink>
+                  <NavLink
+                    to="/contact"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined}
+                    onClick={toggle}>
+                    Contact
+                  </NavLink>
                 </C.NavbarListItem>
                 <C.NavbarListItem>
                   {user ? AdminPanel() : ""}
@@ -147,19 +174,47 @@ const Header: React.FC<Props> = ({ title }) => {
             <C.NavbarModal>
               <C.NavbarList>
                 <C.NavbarListItem>
-                  <NavLink to="/" onClick={toggle}>Home</NavLink>
+                  <NavLink
+                    to="/"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined}
+                    onClick={toggle}>
+                    Home
+                  </NavLink>
                 </C.NavbarListItem>
                 <C.NavbarListItem>
-                  <NavLink to="/products" onClick={toggle}>Products</NavLink>
+                  <NavLink
+                    to="/products"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined}
+                    onClick={toggle}>
+                    Products
+                  </NavLink>
                 </C.NavbarListItem>
                 <C.NavbarListItem>
-                  <NavLink to="/">About</NavLink>
+                  <NavLink
+                    to="/about"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined}
+                    onClick={toggle}>
+                    About
+                  </NavLink>
                 </C.NavbarListItem>
                 <C.NavbarListItem>
-                  <NavLink to="/">Contact</NavLink>
+                  <NavLink
+                    to="/contact"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined}
+                    onClick={toggle}>
+                    Contact
+                  </NavLink>
                 </C.NavbarListItem>
               </C.NavbarList>
             </C.NavbarModal>
+            
+            <C.LoginModal>
+              {UserLogged()}
+            </C.LoginModal>
           </Modal>
         </C.HeaderContainer>
       </G.Container>

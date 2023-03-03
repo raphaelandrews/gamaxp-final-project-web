@@ -4,7 +4,6 @@ export const HeaderWrapper = styled.header`
   background-color: var(--bg-color);
 `;
 
-
 export const HeaderContainer = styled.div`
   position: relative;
   display: flex;
@@ -42,13 +41,7 @@ export const Navbar = styled.nav`
 export const NavbarModal = styled.nav`
   display: flex;
   justify-content: center;
-  align-items: center;
-  top: 100%;
-  left: 0;
-  right: 0;
   transition: all 0.3s;
-  height: 100%;
-  overflow: hidden;
   @media (min-width: 800px) {
     display: none;
   }
@@ -57,20 +50,22 @@ export const NavbarModal = styled.nav`
 export const NavbarList = styled.ul`
     display: flex;
     flex-direction: column;
+    text-align: center;
+    gap: 2rem;
     padding: 0;
     margin: 0;
     list-style: none;
 
     @media (min-width: 800px) {
         flex-direction: row;
-        gap: 2rem;
+        text-align: inherit;
     }
 `;
 
 export const NavbarListItem = styled.li`
     a {
         color: var(--alt-color);
-        font-size: 1rem;
+        font-size: 1.25rem;
         transition: .5s;
     }
 
@@ -102,7 +97,7 @@ export const Hamburger = styled.button`
 `;
 
 export const Login = styled.div`
-display: none;
+  display: none;
   font-size: 1rem;
   a {
     transition: .5s;
@@ -113,10 +108,35 @@ display: none;
     color: var(--second-color);
     }
   }
+  
   @media (min-width: 800px) {
     display: block;
     font-size: 1.125rem;
     margin-top: .25rem;
+  }
+`
+
+export const LoginModal = styled.div`
+display: inline-block;
+  font-size: 1.25rem;
+  text-align: center;
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+  margin-top: 4rem;
+  background-color: var(--second-color);
+  a {
+    transition: .5s;
+  }
+
+  &:hover {
+    cursor: pointer;
+    a{
+    color: var(--second-color);
+    }
+  }
+
+  @media (min-width: 800px) {
+    display: none;
   }
 `
 
