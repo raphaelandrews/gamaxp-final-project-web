@@ -103,7 +103,7 @@ const UsersTable = () => {
 
     return (
         <>
-            <Link to="/">Adicionar Admin</Link>
+            <Link to="/createAdmin">Adicionar Admin</Link>
             <MaterialReactTable
                 columns={columns}
                 data={data}

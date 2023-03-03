@@ -9,6 +9,8 @@ import Products from "../pages/Products/Products";
 import Signup from '../pages/Signup/Signup';
 import CartSummary from "../pages/CartSummary/CartSummary";
 import Dashboard from "../pages/Dashboard/Dashboard";
+import CreateProduct from "../pages/CreateProduct/CreateProduct";
+import CreateAdmin from "../pages/CreateAdmin/CreateAdmin";
 
 function RoutesApp() {
 
@@ -29,6 +31,8 @@ function RoutesApp() {
         <Route path='/summary' element={<CartSummary />}></Route>
         <Route path='/checkout' element={<Checkout />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path='/createProduct' element={<CreateProduct />}></Route>
+        <Route path='/createAdmin' element={<CreateAdmin />}></Route>
       </Routes>
     </BrowserRouter>
   )

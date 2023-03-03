@@ -103,7 +103,7 @@ const ProductsTable = () => {
 
     return (
         <>
-            <Link to="/">Adicionar novo produto</Link>
+            <Link to="/createProduct">Adicionar novo produto</Link>
             <MaterialReactTable
                 columns={columns}
                 data={data}
