@@ -9,7 +9,7 @@ import { useAuth } from '../../context/AuthContext/useAuth';
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, User } from 'iconsax-react';
 import { useCart } from "../../context/CartContext"
-import OffCanvas from '../OffCanvas';
+import OffCanvas from '../OffCanvas/OffCanvas';
 import { Cart } from "../Cart/Cart"
 import { getUserLocalStorage } from '../../context/AuthContext/util';
 
