@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const ProductPreview = styled.div`
     border-radius: .75rem;
-    background-color: hsl(0, 0%, 94%);
+    background-color: var(--bg-alt-color);
     box-shadow: 0 0 40px 0 rgb(94 92 154 / 6%);
 `
 
 export const ProductImage = styled.img`
     width: 100%;
     height: 180px;
-    border-radius: .75rem .75rem 0 0;
+    border-radius: .6rem .6rem 0 0;
     object-fit: cover;
 `
 
@@ -21,7 +21,7 @@ export const ProductBox = styled.div`
 export const ProductTitle = styled.h2`
     font-size: 1.25rem;
     font-weight: 500;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -41,13 +41,9 @@ export const ProductButton = styled.div`
     border-radius: .75rem;
     padding: 1rem .75rem;
     margin-top: 1em;
-    background-color: hsl(45, 100%, 51%);
+    background-color: var(--second-color);
     transition: .5s;
     cursor: pointer;
-
-    a {
-        color: #000;
-    }
 
     &:hover {
         background-color: hsl(45, 100%, 45%);

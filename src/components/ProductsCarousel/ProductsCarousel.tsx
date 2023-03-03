@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Wrapper, Slider, Slide, ArrowButton, ArrowButtonR, Dots, Dot } from "./styles";
-import "./style.css";
+import * as G from "../../styles/GlobalStyles"
+import * as C from "./Product.styles";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
-import { Container } from "../../styles/GlobalStyles"
 import { StoreProduct } from "../StoreProduct/StoreProduct"
 import StoreProducts from "../../data/items.json";
 
-export default function ProductsCarousel() {
+
+export default function ProductsCarousel({ children }: { children: JSX.Element }) {
     const [currentSlide, setCurrentSlide] = React.useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -19,25 +19,41 @@ export default function ProductsCarousel() {
         created() {
             setLoaded(true)
         },
-        slides: {
-            perView: 4,
-            spacing: 16,
-        },
+        breakpoints: {
+            "(min-width: 320px)": {
+              slides: { perView: 1, spacing: 5 },
+            },
+            "(min-width: 500px)": {
+              slides: { perView: 2, spacing: 16 },
+            },
+            "(min-width: 800px)": {
+              slides: { perView: 3, spacing: 10 },
+            },
+            "(min-width: 1000px)": {
+              slides: { perView: 4, spacing: 10 },
+            },
+            "(min-width: 1200px)": {
+              slides: { perView: 5, spacing: 10 },
+            },
+          },
+          slides: { perView: 1 },
+     
+        loop: true,
+        mode: "free-snap",
+      
     })
-    
+
+
     return (
-        <Container>
-            <Wrapper>
-                {<Slider ref={sliderRef}>
-                    {StoreProducts.map((item, index) => (
-                        <Slide key={index + 1} className="keen-slider__slide">
-                            <StoreProduct {...item} />
-                        </Slide>
-                    ))}
-                </Slider>}
+        <G.Container>
+            <C.Wrapper>
+                {<C.Slider ref={sliderRef}>
+                    {children}
+                </C.Slider>}
+
                 {loaded && instanceRef.current && (
                     <>
-                        <ArrowButton
+                        <C.ArrowButton
                             onClick={(e: any) =>
                                 e.stopPropagation() || instanceRef.current?.prev()
                             }
@@ -50,7 +66,7 @@ export default function ProductsCarousel() {
                                 viewBox="0 0 24 24"
                                 fill="none">
                                 <path
-                                    stroke="#000000"
+                                    stroke="var(--alt-color)"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                     strokeMiterlimit="10"
@@ -58,9 +74,9 @@ export default function ProductsCarousel() {
                                     d="M15 19.92L8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08">
                                 </path>
                             </svg>
-                        </ArrowButton>
+                        </C.ArrowButton>
 
-                        <ArrowButtonR
+                        <C.ArrowButtonR
                             onClick={(e: any) =>
                                 e.stopPropagation() || instanceRef.current?.next()
                             }
@@ -75,7 +91,8 @@ export default function ProductsCarousel() {
                                 height="24"
                                 viewBox="0 0 24 24"
                                 fill="none">
-                                <path stroke="#000000"
+                                <path
+                                    stroke="var(--alt-color)"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                     strokeMiterlimit="10"
@@ -83,29 +100,11 @@ export default function ProductsCarousel() {
                                     d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08">
                                 </path>
                             </svg>
-                        </ArrowButtonR>
+                        </C.ArrowButtonR>
                     </>
                 )}
-            </Wrapper>
-            {loaded && instanceRef.current && (
-                <Dots>
-                    {[
-                        ...Array(instanceRef.current.track.details.slides.length - 3).keys(),
-                    ].map((idx) => {
-                        return (
-                            <Dot
-                                key={idx}
-                                onClick={() => {
-                                    instanceRef.current?.moveToIdx(idx)
-                                }}
-                                className={"dot" + (currentSlide === idx ? " active" : "")}
-                            >
-                            </Dot>
-                        )
-                    })}
-                </Dots>
-            )}
-        </Container>
+            </C.Wrapper>
+        </G.Container>
     )
 }
 

@@ -17,23 +17,25 @@ function RoutesApp() {
   return (
     <BrowserRouter>
       <Header title="Gama BookStore" />
-      <Routes>
-        <Route path='/' element={<Home />}>
-        </Route>
-        <Route path='/products' element={<Products />}>
-        </Route>
-        <Route path='/product' element={<Product />}>
-        </Route>
-        <Route path='/profile' element={<ProtectedLayout><h2>Olá</h2></ProtectedLayout>}>
-        </Route>
-        <Route path='/login' element={<Login />}></Route>
-        <Route path='/signup' element={<Signup />}></Route>
-        <Route path='/summary' element={<CartSummary />}></Route>
-        <Route path='/checkout' element={<Checkout />}></Route>
-        <Route path='/dashboard' element={<Dashboard />}></Route>
-        <Route path='/createProduct' element={<CreateProduct />}></Route>
-        <Route path='/createAdmin' element={<CreateAdmin />}></Route>
-      </Routes>
+      <main>
+        <Routes>
+          <Route path='/' element={<Home />}>
+          </Route>
+          <Route path='/products' element={<Products />}>
+          </Route>
+          <Route path='/product' element={<Product />}>
+          </Route>
+          <Route path='/profile' element={<ProtectedLayout><h2>Olá</h2></ProtectedLayout>}>
+          </Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/signup' element={<Signup />}></Route>
+          <Route path='/summary' element={<CartSummary />}></Route>
+          <Route path='/checkout' element={<Checkout />}></Route>
+          <Route path='/dashboard' element={<Dashboard />}></Route>
+          <Route path='/createProduct' element={<CreateProduct />}></Route>
+          <Route path='/createAdmin' element={<CreateAdmin />}></Route>
+        </Routes>
+      </main>
     </BrowserRouter>
   )
 }
