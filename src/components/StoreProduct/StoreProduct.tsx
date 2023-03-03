@@ -1,61 +1,30 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../../context/CartContext";
 import { formatCurrency } from "../../util/formatCurrency";
-import { ProductBox, ProductButton, ProductImage, ProductPreview, ProductPrice, ProductTitle } from "./styles";
+import * as C from "./styles";
 
 type StoreProductProps = {
   id: number
   name: string
+  description: string;
   price: number
   imgUrl: string
 }
 
-export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
-  const {
-    getItemQuantity,
-    increaseCartQuantity,
-    decreaseCartQuantity,
-    removeFromCart,
-  } = useCart()
-  const quantity = getItemQuantity(id)
-
-
+export function StoreProduct({ id, name, description, price, imgUrl }: StoreProductProps) {
   return (
-    <ProductPreview>
-      <ProductImage
+    <C.ProductPreview>
+      <C.ProductImage
         src={imgUrl}
       />
-      <ProductBox>
-        <ProductTitle>{name}</ProductTitle>
-        <ProductPrice>{formatCurrency(price)}</ProductPrice>
-        <ProductButton>
+      <C.ProductBox>
+        <C.ProductTitle>{name}</C.ProductTitle>
+        <C.ProductPrice>{formatCurrency(price)}</C.ProductPrice>
+        <C.ProductButton>
           <Link to="/products">
           Comprar
           </Link>
-        </ProductButton>
-       {/* <div>
-          {quantity === 0 ? (
-            <button onClick={() => increaseCartQuantity(id)}>
-              + Add To Cart
-            </button>
-          ) : (
-            <div>
-              <div>
-                <button onClick={() => decreaseCartQuantity(id)}>-</button>
-                <div>
-                  <span>{quantity}</span> in cart
-                </div>
-                <button onClick={() => increaseCartQuantity(id)}>+</button>
-              </div>
-              <button
-                onClick={() => removeFromCart(id)}
-              >
-                Remove
-              </button>
-            </div>
-          )} 
-        </div>*/}
-      </ProductBox>
-    </ProductPreview>
+        </C.ProductButton>
+      </C.ProductBox>
+    </C.ProductPreview>
   )
 }

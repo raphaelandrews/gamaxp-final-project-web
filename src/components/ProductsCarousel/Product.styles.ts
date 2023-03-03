@@ -2,7 +2,20 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     position: relative;
-    margin-top: 2rem;
+    width: 80%;
+    margin: 2rem auto 0;
+
+    @media (min-width: 600px) {
+        width: 90%;
+    }
+
+    @media (min-width: 800px) {
+        width: 94%;
+    }
+
+    @media (min-width: 1400px) {
+        width: 100%;
+    }
 `
 
 export const Slider = styled.div`
@@ -11,20 +24,20 @@ export const Slider = styled.div`
         display: flex;
         align-content: flex-start;
         width: 100%;
-        border-radius: .75rem;
+       // border-radius: .75rem;
         overflow: hidden;
         touch-action: pan-y;
         user-select: none;
     }
 `
 export const Slide = styled.div`
-    min-width: 268px;
-    max-width: 268px;
+    min-width: 298px;
+    max-width: 298px;
     transform: translate3d(0px, 0px, 0px);
 `
 
 export const ArrowButton = styled.button`
-    display: flex;
+    
     position: absolute;
     top: 50%;
     left: -3rem;
@@ -35,6 +48,10 @@ export const ArrowButton = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
+
+    @media (min-width: 800px) {
+        display: flex;
+    }
 `;
 
 export const ArrowButtonR = styled.button`
@@ -49,29 +66,8 @@ export const ArrowButtonR = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
+
+    @media (min-width: 800px) {
+        display: flex;
+    }
 `;
-
-export const Dots = styled.div`
-    display: flex;
-    padding: 1.25rem 0;
-    justify-content: center;
-`
-
-export const Dot = styled.div`
-    border: none;
-    width: .75rem;
-    height: .75rem;
-    background: #c5c5c5;
-    border-radius: 50%;
-    margin: 0 5px;
-    padding: 5px;
-    cursor: pointer;
-
-    &:focus {
-        outline: none;
-    }
-
-    &:active {
-        background: #000;
-    }
-`
