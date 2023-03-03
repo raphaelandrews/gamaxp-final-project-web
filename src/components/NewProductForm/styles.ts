@@ -103,3 +103,7 @@ export const Button = styled.button`
     background: #FFC107;
     cursor: pointer;
 `
+
+export const Span = styled.span`
+    
+`

@@ -94,7 +94,7 @@ const ProductsTable = () => {
                 header: 'Category',
             },
             {
-                accessorKey: 'address',
+                accessorKey: 'city',
                 header: 'ID',
             },
         ],
