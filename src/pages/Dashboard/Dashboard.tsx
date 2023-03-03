@@ -2,7 +2,7 @@ import { useState } from "react";
 import OrdersTable from "../../components/OrdersTable/OrdersTable";
 import ProductsTable from "../../components/ProductsTable/ProductsTable";
 import UsersTable from "../../components/UsersTable/UsersTable";
-import * as G from "../../styles/global";
+import * as G from "../../styles/GlobalStyles";
 import * as C from "./styles";
 
 const Dashboard = () => {

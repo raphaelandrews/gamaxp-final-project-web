@@ -1,15 +1,19 @@
-import { AuthProvider } from './context/AuthContext/AuthProvider'
+import { AuthProvider } from "./context/AuthContext/AuthProvider";
 import { CartProvider } from "./context/CartContext";
-import RoutesApp from './routes';
-import GlobalStyle from './styles/global';
+import { ThemeProvider } from "./components/ThemeProvider";
+import GlobalStyle from "./styles/GlobalStyles";
+import { theme } from "./styles/theme";
+import RoutesApp from "./routes";
 
 function App() {
 
   return (
     <AuthProvider>
       <CartProvider>
-        <RoutesApp />
-        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <RoutesApp />
+        </ThemeProvider>
       </CartProvider>
     </AuthProvider>
   )

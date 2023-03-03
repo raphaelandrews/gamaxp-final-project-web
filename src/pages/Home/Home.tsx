@@ -5,8 +5,11 @@ import StoreProducts from "../../data/items.json";
 
 const Home = () => {
   return (
-    <ProductCarousel />
+    <>
+      {/*<ProductCarousel />*/}
+      <h1>a</h1>
+    </>
   )
 }
 
-export default Home
+export default Home;

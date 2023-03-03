@@ -4,7 +4,7 @@ import "./style.css";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
-import { Container } from "../../styles/global"
+import { Container } from "../../styles/GlobalStyles"
 import { StoreProduct } from "../StoreProduct/StoreProduct"
 import StoreProducts from "../../data/items.json";
 

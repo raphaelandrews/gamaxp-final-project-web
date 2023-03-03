@@ -1,10 +1,10 @@
-import React, { useState, ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
 import Modal from '../../components/Modal/Modal';
 import useModal from '../../components/Modal/useModal';
 import { NavLink, Link } from 'react-router-dom';
+import * as G from "../../styles/GlobalStyles";
+import * as C from "./Header.styles";
 
-import * as C from "../../styles/global";
 import { useAuth } from '../../context/AuthContext/useAuth';
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, User } from 'iconsax-react';
@@ -13,137 +13,13 @@ import OffCanvas from '../OffCanvas';
 import { Cart } from "../Cart/Cart"
 import { getUserLocalStorage } from '../../context/AuthContext/util';
 
-
-
-const HeaderWrapper = styled.header`
-  background-color: #FFC107;
-  box-shadow: 0 3px 12px rgb(0 0 0 / 10%);
-`;
-
-
-const HeaderContainer = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 4rem;
-  @media (min-width: 800px) {
-    height: 5rem;
-  }
-`;
-
-const Title = styled.h1`
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #000000;
-  transition: .5s;
-`;
-
-export const Navbar = styled.nav`
-  display: none;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s;
-  height: 100%;
-  @media (min-width: 800px) {
-    display: block;
-  }
-`;
-
-export const NavbarModal = styled.nav`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 100%;
-  left: 0;
-  right: 0;
-  transition: all 0.3s;
-  height: 100%;
-  overflow: hidden;
-  @media (min-width: 800px) {
-    display: none;
-  }
-`;
-
-export const NavbarList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  @media (min-width: 800px) {
-    flex-direction: row;
-    gap: 2rem;
-  }
-`;
-
-export const NavbarListItem = styled.li`
-  margin: 10px 0;
-  a {
-    color: #000000;
-    font-size: 1rem;
-    font-weight: 400;
-    transition: .5s;
-  }
-   &:hover {
-    a{
-    color: #757575;
-    }
-  }
-`;
-
-const Hamburger = styled.button`
-  appearance: none;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @media (min-width: 800px) {
-    display: none;
-  }
-`;
-
-const Login = styled.div`
-display: none;
-  font-size: 1rem;
-  font-weight: 400;
-  a {
-    color: #000000;
-    transition: .5s;
-  }
-  &:hover {
-    cursor: pointer;
-    a{
-    color: #757575;
-    }
-  }
-  @media (min-width: 800px) {
-    display: block;
-  }
-`
-
-const Wrapper = styled.div`
-  display:flex;
-  align-items: center;
-  gap: 2rem;
-`
-
-const CartWrapper = styled.div`
-  display: none;
-  @media (min-width: 800px) {
-    display: block;
-  }
-`
-
 interface Props {
   title: string;
 }
 
 const Header: React.FC<Props> = ({ title }) => {
   const { isOpen, toggle } = useModal();
-  const { openCart, cartQuantity } = useCart()
+  const { cartQuantity } = useCart()
   const user = getUserLocalStorage();
 
   const auth = useAuth()
@@ -159,7 +35,7 @@ const Header: React.FC<Props> = ({ title }) => {
 
     return <User size="20" color="#000000" onClick={onLogout} />;
   };
-  
+
   const AdminPanel = () => {
     if (user.type === "admin") {
       return <NavLink to="/dashboard" onClick={toggle}>Admin</NavLink>
@@ -185,75 +61,109 @@ const Header: React.FC<Props> = ({ title }) => {
     setIsCanvasOpen(false);
   };
 
+  let activeStyle = {
+    color: 'var(--second-color)',
+  };
+
   return (
-    <HeaderWrapper>
-      <C.Container>
-        <HeaderContainer>
-          <Wrapper>
+    <C.HeaderWrapper>
+      <G.Container>
+        <C.HeaderContainer>
+          <C.Wrapper>
             <Link to="/">
-              <Title>{title}</Title>
+              <C.Title>{title}</C.Title>
             </Link>
 
-            <Navbar>
-              <NavbarList>
-                <NavbarListItem>
-                  <NavLink to="/" onClick={toggle}>Home</NavLink>
-                </NavbarListItem>
-                <NavbarListItem>
+            <C.Navbar>
+              <C.NavbarList>
+                <C.NavbarListItem>
+                  <NavLink to="/" style={({ isActive }) =>
+                    isActive ? activeStyle : undefined
+                  }
+                  onClick={toggle}>Home</NavLink>
+                </C.NavbarListItem>
+                <C.NavbarListItem>
                   <NavLink to="/products" onClick={toggle}>Products</NavLink>
-                </NavbarListItem>
-                <NavbarListItem>
+                </C.NavbarListItem>
+                <C.NavbarListItem>
                   <NavLink to="/" onClick={onLogout}>About</NavLink>
-                </NavbarListItem>
-                <NavbarListItem>
+                </C.NavbarListItem>
+                <C.NavbarListItem>
                   <NavLink to="/" onClick={toggle}>Contact</NavLink>
-                </NavbarListItem>
-                <NavbarListItem>
+                </C.NavbarListItem>
+                <C.NavbarListItem>
                   {user ? AdminPanel() : ""}
-                </NavbarListItem>
-              </NavbarList>
-            </Navbar>
-          </Wrapper>
+                </C.NavbarListItem>
+              </C.NavbarList>
+            </C.Navbar>
+          </C.Wrapper>
 
-          <Wrapper>
-            <Hamburger onClick={toggle}>
-              Modal
-            </Hamburger>
-
-
-            <CartWrapper>
-              <ShoppingCart size="20" color="#000000" onClick={handleOpen} />
+          <C.Wrapper>
+            <C.CartWrapper>
+              <C.CartIcon onClick={handleOpen}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none">
+                  <path d="M2 2h1.74c1.08 0 1.93.93 1.84 2l-.83 9.96a2.796 2.796 0 0 0 2.79 3.03h10.65c1.44 0 2.7-1.18 2.81-2.61l.54-7.5c.12-1.66-1.14-3.01-2.81-3.01H5.82M16.25 22a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM8.25 22a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM9 8h12"
+                    stroke="var(--alt-color)"
+                    strokeWidth="2"
+                    strokeMiterlimit="10"
+                    strokeLinecap="round"
+                    strokeLinejoin="round">
+                  </path>
+                </svg>
+                <C.CartQuantity>
+                  {cartQuantity}
+                </C.CartQuantity>
+              </C.CartIcon>
               <OffCanvas isCanvasOpen={isCanvasOpen} onClose={handleClose}>
                 <Cart />
               </OffCanvas>
-              {cartQuantity}
-            </CartWrapper>
-            <Login>
+            </C.CartWrapper>
+
+            <C.Hamburger onClick={toggle}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24"
+                viewBox="0 0 24 24"
+                fill="none">
+                <path d="M3 7h18M3 12h18M3 17h18"
+                  stroke="var(--first-color)"
+                  strokeWidth="2"
+                  strokeLinecap="round">
+                </path>
+              </svg>
+            </C.Hamburger>
+
+            <C.Login>
               {UserLogged()}
-            </Login>
-          </Wrapper>
+            </C.Login>
+          </C.Wrapper>
 
           <Modal isOpen={isOpen} toggle={toggle}>
-            <NavbarModal>
-              <NavbarList>
-                <NavbarListItem>
+            <C.NavbarModal>
+              <C.NavbarList>
+                <C.NavbarListItem>
                   <NavLink to="/" onClick={toggle}>Home</NavLink>
-                </NavbarListItem>
-                <NavbarListItem>
+                </C.NavbarListItem>
+                <C.NavbarListItem>
                   <NavLink to="/products" onClick={toggle}>Products</NavLink>
-                </NavbarListItem>
-                <NavbarListItem>
+                </C.NavbarListItem>
+                <C.NavbarListItem>
                   <NavLink to="/">About</NavLink>
-                </NavbarListItem>
-                <NavbarListItem>
+                </C.NavbarListItem>
+                <C.NavbarListItem>
                   <NavLink to="/">Contact</NavLink>
-                </NavbarListItem>
-              </NavbarList>
-            </NavbarModal>
+                </C.NavbarListItem>
+              </C.NavbarList>
+            </C.NavbarModal>
           </Modal>
-        </HeaderContainer>
-      </C.Container>
-    </HeaderWrapper>
+        </C.HeaderContainer>
+      </G.Container>
+    </C.HeaderWrapper>
   );
 };
 
