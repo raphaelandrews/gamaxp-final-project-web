@@ -1,4 +1,4 @@
-import * as C from "../../styles/global";
+import * as C from "../../styles/GlobalStyles";
 import ProductCarousel from "../../components/Product/Product";
 
 const Product = () => {

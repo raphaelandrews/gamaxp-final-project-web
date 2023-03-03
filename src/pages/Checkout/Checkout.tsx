@@ -1,4 +1,4 @@
-import * as G from "../../styles/global";
+import * as G from "../../styles/GlobalStyles";
 import * as C from "./styles";
 import MultiStepForm from '../../components/MultistepForm/MultistepForm';
 import { useCart } from '../../context/CartContext';
