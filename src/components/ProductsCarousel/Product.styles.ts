@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
     position: relative;
     width: 80%;
     margin: 2rem auto 0;
@@ -37,7 +37,7 @@ export const Slide = styled.div`
 `
 
 export const ArrowButton = styled.button`
-    
+    display: flex;
     position: absolute;
     top: 50%;
     left: -3rem;
@@ -48,10 +48,6 @@ export const ArrowButton = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
-
-    @media (min-width: 800px) {
-        display: flex;
-    }
 `;
 
 export const ArrowButtonR = styled.button`
@@ -66,8 +62,4 @@ export const ArrowButtonR = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
-
-    @media (min-width: 800px) {
-        display: flex;
-    }
 `;

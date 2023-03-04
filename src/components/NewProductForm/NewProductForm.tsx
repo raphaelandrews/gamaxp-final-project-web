@@ -3,14 +3,15 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext/useAuth";
 
-import { Title, Wrapper, FormInputs, InputWrapper, Message, Button, Span } from "./styles";
+import { Title, Wrapper, FormInputs, InputWrapper, Message, Button, Span, ImagePreview } from "./styles";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ChangeEvent, useState } from "react";
 
 interface ProductFormValues {
     name: string;
     price: string;
-    img: File | null;
+    image: File | null;
     category: string;
     description: string;
 }
@@ -18,7 +19,7 @@ interface ProductFormValues {
 const initialValues: ProductFormValues = {
     name: "",
     price: "",
-    img: null,
+    image: null,
     category: "",
     description: "",
 };
@@ -28,26 +29,29 @@ const validationSchema = Yup.object({
     price: Yup.string().required("Required"),
     category: Yup.string().required("Required"),
     description: Yup.string().required("Required"),
-    image: Yup.mixed(),
+    image: Yup.mixed().required("Required"),
 });
 
 
 const NewProductForm: React.FC = () => {
     const auth = useAuth();
     const navigate = useNavigate();
-    const onSubmit = async (values: ProductFormValues) => {
-        try {
-            const formData = new FormData();
-            formData.append("product_name", values.name);
-            formData.append("price", values.price);
-            formData.append("category_id", values.category);
-            formData.append("description", values.description);
-            formData.append("photo", values.img as File);
 
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleSubmit = async (values: ProductFormValues) => {
+        const formData = new FormData();
+        formData.append("product_name", values.name);
+        formData.append("price", values.price);
+        formData.append("category_id", values.category);
+        formData.append("description", values.description);
+        formData.append("photo", values.image as File);
+console.log(values.image)
+        try {
             await axios.post("http://localhost:5000/produto", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
-
+            setSubmitted(true);
             navigate("/dashboard");
         } catch (error) {
             if (error) {
@@ -55,12 +59,18 @@ const NewProductForm: React.FC = () => {
             }
         }
     };
+    const [previewUrl, setPreviewUrl] = useState("");
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+
+    };
+
 
     return (
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={onSubmit}
+            onSubmit={handleSubmit}
         >
             {({ values, isSubmitting, setFieldValue }) => (
                 <Wrapper>
@@ -82,10 +92,19 @@ const NewProductForm: React.FC = () => {
 
                             <InputWrapper>
                                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path></svg>
-                                <Field 
-                                type="file" name="img" placeholder="Image"
-                                    onChange={(event: any) => {
-                                        setFieldValue("img", event.currentTarget.files?.[0] || null);
+                                <input
+                                    type="file" name="image" placeholder="Image"
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                        const file = event.currentTarget.files?.[0];
+                                        setFieldValue("image", event.currentTarget.files?.[0] || null);
+
+                                        if (file) {
+                                            const fileReader = new FileReader();
+                                            fileReader.onload = () => {
+                                                setPreviewUrl(fileReader.result as string);
+                                            };
+                                            fileReader.readAsDataURL(file);
+                                        }
                                     }}
                                 />
                             </InputWrapper>
@@ -108,6 +127,7 @@ const NewProductForm: React.FC = () => {
                             </Button>
                         </FormInputs>
                     </Form>
+                    {previewUrl && <ImagePreview src={previewUrl} alt="Preview" />}
                 </Wrapper>
             )}
         </Formik>

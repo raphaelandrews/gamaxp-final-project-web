@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 90%;
-    max-width: 1120px;
+    max-width: 1180px;
     margin: 0 auto;
 `;
 
@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 500;
     color: var(--first-color);
     width: 100vw;
+    max-width: 100%;
     height: 100vh;
     background: var(--bg-color);
   }
