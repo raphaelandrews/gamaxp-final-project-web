@@ -19,6 +19,17 @@ export const Button = styled.button`
     right: 1.5rem;
     border: none;
     background: none;
+
+    &:hover {
+      cursor: pointer;
+
+      svg {
+        path {
+          stroke: var(--third-color-alt);
+          transition: .5s;
+        }
+      }
+    }
 `
 
 export const Overlay = styled.div<{ isCanvasOpen: boolean }>`

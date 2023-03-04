@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ProductPreview = styled.div`
+    width: 100%;
     border-radius: .75rem;
     background-color: var(--bg-alt-color);
     box-shadow: 0 0 40px 0 rgb(94 92 154 / 6%);
@@ -46,6 +47,6 @@ export const ProductButton = styled.div`
     cursor: pointer;
 
     &:hover {
-        background-color: hsl(45, 100%, 45%);
+        background-color: var(--second-color-alt);
     }
 `

@@ -41,7 +41,6 @@ export default function ProductsCarousel({ children }: { children: JSX.Element }
         slides: { perView: 1 },
     })
 
-
     return (
         <C.Wrapper>
             {<C.Slider ref={sliderRef}>
