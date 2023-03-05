@@ -16,9 +16,9 @@ export const Wrapper = styled.div`
     align-items: center;
     width: 100vw;
     max-width: 100%;
-    height: calc(80vh - 4rem);
+    min-height: calc(80vh - 4rem);
     @media (min-width: 800px) {
-        height: calc(80vh - 5rem);
+        min-height: calc(80vh - 5rem);
     }
     form {
         display: flex;
@@ -34,27 +34,28 @@ export const Wrapper = styled.div`
 export const FormInputs = styled.section`
     display: grid;
     grid-auto-flow: row;
-    gap: .75rem;
+    gap: 1rem;
 
     a {
+        font-weight: 400;
         text-align: center;
-        color: hsl(234, 13%, 70%);
+        color: var(--alt-color);
         margin-top: .5rem;
         transition: .5s;
 
         span {
-            font-weight: 600;
+            font-weight: 700;
         }
 
         &:hover {
             text-decoration: underline;
-           
         }
     }
 `
 
 export const InputWrapper = styled.div`
     position: relative;
+
     svg {
         position: absolute;
         top: 50%;
@@ -99,6 +100,9 @@ export const InputWrapper = styled.div`
     }
 `
 
-export const Message = styled.div`
-    color: red;
+export const Message = styled.span`
+    display: block;
+    font-weight: 400;
+    color: var(--third-color);
+    margin-top: -.5em;
 `

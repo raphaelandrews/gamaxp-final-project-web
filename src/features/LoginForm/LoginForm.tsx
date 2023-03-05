@@ -74,6 +74,7 @@ export const LoginForm: React.FC = () => {
                                 <Field type="password" name="password" placeholder="Login" />
                             </C.InputWrapper>
                             <ErrorMessage name="password">{msg => <C.Message>{msg}</C.Message>}</ErrorMessage>
+
                             <Button
                                 type="submit"
                                 disabled={isSubmitting}
@@ -81,7 +82,7 @@ export const LoginForm: React.FC = () => {
                                 weight="700"
                                 textTransform="uppercase"
                                 height="3rem"
-                                marginTop="1.25rem"
+                                marginTop="1rem"
                                 borderRadius=".25rem"
                                 backgroundColor="var(--second-color)"
                                 hoverBg="var(--second-color-alt)"
