@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ProductPreview = styled.div`
+    width: 100%;
     border-radius: .75rem;
     background-color: var(--bg-alt-color);
     box-shadow: 0 0 40px 0 rgb(94 92 154 / 6%);
@@ -35,17 +36,20 @@ export const ProductPrice = styled.span`
 `
 
 export const ProductButton = styled.div`
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-    border-radius: .75rem;
-    padding: 1rem .75rem;
-    margin-top: 1em;
-    background-color: var(--second-color);
-    transition: .5s;
-    cursor: pointer;
+    a {
+        display: block;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+        border-radius: .75rem;
+        padding: 1rem .75rem;
+        margin-top: 1em;
+        background-color: var(--second-color);
+        transition: .5s;
+        cursor: pointer;
 
-    &:hover {
-        background-color: hsl(45, 100%, 45%);
+        &:hover {
+            background-color: var(--second-color-alt);
+        }
     }
 `

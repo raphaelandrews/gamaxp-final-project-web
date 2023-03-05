@@ -39,8 +39,7 @@ export const FormInputs = styled.section`
         }
 
         &:hover {
-            text-decoration: underline;
-           
+            text-decoration: underline;       
         }
     }
 `

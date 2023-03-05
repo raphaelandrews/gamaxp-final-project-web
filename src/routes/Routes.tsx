@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "../components/Header/Header";
-import { ProtectedLayout, ProtectedDashboard } from '../components/ProtectedLayout';
+import Header from "../features/Header/Header";
+import { ProtectedLayout, ProtectedDashboard } from '../features/ProtectedLayout';
 import Checkout from "../pages/Checkout/Checkout";
 import Home from "../pages/Home/Home";
 import Login from '../pages/Login/Login';
@@ -23,7 +23,7 @@ function RoutesApp() {
           </Route>
           <Route path='/products' element={<Products />}>
           </Route>
-          <Route path='/product' element={<Product />}>
+          <Route path='/product/:id' element={<Product />}>
           </Route>
           <Route path='/profile' element={<ProtectedLayout><h2>Olá</h2></ProtectedLayout>}>
           </Route>

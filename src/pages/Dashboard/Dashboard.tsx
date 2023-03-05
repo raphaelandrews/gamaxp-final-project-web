@@ -1,7 +1,7 @@
 import { useState } from "react";
-import OrdersTable from "../../components/OrdersTable/OrdersTable";
-import ProductsTable from "../../components/ProductsTable/ProductsTable";
-import UsersTable from "../../components/UsersTable/UsersTable";
+import ProductsTable from "../../features/ProductsTable/ProductsTable";
+import UsersTable from "../../features/UsersTable/UsersTable";
+import OrdersTable from "../../features/UsersTable/UsersTable";
 import * as G from "../../styles/GlobalStyles";
 import * as C from "./styles";
 

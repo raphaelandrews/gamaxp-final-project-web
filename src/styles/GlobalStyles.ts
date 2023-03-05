@@ -35,7 +35,9 @@ const GlobalStyles = createGlobalStyle`
     //===== Color =====//
     --first-color: ${({theme}) => theme.colors.white};
     --second-color: ${({theme}) => theme.colors.green};
+    --second-color-alt: ${({theme}) => theme.colors.greenAlt};
     --third-color: ${({theme}) => theme.colors.red};
+    --third-color-alt: ${({theme}) => theme.colors.redAlt};
     --fourth-color: ${({theme}) => theme.colors.grey};
     --alt-color: ${({theme}) => theme.colors.gray};
     --bg-alt-color: ${({theme}) => theme.colors.black};

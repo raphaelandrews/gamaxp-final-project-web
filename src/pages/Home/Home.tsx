@@ -1,9 +1,8 @@
 import * as G from "../../styles/GlobalStyles";
 import * as C from "./Home.styles";
-import ProductCarousel from "../../components/ProductsCarousel/ProductsCarousel";
-import { StoreProduct } from "../../components/StoreProduct/StoreProduct";
+import ProductCarousel from "../../features/ProductsCarousel/ProductsCarousel";
+import { StoreProduct } from "../../features/StoreProduct/StoreProduct";
 import StoreProducts from "../../data/items.json";
-import FileUpload from "../../components/FileUpload/FileUpload";
 
 
 const Home = () => {
@@ -11,7 +10,7 @@ const Home = () => {
   const terror = StoreProducts.filter((product) => product.category === 'Terror')
   const futurista = StoreProducts.filter((product) => product.category === 'Ficção')
   const ficcao = StoreProducts.filter((product) => product.category === 'Futurista')
-
+  
   return (
     <G.Container>
     
@@ -26,7 +25,7 @@ const Home = () => {
         </>
       </ProductCarousel>
 
-      <C.SectionTitle>Romance</C.SectionTitle>
+      <C.SectionTitle>Fiction</C.SectionTitle>
       <ProductCarousel>
         <>
           {ficcao.map((item, index) => (
@@ -37,7 +36,7 @@ const Home = () => {
         </>
       </ProductCarousel>
 
-      <C.SectionTitle>Romance</C.SectionTitle>
+      <C.SectionTitle>Horror</C.SectionTitle>
       <ProductCarousel>
         <>
           {terror.map((item, index) => (
@@ -48,7 +47,7 @@ const Home = () => {
         </>
       </ProductCarousel>
 
-      <C.SectionTitle>Romance</C.SectionTitle>
+      <C.SectionTitle>Futuristic</C.SectionTitle>
       <ProductCarousel>
         <>
           {futurista.map((item, index) => (
