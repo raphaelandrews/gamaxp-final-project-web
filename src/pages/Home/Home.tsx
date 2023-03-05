@@ -1,11 +1,12 @@
-import * as G from "../../styles/GlobalStyles";
+import { StoreProduct, ProductsCarousel } from "@/features";
+
+import { G } from "@/styles";
 import * as C from "./Home.styles";
-import ProductCarousel from "../../features/ProductsCarousel/ProductsCarousel";
-import { StoreProduct } from "../../features/StoreProduct/StoreProduct";
+
 import StoreProducts from "../../data/items.json";
 
 
-const Home = () => {
+export const Home = () => {
   const romance = StoreProducts.filter((product) => product.category === 'Romance')
   const terror = StoreProducts.filter((product) => product.category === 'Terror')
   const futurista = StoreProducts.filter((product) => product.category === 'Ficção')
@@ -15,7 +16,7 @@ const Home = () => {
     <G.Container>
     
       <C.SectionTitle>Romance</C.SectionTitle>
-      <ProductCarousel>
+      <ProductsCarousel>
         <>
           {romance.map((item, index) => (
             <div key={index + 1} className="keen-slider__slide">
@@ -23,10 +24,10 @@ const Home = () => {
             </div>
           ))}
         </>
-      </ProductCarousel>
+      </ProductsCarousel>
 
       <C.SectionTitle>Fiction</C.SectionTitle>
-      <ProductCarousel>
+      <ProductsCarousel>
         <>
           {ficcao.map((item, index) => (
             <div key={index + 1} className="keen-slider__slide">
@@ -34,10 +35,10 @@ const Home = () => {
             </div>
           ))}
         </>
-      </ProductCarousel>
+      </ProductsCarousel>
 
       <C.SectionTitle>Horror</C.SectionTitle>
-      <ProductCarousel>
+      <ProductsCarousel>
         <>
           {terror.map((item, index) => (
             <div key={index + 1} className="keen-slider__slide">
@@ -45,10 +46,10 @@ const Home = () => {
             </div>
           ))}
         </>
-      </ProductCarousel>
+      </ProductsCarousel>
 
       <C.SectionTitle>Futuristic</C.SectionTitle>
-      <ProductCarousel>
+      <ProductsCarousel>
         <>
           {futurista.map((item, index) => (
             <div key={index + 1} className="keen-slider__slide">
@@ -56,9 +57,7 @@ const Home = () => {
             </div>
           ))}
         </>
-      </ProductCarousel>
+      </ProductsCarousel>
     </G.Container>
   )
 }
-
-export default Home;

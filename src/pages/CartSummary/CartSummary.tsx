@@ -1,9 +1,9 @@
-import React from 'react'
-import { Cart } from '../../features/Cart/Cart'
-import * as G from "../../styles/GlobalStyles"
-import * as C from "./styles"
+import { Cart } from "@/features";
 
-const CartSummary = () => {
+import { G } from "@/styles";
+import * as C from "./CartSummary.styles";
+
+export const CartSummary = () => {
   return (
     <G.Container>
       <C.Title>Your Cart</C.Title>
@@ -11,5 +11,3 @@ const CartSummary = () => {
     </G.Container>
   )
 }
-
-export default CartSummary;

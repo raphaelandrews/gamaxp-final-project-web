@@ -1,13 +1,9 @@
 import React from "react";
-import LoginForm from "../../features/LoginForm/Form";
+import { LoginForm } from "@/features";
 
-const Form: React.FC = () => {
+export const Login = () => {
     return (
         <LoginForm/>
     );
 };
-
-export default Form;
-
-
 

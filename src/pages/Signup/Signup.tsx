@@ -1,11 +1,8 @@
-import React from "react";
-import SignupForm from "../../features/SignupForm/Form";
+import { SignupForm } from "@/features";
 
 
-const Signup: React.FC = () => {
+export const Signup = () => {
     return (
         <SignupForm />
     )
 };
-
-export default Signup;

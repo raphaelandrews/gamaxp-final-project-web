@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';
 import axios from 'axios';
 
@@ -61,7 +61,7 @@ const data: Person[] = [
     },
 ];
 
-const OrdersTable = () => {
+export const OrdersTable = () => {
     //Requisitar API
     const [data1, setData] = useState([]);
 
@@ -104,5 +104,3 @@ const OrdersTable = () => {
         </>
     )
 };
-
-export default OrdersTable;

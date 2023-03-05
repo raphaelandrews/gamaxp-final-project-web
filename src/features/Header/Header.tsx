@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
-import Modal from '../../features/Modal/Modal';
-import useModal from '../../features/Modal/useModal';
 import { NavLink, Link } from 'react-router-dom';
-import * as G from "../../styles/GlobalStyles";
+import { useNavigate } from "react-router-dom";
+
+import { Modal, useModal, OffCanvas, Cart } from "@/features";
+import { useAuth, useCart, getUserLocalStorage } from "@/context";
+
+import { G } from "@/styles";
 import * as C from "./Header.styles";
 
-import { useAuth } from '../../context/AuthContext/useAuth';
-import { useNavigate } from "react-router-dom";
-import { ShoppingCart, User } from 'iconsax-react';
-import { useCart } from "../../context/CartContext"
-import OffCanvas from '../OffCanvas/OffCanvas';
-import { Cart } from "../Cart/Cart"
-import { getUserLocalStorage } from '../../context/AuthContext/util';
+import { User } from 'iconsax-react';
 
 interface Props {
   title: string;
 }
 
-const Header: React.FC<Props> = ({ title }) => {
+export const Header: React.FC<Props> = ({ title }) => {
   const { isOpen, toggle } = useModal();
   const { cartQuantity } = useCart()
   const user = getUserLocalStorage();
@@ -221,6 +218,3 @@ const Header: React.FC<Props> = ({ title }) => {
     </C.HeaderWrapper>
   );
 };
-
-export default Header;
-

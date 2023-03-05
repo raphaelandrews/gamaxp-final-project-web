@@ -7,7 +7,7 @@ export const Container = styled.div`
     margin: 0 auto;
 `;
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   *,
   *::before,
   *::after {
@@ -47,5 +47,3 @@ const GlobalStyles = createGlobalStyle`
     --first-font: ${({theme}) => theme.fonts.roboto}
   }
 `;
-
-export default GlobalStyles;

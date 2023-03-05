@@ -7,7 +7,7 @@ interface OffCanvasProps {
   children: JSX.Element
 }
 
-const OffCanvas: React.FC<OffCanvasProps> = ({ isCanvasOpen, onClose, children }) => {
+export const OffCanvas: React.FC<OffCanvasProps> = ({ isCanvasOpen, onClose, children }) => {
   return (
     <>
       <C.OffCanvasContainer isCanvasOpen={isCanvasOpen}>
@@ -31,5 +31,3 @@ const OffCanvas: React.FC<OffCanvasProps> = ({ isCanvasOpen, onClose, children }
     </>
   );
 };
-
-export default OffCanvas;

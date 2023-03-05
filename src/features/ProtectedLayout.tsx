@@ -1,7 +1,7 @@
-import React, { Children, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext/useAuth"
-import { getUserLocalStorage } from "../context/AuthContext/util";
+
+import { useAuth, getUserLocalStorage } from "@/context";
 
 export const ProtectedLayout = ({ children }: { children: JSX.Element }) => {
     const auth = useAuth()

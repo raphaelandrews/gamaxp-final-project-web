@@ -1,9 +1,7 @@
 import React from 'react'
 
-const NewAdminForm = () => {
+export const NewAdminForm = () => {
   return (
     <div>NewAdminForm</div>
   )
 }
-
-export default NewAdminForm;

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { formatCurrency } from "../../util/formatCurrency";
+
+import { formatCurrency } from "@/util";
+
 import * as C from "./StoreProduct.styles";
 
 type StoreProductProps = {
@@ -11,7 +13,7 @@ type StoreProductProps = {
   category: string;
 }
 
-export function StoreProduct({ id, name, description, price, imgUrl }: StoreProductProps) {
+export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
   return (
     <C.ProductPreview>
       <C.ProductImage

@@ -1,15 +1,15 @@
-import * as G from "../../styles/GlobalStyles";
-import Product from "../../features/Product/Product";
 import { useParams } from "react-router";
-import axios from "axios";
-import { useState } from "react";
 
-const ProductItem = () => {
+import { ProductItem } from "@/features";
+
+import  { G } from "@/styles";
+
+export const Product = () => {
     const id = useParams();
 
     return (
         <G.Container>
-            <Product
+            <ProductItem
                 title="Game of Thrones"
                 price={30}
                 description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex perferendis eligendi assumenda nobis quos debitis distinctio, maxime incidunt dolores fugiat nemo consequuntur iusto non quisquam perspiciatis pariatur repellat esse eius."
@@ -18,5 +18,3 @@ const ProductItem = () => {
         </G.Container>
     )
 }
-
-export default ProductItem;
