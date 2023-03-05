@@ -21,7 +21,7 @@ export function StoreProduct({ id, name, description, price, imgUrl }: StoreProd
         <C.ProductTitle>{name}</C.ProductTitle>
         <C.ProductPrice>{formatCurrency(price)}</C.ProductPrice>
         <C.ProductButton>
-          <Link to="/products">
+          <Link to={`/product/${id}`}>
           Comprar
           </Link>
         </C.ProductButton>

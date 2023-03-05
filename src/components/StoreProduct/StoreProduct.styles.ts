@@ -36,17 +36,20 @@ export const ProductPrice = styled.span`
 `
 
 export const ProductButton = styled.div`
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-    border-radius: .75rem;
-    padding: 1rem .75rem;
-    margin-top: 1em;
-    background-color: var(--second-color);
-    transition: .5s;
-    cursor: pointer;
+    a {
+        display: block;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+        border-radius: .75rem;
+        padding: 1rem .75rem;
+        margin-top: 1em;
+        background-color: var(--second-color);
+        transition: .5s;
+        cursor: pointer;
 
-    &:hover {
-        background-color: var(--second-color-alt);
+        &:hover {
+            background-color: var(--second-color-alt);
+        }
     }
 `

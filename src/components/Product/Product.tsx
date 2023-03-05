@@ -1,4 +1,4 @@
-import * as C from "./styles";
+import * as C from "./Product.styles";
 import { formatCurrency } from "../../util/formatCurrency";
 
 import img from "../../assets/img/game-of-thrones.jpg";
@@ -8,7 +8,7 @@ interface ProductProps {
     title: string;
     description: string;
     price: number;
-    id: number
+    id: number;
     /* name: string
      imgUrl: string*/
 }

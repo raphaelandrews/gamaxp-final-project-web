@@ -23,7 +23,7 @@ function RoutesApp() {
           </Route>
           <Route path='/products' element={<Products />}>
           </Route>
-          <Route path='/product' element={<Product />}>
+          <Route path='/product/:id' element={<Product />}>
           </Route>
           <Route path='/profile' element={<ProtectedLayout><h2>Olá</h2></ProtectedLayout>}>
           </Route>

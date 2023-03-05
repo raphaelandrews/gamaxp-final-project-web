@@ -69,7 +69,6 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
   }, [selectedCategory]);
 
   const StoreProducts = filteredProducts.slice(start, end);
-  //const StoreProducts = products.slice(start, end);
 
   const pageButtons = [];
 
