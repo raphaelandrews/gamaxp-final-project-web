@@ -60,21 +60,43 @@ export const ProductDescription = styled.p`
     margin-top: 1em;
 `
 
-export const ProductButton = styled.button`
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--fisrt-color);
-        width: 100%;
-        border-radius: .75rem;
-        padding: 1rem .75rem;
-        margin-top: 2em;
-        border: none;
-        background-color: var(--second-color);
-        transition: .5s;
-        cursor: pointer;
+interface ButtonProps {
+    backgroundColor?: string
+    marginTop?: string;
+    width?:string;
+    padding?: string;
+    hoverBg?: string
+}
 
-        &:hover {
-            background-color: var(--second-color-alt);
-        }
+export const ProductButton = styled.button<ButtonProps>`
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--first-color);
+    width: ${(props) => props.width};
+    border-radius: .75rem;
+    padding: ${(props) => props.padding};
+    margin-top: ${(props) => props.marginTop};
+    border: none;
+    background-color: ${(props) => props.backgroundColor};
+    transition: .5s;
+    cursor: pointer;
 
+    &:hover {
+        background-color:  ${(props) => props.hoverBg};
+    }
+`
+
+export const ProductButtons = styled.div`
+    display: flex;
+    gap: 1rem;
+    margin-top: 2em;
+`
+
+export const QuantityButtons = styled.div`
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem 1.25rem;
+    border-radius: .75rem;
+    background-color: var(--bg-alt-color);
 `

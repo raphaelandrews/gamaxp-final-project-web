@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StoreProduct } from '../StoreProduct/StoreProduct';
+import { StoreProduct } from '../../features/StoreProduct/StoreProduct';
 import * as C from "./ProductGallery.styles"
 
 interface Product {

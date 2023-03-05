@@ -1,5 +1,5 @@
 import * as G from "../../styles/GlobalStyles";
-import Product from "../../components/Product/Product";
+import Product from "../../features/Product/Product";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useState } from "react";

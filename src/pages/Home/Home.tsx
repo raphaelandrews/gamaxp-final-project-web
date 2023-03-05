@@ -1,7 +1,7 @@
 import * as G from "../../styles/GlobalStyles";
 import * as C from "./Home.styles";
-import ProductCarousel from "../../components/ProductsCarousel/ProductsCarousel";
-import { StoreProduct } from "../../components/StoreProduct/StoreProduct";
+import ProductCarousel from "../../features/ProductsCarousel/ProductsCarousel";
+import { StoreProduct } from "../../features/StoreProduct/StoreProduct";
 import StoreProducts from "../../data/items.json";
 
 

@@ -39,24 +39,33 @@ const Product = (props: ProductProps) => {
                     {props.description}
                 </C.ProductDescription>
                 {quantity === 0 ? (
-                    <C.ProductButton onClick={() => increaseCartQuantity(props.id)}>
+                    <C.ProductButton
+                        onClick={() => increaseCartQuantity(props.id)}
+                        backgroundColor="var(--second-color)"
+                        marginTop="2rem"
+                        width="100%"
+                        padding="1rem .75rem"
+                        hoverBg="var(--second-color-alt)"
+                    >
                         Add to Cart
                     </C.ProductButton>
                 ) : (
-                    <div>
-                        <div>
-                            <button onClick={() => decreaseCartQuantity(props.id)}>-</button>
+                    <C.ProductButtons>
+                        <C.QuantityButtons>
+                            <C.ProductButton onClick={() => increaseCartQuantity(props.id)} backgroundColor="transparent" padding=".5rem">+</C.ProductButton>
                             <div>
                                 <span>{quantity}</span> in cart
                             </div>
-                            <button onClick={() => increaseCartQuantity(props.id)}>+</button>
-                        </div>
-                        <button
+                            <C.ProductButton onClick={() => decreaseCartQuantity(props.id)} backgroundColor="transparent" padding=".5rem">-</C.ProductButton>
+                        </C.QuantityButtons>
+                        <C.ProductButton
                             onClick={() => removeFromCart(props.id)}
+                            backgroundColor="var(--third-color)"
+                            padding="1rem 1.5rem"
                         >
                             Remove
-                        </button>
-                    </div>
+                        </C.ProductButton>
+                    </C.ProductButtons>
                 )}
             </C.ProductContent>
         </C.ProductContainer>

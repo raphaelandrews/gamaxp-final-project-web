@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Modal from '../../components/Modal/Modal';
-import useModal from '../../components/Modal/useModal';
+import Modal from '../../features/Modal/Modal';
+import useModal from '../../features/Modal/useModal';
 import { NavLink, Link } from 'react-router-dom';
 import * as G from "../../styles/GlobalStyles";
 import * as C from "./Header.styles";

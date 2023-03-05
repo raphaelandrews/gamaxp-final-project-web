@@ -1,5 +1,5 @@
 import React from 'react'
-import NewAdminForm from '../../components/NewAdminForm/NewAdminForm'
+import NewAdminForm from '../../features/NewAdminForm/NewAdminForm'
 
 const CreateAdmin = () => {
     return (

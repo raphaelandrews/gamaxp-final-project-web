@@ -1,5 +1,5 @@
 import React from 'react'
-import { Cart } from '../../components/Cart/Cart'
+import { Cart } from '../../features/Cart/Cart'
 import * as G from "../../styles/GlobalStyles"
 import * as C from "./styles"
 

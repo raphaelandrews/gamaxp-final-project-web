@@ -1,4 +1,4 @@
-import ProductGallery from '../../components/ProductGallery/ProductGallery';
+import ProductGallery from '../../features/ProductGallery/ProductGallery';
 import StoreProducts from "../../data/items.json";
 import * as G from "../../styles/GlobalStyles";
 import * as C from "./Products.styles";
