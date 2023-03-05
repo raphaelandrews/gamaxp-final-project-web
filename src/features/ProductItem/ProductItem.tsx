@@ -1,8 +1,10 @@
-import * as C from "./Product.styles";
-import { formatCurrency } from "../../util/formatCurrency";
-import Button from "../../components/Button/Button"
+import { formatCurrency } from "@/util";
+import { useCart } from "@/context";
+import { Button } from "@/components";
+
+import * as C from "./ProductItem.styles";
+
 import img from "../../assets/img/game-of-thrones.jpg";
-import { useCart } from "../../context/CartContext";
 
 interface ProductProps {
     title: string;
@@ -13,8 +15,7 @@ interface ProductProps {
      imgUrl: string*/
 }
 
-
-const Product = (props: ProductProps) => {
+export const ProductItem = (props: ProductProps) => {
     const {
         getItemQuantity,
         increaseCartQuantity,
@@ -70,5 +71,3 @@ const Product = (props: ProductProps) => {
         </C.ProductContainer>
     )
 }
-
-export default Product;

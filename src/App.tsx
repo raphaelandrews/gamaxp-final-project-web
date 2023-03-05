@@ -1,9 +1,8 @@
-import { AuthProvider } from "./context/AuthContext/AuthProvider";
-import { CartProvider } from "./context/CartContext";
-import { ThemeProvider } from "./features/ThemeProvider";
-import GlobalStyle from "./styles/GlobalStyles";
-import { theme } from "./styles/theme";
 import RoutesApp from "./routes/Routes";
+import { AuthProvider, CartProvider } from "@/context";
+import { ThemeProvider } from "@/features";
+
+import { GlobalStyles, theme } from "@/styles";
 
 function App() {
 
@@ -11,7 +10,7 @@ function App() {
     <AuthProvider>
       <CartProvider>
         <ThemeProvider theme={theme}>
-          <GlobalStyle />
+          <GlobalStyles />
           <RoutesApp />
         </ThemeProvider>
       </CartProvider>

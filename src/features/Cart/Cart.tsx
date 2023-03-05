@@ -1,9 +1,9 @@
-import { useCart } from "../../context/CartContext"
-import { formatCurrency } from "../../util/formatCurrency"
-import { CartProduct } from "../CartProduct/CartProduct"
-import StoreProducts from "../../data/items.json"
+import { useCart } from "@/context";
+import { formatCurrency } from "@/util";
+import { CartProduct } from "@/features";
 
-import * as C from "./styles"
+import * as C from "./styles";
+import StoreProducts from "../../data/items.json";
 
 type CartProps = {
   isOpen: boolean

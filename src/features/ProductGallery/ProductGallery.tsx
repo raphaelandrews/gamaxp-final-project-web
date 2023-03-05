@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { StoreProduct } from '../../features/StoreProduct/StoreProduct';
+import { StoreProduct } from "@/features";
+
 import * as C from "./ProductGallery.styles"
 
 interface Product {
@@ -16,7 +17,7 @@ interface Props {
   productsPerPage: number;
 }
 
-const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
+export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -200,5 +201,3 @@ const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
 
   );
 };
-
-export default ProductGallery;

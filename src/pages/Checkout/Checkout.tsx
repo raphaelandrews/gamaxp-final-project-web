@@ -1,10 +1,11 @@
-import * as G from "../../styles/GlobalStyles";
-import * as C from "./styles";
-import MultiStepForm from '../../features/MultistepForm/MultistepForm';
-import { useCart } from '../../context/CartContext';
-import { CartProduct } from "../../features/CartProduct/CartProduct";
+import { useCart } from "@/context";
+import { CartProduct } from "@/features";
+import { MultiStepForm } from "@/features";
 
-const Checkout = () => {
+import  { G } from "@/styles";
+import * as C from "./Checkout.styles";
+
+export const Checkout = () => {
   const { CartProducts } = useCart();
   return (
     <G.Container>
@@ -18,5 +19,3 @@ const Checkout = () => {
     </G.Container>
   )
 }
-
-export default Checkout;

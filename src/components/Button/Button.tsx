@@ -10,7 +10,7 @@ interface ButtonProps {
     action?: () => void;
 }
 
-export default function Button(props: ButtonProps) {
+export function Button(props: ButtonProps) {
     return (
         <ButtonDefault
             backgroundColor={props.backgroundColor}

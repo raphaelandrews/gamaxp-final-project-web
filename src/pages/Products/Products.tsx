@@ -1,9 +1,11 @@
-import ProductGallery from '../../features/ProductGallery/ProductGallery';
-import StoreProducts from "../../data/items.json";
-import * as G from "../../styles/GlobalStyles";
+import { ProductGallery } from "@/features";
+
+import { G } from "@/styles";
 import * as C from "./Products.styles";
 
-const Products = () => {
+import StoreProducts from "../../data/items.json";
+
+export const Products = () => {
   return (
     <G.Container>
       <C.Title>Livros</C.Title>
@@ -11,5 +13,3 @@ const Products = () => {
     </G.Container>
   )
 }
-
-export default Products;

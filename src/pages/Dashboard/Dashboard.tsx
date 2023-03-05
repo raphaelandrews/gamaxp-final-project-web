@@ -1,11 +1,10 @@
 import { useState } from "react";
-import ProductsTable from "../../features/ProductsTable/ProductsTable";
-import UsersTable from "../../features/UsersTable/UsersTable";
-import OrdersTable from "../../features/UsersTable/UsersTable";
-import * as G from "../../styles/GlobalStyles";
-import * as C from "./styles";
+import { ProductsTable, UsersTable, OrdersTable } from "@/features";
 
-const Dashboard = () => {
+import { G } from "@/styles";
+import * as C from "./Dashboard.styles";
+
+export const Dashboard = () => {
     const [isDashboard, setIsDashboard] = useState(<ProductsTable />);
 
     return (
@@ -22,5 +21,3 @@ const Dashboard = () => {
         </G.Container>
     )
 }
-
-export default Dashboard

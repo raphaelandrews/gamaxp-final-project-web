@@ -46,7 +46,7 @@ const initialValues: FormData = {
 
 
 
-const MultiStepForm = () => {
+export const MultiStepForm = () => {
     const [step, setStep] = useState(1);
 
     const handleNextStep = () => {
@@ -196,5 +196,3 @@ const MultiStepForm = () => {
         </>
     )
 }
-
-export default MultiStepForm;

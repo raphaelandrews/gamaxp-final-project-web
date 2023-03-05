@@ -1,7 +1,8 @@
-import { useCart } from "../../context/CartContext"
-import StoreProducts from "../../data/items.json"
-import { formatCurrency } from "../../util/formatCurrency"
+import { useCart } from "@/context";
+import { formatCurrency } from "@/util";
+
 import * as C from "./styles";
+import StoreProducts from "../../data/items.json";
 
 type CartProductProps = {
   id: number

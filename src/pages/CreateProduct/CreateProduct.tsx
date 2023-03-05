@@ -1,10 +1,8 @@
 import React from 'react'
-import NewProductForm from '../../features/NewProductForm/NewProductForm'
+import { NewProductForm } from "@/features"
 
-const CreateProduct = () => {
+export const CreateProduct = () => {
   return (
     <NewProductForm />
   )
 }
-
-export default CreateProduct;

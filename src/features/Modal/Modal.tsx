@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import * as C from "./Modal.styles"
 
 interface ModalType {
@@ -7,7 +7,7 @@ interface ModalType {
     toggle: () => void;
 }
 
-export default function Modal(props: ModalType) {
+export function Modal(props: ModalType) {
     return (
         <>
             {props.isOpen && (

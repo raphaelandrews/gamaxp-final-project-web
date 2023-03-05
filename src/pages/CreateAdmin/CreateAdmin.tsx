@@ -1,10 +1,7 @@
-import React from 'react'
-import NewAdminForm from '../../features/NewAdminForm/NewAdminForm'
+import { NewAdminForm } from "@/features";
 
-const CreateAdmin = () => {
+export const CreateAdmin = () => {
     return (
         <NewAdminForm />
     )
 }
-
-export default CreateAdmin;
