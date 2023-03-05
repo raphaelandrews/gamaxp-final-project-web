@@ -1,6 +1,6 @@
 import * as C from "./Product.styles";
 import { formatCurrency } from "../../util/formatCurrency";
-
+import Button from "../../components/Button/Button"
 import img from "../../assets/img/game-of-thrones.jpg";
 import { useCart } from "../../context/CartContext";
 
@@ -39,32 +39,31 @@ const Product = (props: ProductProps) => {
                     {props.description}
                 </C.ProductDescription>
                 {quantity === 0 ? (
-                    <C.ProductButton
-                        onClick={() => increaseCartQuantity(props.id)}
+                    <Button
+                        action={() => increaseCartQuantity(props.id)}
                         backgroundColor="var(--second-color)"
                         marginTop="2rem"
                         width="100%"
                         padding="1rem .75rem"
                         hoverBg="var(--second-color-alt)"
-                    >
-                        Add to Cart
-                    </C.ProductButton>
+                        text="Add to cart"
+                    />
+
                 ) : (
                     <C.ProductButtons>
                         <C.QuantityButtons>
-                            <C.ProductButton onClick={() => increaseCartQuantity(props.id)} backgroundColor="transparent" padding=".5rem">+</C.ProductButton>
+                            <Button action={() => increaseCartQuantity(props.id)} backgroundColor="transparent" padding=".5rem" text="+" />
                             <div>
                                 <span>{quantity}</span> in cart
                             </div>
                             <C.ProductButton onClick={() => decreaseCartQuantity(props.id)} backgroundColor="transparent" padding=".5rem">-</C.ProductButton>
                         </C.QuantityButtons>
-                        <C.ProductButton
-                            onClick={() => removeFromCart(props.id)}
+                        <Button
+                            action={() => removeFromCart(props.id)}
                             backgroundColor="var(--third-color)"
                             padding="1rem 1.5rem"
-                        >
-                            Remove
-                        </C.ProductButton>
+                            text="Remove"
+                        />
                     </C.ProductButtons>
                 )}
             </C.ProductContent>
