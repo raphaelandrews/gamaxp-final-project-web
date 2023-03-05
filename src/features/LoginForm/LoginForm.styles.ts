@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Title = styled.h1`
     font-size: 2rem;
     font-weight: 700;
+    margin-bottom: 1em;
+    @media (min-width: 800px) {
+        font-size: 2.5rem;
+    }
 `;
 
 export const Wrapper = styled.div`
@@ -11,95 +15,94 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: calc(100vh - 4rem);
+    max-width: 100%;
+    min-height: calc(80vh - 4rem);
     @media (min-width: 800px) {
-        height: calc(100vh - 5rem);
+        min-height: calc(80vh - 5rem);
     }
     form {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        max-width: 480px;
-        border-radius: .25rem;
+        width: 480px;
+        max-width: 80%;
         padding: 4rem;
+        background-color: var(--bg-alt-color);
+        border-radius: .25rem;
     }
 `;
 
 export const FormInputs = styled.section`
     display: grid;
     grid-auto-flow: row;
-    gap: .75rem;
-    margin-bottom: 1.25rem;
+    gap: 1rem;
+
     a {
+        font-weight: 400;
         text-align: center;
-        color: hsl(234, 13%, 70%);
+        color: var(--alt-color);
+        margin-top: .5rem;
         transition: .5s;
+
         span {
-            font-weight: 600;
+            font-weight: 700;
         }
 
         &:hover {
             text-decoration: underline;
-           
         }
     }
 `
 
 export const InputWrapper = styled.div`
     position: relative;
+
     svg {
         position: absolute;
         top: 50%;
         left: 1rem;
-        transform: translateY(-50%);
         font-size: .875rem;
+        transform: translateY(-50%);
+        fill: var(--bg-alt-color);
     }
+
     input{
+        font-size: 1rem;
+        color: var(--bg-color);
         width: 100%;
         height: 3rem;
         padding: 0px 1em 0px 2.65em;
-        background-color: hsl(0, 0%, 80%);
-        border: 2px solid;
-        border-color: hsl(0, 0%, 80%);
+        border: 1px solid var(--bg-color);
+        border-color: var(--bg-color);
         border-radius: .25rem;
-        font-size: 1rem;
+        background-color: var(--alt-color);
         cursor: pointer;
 
+        ::-webkit-input-placeholder {
+            font-size: inherit;
+            color: inherit;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            opacity: 0.4;
+        }
 
-    ::-webkit-input-placeholder {
-        opacity: 0.4;
-        font-size: inherit;
-        color: inherit;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-    }
+        &:hover {
+            border: 1px solid var(--second-color);
+        }
 
-    &:hover {
-        border: 1px solid #a3afc4;
-    }
+        &:focus {
+            border: 1px solid var(--second-color);
+            background-color: var(--first-color);
+        }
 
-    &:focus {
-        border: 1px solid #d8dde6;
-        background-color: rgba(246, 246, 246, 0.2);
-    }
-
-    :focus::-webkit-input-placeholder {
-        opacity: 0;
-        transform: translateX(10px);
-    }
+        :focus::-webkit-input-placeholder {
+            opacity: 0;
+            transform: translateX(10px);
+        }
     }
 `
 
-export const Message = styled.div`
-    color: red;
-`
-
-export const Button = styled.button`
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    height: 3rem;
-    border: 0px;
-    border-radius: .25rem;
-    background: #FFC107;
-    cursor: pointer;
+export const Message = styled.span`
+    display: block;
+    font-weight: 400;
+    color: var(--third-color);
+    margin-top: -.5em;
 `

@@ -1,8 +1,10 @@
 import { SignupForm } from "@/features";
-
+import { G } from "@/styles";
 
 export const Signup = () => {
     return (
-        <SignupForm />
+        <G.Container>
+            <SignupForm />
+        </G.Container>
     )
 };

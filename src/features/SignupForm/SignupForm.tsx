@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "@/context";
+import { Button } from "@/components";
 
 import * as C from "./SignupForm.styles";
 
@@ -71,9 +72,18 @@ export const SignupForm: React.FC = () => {
                                 <Field type="password" name="password" placeholder="Login" />
                             </C.InputWrapper>
                             <ErrorMessage name="password">{msg => <C.Message>{msg}</C.Message>}</ErrorMessage>
-                            <C.Button type="submit" disabled={isSubmitting}>
-                                Login
-                            </C.Button>
+                            <Button
+                                type="submit"
+                                disabled={isSubmitting}
+                                text="Register"
+                                weight="700"
+                                textTransform="uppercase"
+                                height="3rem"
+                                marginTop="1rem"
+                                borderRadius=".25rem"
+                                backgroundColor="var(--second-color)"
+                                hoverBg="var(--second-color-alt)"
+                            />
                             <Link to="/login">
                                 Already have an account? <span>Login</span></Link>
                         </C.FormInputs>

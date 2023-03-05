@@ -1,9 +1,12 @@
-import React from "react";
 import { LoginForm } from "@/features";
+
+import { G } from "@/styles";
 
 export const Login = () => {
     return (
-        <LoginForm/>
+        <G.Container>
+            <LoginForm />
+        </G.Container>
     );
 };
 
