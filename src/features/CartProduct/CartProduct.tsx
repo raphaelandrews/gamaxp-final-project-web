@@ -2,12 +2,14 @@ import { useCart } from "@/context";
 import { formatCurrency } from "@/util";
 
 import * as C from "./styles";
+import { Button } from "@/components";
 import StoreProducts from "../../data/items.json";
 
 type CartProductProps = {
   id: number
   quantity: number
 }
+
 
 export function CartProduct({ id, quantity }: CartProductProps) {
   const { removeFromCart } = useCart()
@@ -38,12 +40,16 @@ export function CartProduct({ id, quantity }: CartProductProps) {
       </C.ProductContent>
       <C.ProductTotal>
         <C.ProductPrice size="1.25rem"> {formatCurrency(item.price * quantity)}</C.ProductPrice>
-        <button
-          onClick={() => removeFromCart(item.id)}
-        >
-          &times;
-        </button>
+        <Button
+          action={() => removeFromCart(item.id)}
+          display="flex"
+          size=".75rem"
+          padding=".5rem 1rem"
+          backgroundColor="var(--third-color)"
+          hoverBg="var(--third-color-alt)"
+          text="Remover"
+        />
       </C.ProductTotal>
-    </C.CartProductWrapper>
+    </C.CartProductWrapper >
   )
 }

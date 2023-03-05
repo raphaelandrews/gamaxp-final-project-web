@@ -5,10 +5,9 @@ export const CartProductWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem;
-    border: 1px solid;
-    border-radius: 1rem;
+
     @media (min-width: 400px) {
        flex-direction: row;
        align-items: center;
@@ -16,7 +15,8 @@ export const CartProductWrapper = styled.div`
 `
 
 export const CartProductImg = styled.img`
-    width: 4rem;
+    min-width: 4rem;
+    max-width: 4rem;
     height: 4rem;
     border-radius: .75rem;
     object-fit: cover;

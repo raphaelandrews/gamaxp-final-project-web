@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
     @media (min-width: 800px) {
         min-height: calc(80vh - 5rem);
     }
+    
     form {
         display: flex;
         flex-direction: column;
