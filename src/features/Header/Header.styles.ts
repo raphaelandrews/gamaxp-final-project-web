@@ -146,6 +146,10 @@ export const Wrapper = styled.div`
   gap: 2rem;
 `
 
+export const CartTitle = styled.span`
+  font-size: 1.5rem;
+`
+
 export const CartWrapper = styled.div`
     display: flex;
 `
@@ -173,9 +177,27 @@ export const CartIcon = styled.button`
 `
 
 export const OffCanvasWrapper = styled.div`
-  height: calc(100% - 3rem);
-  margin: 3rem 0;
-  overflow: auto;
+  height: 100%;
+  margin-top: 3rem;
+
+  a {
+    display: block;
+    text-align: center;
+    padding: .75rem 0;
+    border-radius: .75rem;
+    background-color: var(--second-color);
+    transition: .5s;
+
+    &:hover {
+      background-color: var(--second-color-alt);
+    }
+  }
+`
+
+export const OffCanvasContent = styled.div`
+  height: calc(100% - 8rem);
+  margin: 1rem 0;
+  overflow: hidden auto;
 
   ::-webkit-scrollbar {
     width: .2rem;

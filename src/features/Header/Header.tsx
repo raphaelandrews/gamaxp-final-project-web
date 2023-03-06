@@ -139,20 +139,27 @@ export const Header: React.FC<Props> = ({ title }) => {
                     strokeLinejoin="round">
                   </path>
                 </svg>
+
                 <C.CartQuantity>
                   {cartQuantity}
                 </C.CartQuantity>
               </C.CartIcon>
               <OffCanvas isCanvasOpen={isCanvasOpen} onClose={handleClose}>
-                <C.OffCanvasWrapper>
-                  {CartProducts.map(item => (
-                    <CartProduct
-                    key={item.id}
-                    {...item}
-                    flexDirection="column"
-                    />
-                  ))}
-                </C.OffCanvasWrapper>
+                <>
+                  <C.CartTitle>Cart</C.CartTitle>
+                  <C.OffCanvasWrapper>
+                    <Link to="/summary">Go to Cart Summary</Link>
+                    <C.OffCanvasContent>
+                      {CartProducts.map(item => (
+                        <CartProduct
+                          key={item.id}
+                          {...item}
+                          flexDirection="column"
+                        />
+                      ))}
+                    </C.OffCanvasContent>
+                  </C.OffCanvasWrapper>
+                </>
               </OffCanvas>
             </C.CartWrapper>
 
