@@ -5,16 +5,15 @@ import * as C from "./Home.styles";
 
 import StoreProducts from "../../data/items.json";
 
-
 export const Home = () => {
   const romance = StoreProducts.filter((product) => product.category === 'Romance')
   const terror = StoreProducts.filter((product) => product.category === 'Terror')
   const futurista = StoreProducts.filter((product) => product.category === 'Ficção')
   const ficcao = StoreProducts.filter((product) => product.category === 'Futurista')
-  
+
   return (
     <G.Container>
-    
+    <C.Banner>Banner</C.Banner>
       <C.SectionTitle>Romance</C.SectionTitle>
       <ProductsCarousel>
         <>
