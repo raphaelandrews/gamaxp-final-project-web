@@ -38,28 +38,40 @@ export const ProductsTable = () => {
                 accessorKey: 'name',
                 header: 'Name',
                 Cell: ({ row }) => (
-                    <C.CellWrapper>
-                        <img src={row?.original?.imgUrl} />
-                        {row?.original?.name}
-                    </C.CellWrapper>
+                    <Link to={`/product/${row?.original?.id}`}>
+                        <C.CellWrapper>
+                            <img src={row?.original?.imgUrl} />
+                            {row?.original?.name}
+                        </C.CellWrapper>
+                    </Link>
                 ),
             },
             {
                 accessorKey: 'price',
                 header: 'Price',
                 Cell: ({ row }) => (
-                    <>
+                    <Link to={`/product/${row?.original?.id}`}>
                         ${" "}{row?.original?.price}
-                    </>
+                    </Link>
                 ),
             },
             {
                 accessorKey: 'category',
                 header: 'Category',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.id}`}>
+                        {row?.original?.category}
+                    </Link>
+                ),
             },
             {
                 accessorKey: 'id',
                 header: 'ID',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.id}`}>
+                        {row?.original?.id}
+                    </Link>
+                ),
             },
         ],
         [],
@@ -68,7 +80,9 @@ export const ProductsTable = () => {
 
     return (
         <C.TableWrapper>
-            <Link to="/createProduct">Add new product</Link>
+            <C.LinkWrapper>
+                <Link to="/createProduct">Add new product</Link>
+            </C.LinkWrapper>
             <MaterialReactTable
                 columns={columns}
                 data={data}
