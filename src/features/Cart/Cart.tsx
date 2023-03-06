@@ -1,13 +1,11 @@
+import { Link } from "react-router-dom";
 import { useCart } from "@/context";
 import { formatCurrency } from "@/util";
 import { CartProduct } from "@/features";
 
 import * as C from "./styles";
+import { ButtonDefault } from "@/components";
 import StoreProducts from "../../data/items.json";
-
-type CartProps = {
-  isOpen: boolean
-}
 
 export function Cart() {
   const { CartProducts } = useCart();
@@ -35,7 +33,7 @@ export function Cart() {
 
         <C.CartSubtotal border="1px solid" padding="1rem">
           <C.CartSpan>Shipping</C.CartSpan>
-          <C.CartSpan>
+          <C.CartSpan textAlign="right">
             Calculated at the next step
           </C.CartSpan>
         </C.CartSubtotal>
@@ -50,10 +48,17 @@ export function Cart() {
             )}
           </C.CartSpan>
         </C.CartSubtotal>
+
+        <ButtonDefault
+          width="100%"
+          marginTop="1.25rem"
+          backgroundColor="var(--second-color)"
+          hoverBg="var(--second-color-alt)"
+        >
+          <Link to="/checkout">Continue to checkout</Link>
+        </ButtonDefault>
       </C.CartTotal>
-      <C.CartButton>
-        Continue to checkout
-      </C.CartButton>
+
     </C.CartWrapper>
   )
 }

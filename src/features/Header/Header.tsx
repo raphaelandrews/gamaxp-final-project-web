@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-import { Modal, useModal, OffCanvas, Cart } from "@/features";
+import { Modal, useModal, OffCanvas, Cart, CartProduct } from "@/features";
 import { useAuth, useCart, getUserLocalStorage } from "@/context";
 
 import { G } from "@/styles";
@@ -16,7 +16,7 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ title }) => {
   const { isOpen, toggle } = useModal();
-  const { cartQuantity } = useCart()
+  const { cartQuantity, CartProducts } = useCart()
   const user = getUserLocalStorage();
 
   const auth = useAuth()
@@ -139,12 +139,27 @@ export const Header: React.FC<Props> = ({ title }) => {
                     strokeLinejoin="round">
                   </path>
                 </svg>
+
                 <C.CartQuantity>
                   {cartQuantity}
                 </C.CartQuantity>
               </C.CartIcon>
               <OffCanvas isCanvasOpen={isCanvasOpen} onClose={handleClose}>
-                <Cart />
+                <>
+                  <C.CartTitle>Cart</C.CartTitle>
+                  <C.OffCanvasWrapper>
+                    <Link to="/summary" onClick={handleClose}>Go to Cart Summary</Link>
+                    <C.OffCanvasContent>
+                      {CartProducts.map(item => (
+                        <CartProduct
+                          key={item.id}
+                          {...item}
+                          flexDirection="column"
+                        />
+                      ))}
+                    </C.OffCanvasContent>
+                  </C.OffCanvasWrapper>
+                </>
               </OffCanvas>
             </C.CartWrapper>
 
@@ -208,7 +223,7 @@ export const Header: React.FC<Props> = ({ title }) => {
                 </C.NavbarListItem>
               </C.NavbarList>
             </C.NavbarModal>
-            
+
             <C.LoginModal>
               {UserLogged()}
             </C.LoginModal>

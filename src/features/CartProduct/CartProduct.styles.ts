@@ -1,22 +1,28 @@
 import styled from "styled-components";
 
-export const CartProductWrapper = styled.div`
+interface CartProductProps {
+    flexDirection?: string;
+    alignItems?: string;
+    gap?: string;
+}
+
+export const CartProductWrapper = styled.div<CartProductProps>`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1rem;
+    gap: ${(props) => props.gap ? props.gap :"2rem"};
     padding: 1rem;
-    border: 1px solid;
-    border-radius: 1rem;
+
     @media (min-width: 400px) {
-       flex-direction: row;
-       align-items: center;
+       flex-direction: ${(props) => props.flexDirection ? props.flexDirection :"row"};
+       align-items: ${(props) => props.alignItems ? props.alignItems :"center"};
     }
 `
 
 export const CartProductImg = styled.img`
-    width: 4rem;
+    min-width: 4rem;
+    max-width: 4rem;
     height: 4rem;
     border-radius: .75rem;
     object-fit: cover;
@@ -52,10 +58,14 @@ export const ProductPrice = styled.strong<PriceProps>`
     font-size: ${(props) => props.size};
 `
 
-export const ProductTotal = styled.div`
+interface ProductTotalProps {
+    alignItems?: string;
+}
+
+export const ProductTotal = styled.div<ProductTotalProps>`
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: ${(props) => props.alignItems ? props.alignItems :"flex-end"};
     width: 100%;
     gap: .5rem;
     @media (min-width: 400px) {

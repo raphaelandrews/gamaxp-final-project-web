@@ -33,17 +33,34 @@ export const GlobalStyles = createGlobalStyle`
 
   :root {
     //===== Color =====//
-    --first-color: ${({theme}) => theme.colors.white};
-    --second-color: ${({theme}) => theme.colors.green};
-    --second-color-alt: ${({theme}) => theme.colors.greenAlt};
-    --third-color: ${({theme}) => theme.colors.red};
-    --third-color-alt: ${({theme}) => theme.colors.redAlt};
-    --fourth-color: ${({theme}) => theme.colors.grey};
-    --alt-color: ${({theme}) => theme.colors.gray};
-    --bg-alt-color: ${({theme}) => theme.colors.black};
-    --bg-color: ${({theme}) => theme.colors.dark};
+    --first-color: ${({ theme }) => theme.colors.white};
+    --second-color: ${({ theme }) => theme.colors.green};
+    --second-color-alt: ${({ theme }) => theme.colors.greenAlt};
+    --third-color: ${({ theme }) => theme.colors.red};
+    --third-color-alt: ${({ theme }) => theme.colors.redAlt};
+    --fourth-color: ${({ theme }) => theme.colors.grey};
+    --alt-color: ${({ theme }) => theme.colors.gray};
+    --bg-alt-color: ${({ theme }) => theme.colors.black};
+    --bg-color: ${({ theme }) => theme.colors.dark};
 
     //===== Fonts =====//
-    --first-font: ${({theme}) => theme.fonts.roboto}
+    --first-font: ${({ theme }) => theme.fonts.roboto}
+  }
+
+  /*=============== SCROLL BAR ===============*/
+  ::-webkit-scrollbar {
+    width: .6rem;
+    border-radius: .5rem;
+    background: var(--bg-alt-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: hsla(240, 6%, 23%);
+    transition: .5s;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(240, 6%, 29%);
   }
 `;

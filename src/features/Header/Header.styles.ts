@@ -146,6 +146,10 @@ export const Wrapper = styled.div`
   gap: 2rem;
 `
 
+export const CartTitle = styled.span`
+  font-size: 1.5rem;
+`
+
 export const CartWrapper = styled.div`
     display: flex;
 `
@@ -170,6 +174,46 @@ export const CartIcon = styled.button`
         width: 2.5rem;
         height: 2.5rem;
     }
+`
+
+export const OffCanvasWrapper = styled.div`
+  height: 100%;
+  margin-top: 3rem;
+
+  a {
+    display: block;
+    text-align: center;
+    padding: .75rem 0;
+    border-radius: .75rem;
+    background-color: var(--second-color);
+    transition: .5s;
+
+    &:hover {
+      background-color: var(--second-color-alt);
+    }
+  }
+`
+
+export const OffCanvasContent = styled.div`
+  height: calc(100% - 8rem);
+  margin: 1rem 0;
+  overflow: hidden auto;
+
+  ::-webkit-scrollbar {
+    width: .2rem;
+    border-radius: 1rem;
+    background: var(--bg-alt-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: hsla(240, 7%, 78%, .2);
+    transition: .5s;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(240, 7%, 78%, .4);
+  }
 `
 
 export const CartQuantity = styled.span`

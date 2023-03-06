@@ -1,6 +1,8 @@
 import { ButtonDefault } from "./Button.styles";
 
 interface ButtonProps {
+    display?: string;
+    size?: string;
     weight?: string;
     textTransform?: string;
     width?: string;
@@ -10,15 +12,18 @@ interface ButtonProps {
     borderRadius?: string;
     backgroundColor?: string;
     hoverBg?: string;
-    text?: string;
+    text?: string | JSX.Element;
     type?: string;
     disabled?: boolean;
     action?: () => void;
+  
 }
 
 export function Button(props: ButtonProps) {
     return (
         <ButtonDefault
+            display={props.display}
+            size={props.size}
             weight={props.weight}
             textTransform={props.textTransform}
             width={props.width}

@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 interface ButtonProps {
+    display?: string;
+    size?: string;
     weight?: string;
     textTransform?: string;
-    width?:string;
+    width?: string;
     height?: string;
     padding?: string;
     marginTop?: string;
@@ -13,7 +15,8 @@ interface ButtonProps {
 }
 
 export const ButtonDefault = styled.button<ButtonProps>`
-    font-size: 1rem;
+    display: ${(props) => props.display};
+    font-size: ${(props) => props.size ? props.size : "1rem"};
     font-weight: ${(props) => props.weight ? props.weight : 600};
     color: var(--first-color);
     text-transform: ${(props) => props.textTransform};
@@ -30,5 +33,12 @@ export const ButtonDefault = styled.button<ButtonProps>`
 
     &:hover {
         background-color:  ${(props) => props.hoverBg};
+    }
+
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 1rem 0;
     }
 `
