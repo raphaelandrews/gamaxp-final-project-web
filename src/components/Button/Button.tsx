@@ -10,6 +10,7 @@ interface ButtonProps {
     padding?: string;
     marginTop?: string;
     borderRadius?: string;
+    border?: string;
     backgroundColor?: string;
     hoverBg?: string;
     text?: string | JSX.Element;
@@ -31,6 +32,7 @@ export function Button(props: ButtonProps) {
             padding={props.padding}
             marginTop={props.marginTop}
             borderRadius={props.borderRadius}
+            border={props.border}
             backgroundColor={props.backgroundColor}
             hoverBg={props.hoverBg}
             onClick={props.action}

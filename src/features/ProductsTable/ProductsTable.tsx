@@ -3,64 +3,17 @@ import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-type Person = {
-    name: {
-        firstName: string;
-        lastName: string;
-    };
-    address: string;
-    city: string;
-    state: string;
-};
+import * as C from "./ProductsTable.styles";
 
-//nested data is ok, see accessorKeys in ColumnDef below
-const data: Person[] = [
-    {
-        name: {
-            firstName: 'John',
-            lastName: 'Doe',
-        },
-        address: '261 Erdman Ford',
-        city: 'East Daphne',
-        state: 'Kentucky',
-    },
-    {
-        name: {
-            firstName: 'Jane',
-            lastName: 'Doe',
-        },
-        address: '769 Dominic Grove',
-        city: 'Columbus',
-        state: 'Ohio',
-    },
-    {
-        name: {
-            firstName: 'Joe',
-            lastName: 'Doe',
-        },
-        address: '566 Brakus Inlet',
-        city: 'South Linda',
-        state: 'West Virginia',
-    },
-    {
-        name: {
-            firstName: 'Kevin',
-            lastName: 'Vandy',
-        },
-        address: '722 Emie Stream',
-        city: 'Lincoln',
-        state: 'Nebraska',
-    },
-    {
-        name: {
-            firstName: 'Joshua',
-            lastName: 'Rolluffs',
-        },
-        address: '32188 Larkin Turnpike',
-        city: 'Omaha',
-        state: 'Nebraska',
-    },
-];
+import StoreProducts from "../../data/items.json";
+
+type Products = {
+    price: number;
+    name: string;
+    category: string;
+    id: number;
+    imgUrl: string;
+};
 
 export const ProductsTable = () => {
     //Requisitar API
@@ -69,48 +22,75 @@ export const ProductsTable = () => {
     async function getData() {
         const res = await axios.get(`http://localhost:5000/produto`);
         setData(res.data);
-        console.log(res.data)
     }
 
     useEffect(() => {
         getData();
     }, []);
 
-
+    //nested data is ok, see accessorKeys in ColumnDef below
+    const data: Products[] = [StoreProducts][0];
 
     //should be memoized or stable
-    const columns = useMemo<MRT_ColumnDef<Person>[]>(
+    const columns = useMemo<MRT_ColumnDef<Products>[]>(
         () => [
             {
-                accessorKey: 'name.firstName',
+                accessorKey: 'name',
                 header: 'Name',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.id}`}>
+                        <C.CellWrapper>
+                            <img src={row?.original?.imgUrl} />
+                            {row?.original?.name}
+                        </C.CellWrapper>
+                    </Link>
+                ),
             },
             {
-                accessorKey: 'name.lastName',
+                accessorKey: 'price',
                 header: 'Price',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.id}`}>
+                        ${" "}{row?.original?.price}
+                    </Link>
+                ),
             },
             {
-                accessorKey: 'address',
+                accessorKey: 'category',
                 header: 'Category',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.id}`}>
+                        {row?.original?.category}
+                    </Link>
+                ),
             },
             {
-                accessorKey: 'city',
+                accessorKey: 'id',
                 header: 'ID',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.id}`}>
+                        {row?.original?.id}
+                    </Link>
+                ),
             },
         ],
         [],
     );
 
+
     return (
-        <>
-            <Link to="/createProduct">Adicionar novo produto</Link>
+        <C.TableWrapper>
+            <C.LinkWrapper>
+                <Link to="/createProduct">Add new product</Link>
+            </C.LinkWrapper>
             <MaterialReactTable
                 columns={columns}
                 data={data}
                 enableColumnActions={false}
                 enableDensityToggle={false}
                 enableHiding={false}
-                enableColumnFilters={false} />
-        </>
+                enableColumnFilters={false}
+            />
+        </C.TableWrapper>
     )
 };

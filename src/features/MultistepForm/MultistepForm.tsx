@@ -62,9 +62,9 @@ export const MultiStepForm = () => {
         console.log(values);
     };
 
-    const [isAddressColor, setIsAddressColor] = useState("active")
-    const [isShippingColor, setIsShippingColor] = useState("normal")
-    const [isPaymentColor, setIsPaymentColor] = useState("normal")
+    const [isAddressColor, setIsAddressColor] = useState("active");
+    const [isShippingColor, setIsShippingColor] = useState("normal");
+    const [isPaymentColor, setIsPaymentColor] = useState("normal");
 
     const handleAddressStep = (step: number) => {
         if (step == 1) {

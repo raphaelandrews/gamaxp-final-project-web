@@ -10,6 +10,7 @@ interface ButtonProps {
     padding?: string;
     marginTop?: string;
     borderRadius?: string;
+    border?: string;
     backgroundColor?: string;
     hoverBg?: string;
 }
@@ -26,7 +27,7 @@ export const ButtonDefault = styled.button<ButtonProps>`
     padding: ${(props) => props.padding};
     margin-top: ${(props) => props.marginTop};
     border-radius: ${(props) => props.borderRadius};
-    border: none;
+    border: ${(props) => props.border ? props.border : "none"};
     background-color: ${(props) => props.backgroundColor};
     transition: .5s;
     cursor: pointer;
