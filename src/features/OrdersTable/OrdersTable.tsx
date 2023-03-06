@@ -71,7 +71,7 @@ export const OrdersTable = () => {
     async function getData() {
         const res = await axios.get(`http://localhost:5000/produto`);
         setData(res.data);
-        console.log(res.data)
+
     }
 
     useEffect(() => {
