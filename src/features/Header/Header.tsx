@@ -148,7 +148,7 @@ export const Header: React.FC<Props> = ({ title }) => {
                 <>
                   <C.CartTitle>Cart</C.CartTitle>
                   <C.OffCanvasWrapper>
-                    <Link to="/summary">Go to Cart Summary</Link>
+                    <Link to="/summary" onClick={handleClose}>Go to Cart Summary</Link>
                     <C.OffCanvasContent>
                       {CartProducts.map(item => (
                         <CartProduct
