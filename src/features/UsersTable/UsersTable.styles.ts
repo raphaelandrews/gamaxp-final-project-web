@@ -10,13 +10,6 @@ export const TableWrapper = styled.div`
         }
     }
 
-    img {
-        width: 3rem;
-        height: 3rem;
-        border-radius: .75rem;
-        object-fit: cover;
-    }
-
     .MuiInputBase-input {
         color: var(--first-color);
     }

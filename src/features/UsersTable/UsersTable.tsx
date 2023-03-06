@@ -3,6 +3,8 @@ import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import * as C from "./UsersTable.styles";
+
 type Person = {
     name: {
         firstName: string;
@@ -84,26 +86,49 @@ export const UsersTable = () => {
             {
                 accessorKey: 'name.firstName',
                 header: 'Username',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.name.firstName}`}>
+                        {row?.original?.name.firstName}
+                    </Link>
+                ),
+
             },
             {
                 accessorKey: 'name.lastName',
                 header: 'Email',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.name.firstName}`}>
+                        {row?.original?.name.lastName}
+                    </Link>
+                ),
             },
             {
                 accessorKey: 'address',
                 header: 'Type',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.name.firstName}`}>
+                        {row?.original?.address}
+                    </Link>
+                ),
             },
             {
                 accessorKey: 'city',
                 header: 'ID',
+                Cell: ({ row }) => (
+                    <Link to={`/product/${row?.original?.name.firstName}`}>
+                        {row?.original?.city}
+                    </Link>
+                ),
             },
         ],
         [],
     );
 
     return (
-        <>
-            <Link to="/createAdmin">Adicionar Admin</Link>
+        <C.TableWrapper>
+            <C.LinkWrapper>
+                <Link to="/createAdmin">Add new admin</Link>
+            </C.LinkWrapper>
             <MaterialReactTable
                 columns={columns}
                 data={data}
@@ -111,6 +136,6 @@ export const UsersTable = () => {
                 enableDensityToggle={false}
                 enableHiding={false}
                 enableColumnFilters={false} />
-        </>
+        </C.TableWrapper>
     )
 };

@@ -33,7 +33,7 @@ export const Dashboard = () => {
 
     return (
         <G.Container>
-            <C.Title>Painel Administrativo</C.Title>
+            <C.Title>Admin Dashboard</C.Title>
 
             <C.ButtonWrapper>
                 <Button
