@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ProtectedLayout, ProtectedDashboard, Header } from '@/features';
+import { ProtectedLayout, ProtectedDashboard, Header, Footer } from '@/features';
 
 import { Home, Login, Signup, Products, Product, CartSummary, Checkout, Dashboard, CreateProduct, CreateAdmin } from "@/pages";
 
@@ -27,6 +27,7 @@ function RoutesApp() {
           </Route>
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   )
 }

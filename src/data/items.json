@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Game Of Thrones",
-    "price": 10.99,
+    "price": 11.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "imgUrl": "../src/assets/img/game-of-thrones.jpg",
     "category": "Ficção"
@@ -10,55 +10,55 @@
   {
     "id": 2,
     "name": "Harry Potter",
-    "price": 1199,
+    "price": 20.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/harry-potter.jpg",
     "category": "Ficção"
   },
   {
     "id": 3,
     "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
+    "price": 5.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/vinte-mil-leguas-submarinas.jpg",
     "category": "Ficção"
   },
   {
     "id": 4,
     "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
+    "price": 50.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/a-volta-ao-mundo-em-80-dias.jpg",
     "category": "Ficção"
   },
   {
     "id": 5,
     "name": "Dom Casmurro",
-    "price": 1.05,
+    "price": 60.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/dom-casmurro.jpg",
     "category": "Ficção"
   },
   {
     "id": 6,
     "name": "O Cortiço",
-    "price": 1.05,
+    "price": 75.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/o-cortico.jpg",
     "category": "Ficção"
   },
   {
     "id": 7,
     "name": "The Key",
-    "price": 1.05,
+    "price": 40.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/the-key.jpg",
     "category": "Ficção"
   },
   {
     "id": 8,
     "name": "Game Of Thrones",
-    "price": 10.99,
+    "price": 28.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "imgUrl": "../src/assets/img/game-of-thrones.jpg",
     "category": "Ficção"
@@ -66,55 +66,55 @@
   {
     "id": 9,
     "name": "Harry Potter",
-    "price": 1199,
+    "price": 13.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/harry-potter.jpg",
     "category": "Ficção"
   },
   {
     "id": 10,
     "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
+    "price": 15.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/vinte-mil-leguas-submarinas.jpg",
     "category": "Ficção"
   },
   {
     "id": 11,
     "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
+    "price": 7.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/a-volta-ao-mundo-em-80-dias.jpg",
     "category": "Romance"
   },
   {
     "id": 12,
     "name": "Dom Casmurro",
-    "price": 1.05,
+    "price": 100.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/dom-casmurro.jpg",
     "category": "Romance"
   },
   {
     "id": 13,
     "name": "O Cortiço",
-    "price": 1.05,
+    "price": 42.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/o-cortico.jpg",
     "category": "Romance"
   },
   {
     "id": 14,
     "name": "The Key",
-    "price": 1.05,
+    "price": 30.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/the-key.jpg",
     "category": "Romance"
   },
   {
     "id": 15,
     "name": "Game Of Thrones",
-    "price": 10.99,
+    "price": 16.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "imgUrl": "../src/assets/img/game-of-thrones.jpg",
     "category": "Romance"
@@ -122,55 +122,55 @@
   {
     "id": 16,
     "name": "Harry Potter",
-    "price": 1199,
+    "price": 20.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/harry-potter.jpg",
     "category": "Romance"
   },
   {
     "id": 17,
     "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
+    "price": 13.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/vinte-mil-leguas-submarinas.jpg",
     "category": "Romance"
   },
   {
     "id": 18,
     "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
+    "price": 33.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/a-volta-ao-mundo-em-80-dias.jpg",
     "category": "Romance"
   },
   {
     "id": 19,
     "name": "Dom Casmurro",
-    "price": 1.05,
+    "price": 23.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/dom-casmurro.jpg",
     "category": "Romance"
   },
   {
     "id": 20,
     "name": "O Cortiço",
-    "price": 1.05,
+    "price": 45.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/o-cortico.jpg",
     "category": "Romance"
   },
   {
     "id": 21,
     "name": "The Key",
-    "price": 1.05,
+    "price": 49.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/the-key.jpg",
     "category": "Terror"
   },
   {
     "id": 22,
     "name": "Game Of Thrones",
-    "price": 10.99,
+    "price": 31.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "imgUrl": "../src/assets/img/game-of-thrones.jpg",
     "category": "Terror"
@@ -178,55 +178,55 @@
   {
     "id": 23,
     "name": "Harry Potter",
-    "price": 1199,
+    "price": 61.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/harry-potter.jpg",
     "category": "Terror"
   },
   {
     "id": 24,
     "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
+    "price": 80.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/vinte-mil-leguas-submarinas.jpg",
     "category": "Terror"
   },
   {
     "id": 25,
     "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
+    "price": 120.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/a-volta-ao-mundo-em-80-dias.jpg",
     "category": "Terror"
   },
   {
     "id": 26,
     "name": "Dom Casmurro",
-    "price": 1.05,
+    "price": 200.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/dom-casmurro.jpg",
     "category": "Terror"
   },
   {
     "id": 27,
     "name": "O Cortiço",
-    "price": 1.05,
+    "price": 70.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/o-cortico.jpg",
     "category": "Terror"
   },
   {
     "id": 28,
     "name": "The Key",
-    "price": 1.05,
+    "price": 76.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/the-key.jpg",
     "category": "Terror"
   },
   {
     "id": 29,
     "name": "Game Of Thrones",
-    "price": 10.99,
+    "price": 14.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "imgUrl": "../src/assets/img/game-of-thrones.jpg",
     "category": "Terror"
@@ -234,55 +234,55 @@
   {
     "id": 30,
     "name": "Harry Potter",
-    "price": 1199,
+    "price": 40.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/harry-potter.jpg",
     "category": "Terror"
   },
   {
     "id": 31,
     "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
+    "price": 43.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/vinte-mil-leguas-submarinas.jpg",
     "category": "Futurista"
   },
   {
     "id": 32,
     "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
+    "price": 67.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/a-volta-ao-mundo-em-80-dias.jpg",
     "category": "Futurista"
   },
   {
     "id": 33,
     "name": "Dom Casmurro",
-    "price": 1.05,
+    "price": 88.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/dom-casmurro.jpg",
     "category": "Futurista"
   },
   {
     "id": 34,
     "name": "O Cortiço",
-    "price": 1.05,
+    "price": 66.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/o-cortico.jpg",
     "category": "Futurista"
   },
   {
     "id": 35,
     "name": "The Key",
-    "price": 1.05,
+    "price": 46.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/the-key.jpg",
     "category": "Futurista"
   },
   {
     "id": 36,
     "name": "Game Of Thrones",
-    "price": 10.99,
+    "price": 74.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "imgUrl": "../src/assets/img/game-of-thrones.jpg",
     "category": "Futurista"
@@ -290,55 +290,55 @@
   {
     "id": 37,
     "name": "Harry Potter",
-    "price": 1199,
+    "price": 3.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/harry-potter.jpg",
     "category": "Futurista"
   },
   {
     "id": 38,
     "name": "20.000 Léguas Submarinas",
-    "price": 1.05,
+    "price": 17.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/vinte-mil-leguas-submarinas.jpg",
     "category": "Futurista"
   },
   {
     "id": 39,
     "name": "A Volta ao Mundo em 80 dias",
-    "price": 1.05,
+    "price": 21.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/a-volta-ao-mundo-em-80-dias.jpg",
     "category": "Futurista"
   },
   {
     "id": 40,
     "name": "Dom Casmurro",
-    "price": 1.05,
+    "price": 211.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/dom-casmurro.jpg",
     "category": "Futurista"
   },
   {
     "id": 41,
     "name": "O Cortiço",
-    "price": 1.05,
+    "price": 125.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/o-cortico.jpg",
     "category": "Futurista"
   },
   {
     "id": 42,
     "name": "The Key",
-    "price": 1.05,
+    "price": 104.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "imgUrl": "../src/assets/img/game-of-thrones.jpg",
+    "imgUrl": "../src/assets/img/the-key.jpg",
     "category": "Futurista"
   },
   {
     "id": 43,
     "name": "The Secret",
-    "price": 14000,
+    "price": 140.00,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "imgUrl": "../src/assets/img/game-of-thrones.jpg",
     "category": "Futurista"

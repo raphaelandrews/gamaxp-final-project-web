@@ -37,3 +37,5 @@ export { ProtectedLayout, ProtectedDashboard } from "./ProtectedLayout";
 export { Header } from "./Header/Header";
 
 export { ThemeProvider } from "./ThemeProvider";
+
+export { Footer } from "./Footer/Footer";
