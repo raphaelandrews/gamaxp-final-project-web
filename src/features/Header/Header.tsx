@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-import { Modal, useModal, OffCanvas, Cart } from "@/features";
+import { Modal, useModal, OffCanvas, Cart, CartProduct } from "@/features";
 import { useAuth, useCart, getUserLocalStorage } from "@/context";
 
 import { G } from "@/styles";
@@ -16,7 +16,7 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ title }) => {
   const { isOpen, toggle } = useModal();
-  const { cartQuantity } = useCart()
+  const { cartQuantity, CartProducts } = useCart()
   const user = getUserLocalStorage();
 
   const auth = useAuth()
@@ -144,7 +144,15 @@ export const Header: React.FC<Props> = ({ title }) => {
                 </C.CartQuantity>
               </C.CartIcon>
               <OffCanvas isCanvasOpen={isCanvasOpen} onClose={handleClose}>
-                <Cart />
+                <C.OffCanvasWrapper>
+                  {CartProducts.map(item => (
+                    <CartProduct
+                    key={item.id}
+                    {...item}
+                    flexDirection="column"
+                    />
+                  ))}
+                </C.OffCanvasWrapper>
               </OffCanvas>
             </C.CartWrapper>
 
@@ -208,7 +216,7 @@ export const Header: React.FC<Props> = ({ title }) => {
                 </C.NavbarListItem>
               </C.NavbarList>
             </C.NavbarModal>
-            
+
             <C.LoginModal>
               {UserLogged()}
             </C.LoginModal>

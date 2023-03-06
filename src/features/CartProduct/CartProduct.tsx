@@ -1,23 +1,25 @@
 import { useCart } from "@/context";
 import { formatCurrency } from "@/util";
 
-import * as C from "./styles";
+import * as C from "./CartProduct.styles";
 import { Button } from "@/components";
 import StoreProducts from "../../data/items.json";
 
 type CartProductProps = {
   id: number
   quantity: number
+  flexDirection?: string;
+  alignItems?: string;
+  gap?: string;
 }
 
-
-export function CartProduct({ id, quantity }: CartProductProps) {
+export function CartProduct(props: CartProductProps) {
   const { removeFromCart } = useCart()
-  const item = StoreProducts.find(i => i.id === id)
+  const item = StoreProducts.find(i => i.id === props.id)
   if (item == null) return null
 
   return (
-    <C.CartProductWrapper>
+    <C.CartProductWrapper flexDirection={props.flexDirection} alignItems="flex-start" gap="1rem">
       <C.ProductContent>
         <C.CartProductImg
           src={item.imgUrl}
@@ -27,9 +29,9 @@ export function CartProduct({ id, quantity }: CartProductProps) {
             {item.name}
           </C.ProductName>
           <C.ProductQuantity>
-            {quantity >= 1 && (
+            {props.quantity >= 1 && (
               <span>
-                x{quantity}
+                x{props.quantity}
               </span>
             )}
             <C.ProductPrice>
@@ -38,8 +40,7 @@ export function CartProduct({ id, quantity }: CartProductProps) {
           </C.ProductQuantity>
         </C.ProductInfo>
       </C.ProductContent>
-      <C.ProductTotal>
-        <C.ProductPrice size="1.25rem"> {formatCurrency(item.price * quantity)}</C.ProductPrice>
+      <C.ProductTotal alignItems="flex-start">
         <Button
           action={() => removeFromCart(item.id)}
           display="flex"

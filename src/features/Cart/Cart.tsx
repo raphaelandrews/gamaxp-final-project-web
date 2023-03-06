@@ -1,24 +1,14 @@
+import { Link } from "react-router-dom";
 import { useCart } from "@/context";
 import { formatCurrency } from "@/util";
 import { CartProduct } from "@/features";
 
 import * as C from "./styles";
-import { Button, ButtonDefault } from "@/components";
+import { ButtonDefault } from "@/components";
 import StoreProducts from "../../data/items.json";
-import { Link } from "react-router-dom";
-
-type CartProps = {
-  isOpen: boolean
-}
 
 export function Cart() {
   const { CartProducts } = useCart();
-
-  function link() {
-    return (
-      <Link to="/checkout" />
-    )
-  }
 
   return (
     <C.CartWrapper>

@@ -172,6 +172,28 @@ export const CartIcon = styled.button`
     }
 `
 
+export const OffCanvasWrapper = styled.div`
+  height: calc(100% - 3rem);
+  margin: 3rem 0;
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: .2rem;
+    border-radius: 1rem;
+    background: var(--bg-alt-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: hsla(240, 7%, 78%, .2);
+    transition: .5s;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(240, 7%, 78%, .4);
+  }
+`
+
 export const CartQuantity = styled.span`
     position: absolute;
     top: -25%;
