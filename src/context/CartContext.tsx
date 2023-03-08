@@ -7,8 +7,15 @@ type CartProviderProps = {
 }
 
 type CartProduct = {
-  id: number
-  quantity: number
+  id: number;
+  product_name?: string;
+  description?: string;
+  price?: number;
+  photo?: string;
+  category_id?: number;
+  category?: any;
+  quantity: number;
+  
 }
 
 type CartContext = {
