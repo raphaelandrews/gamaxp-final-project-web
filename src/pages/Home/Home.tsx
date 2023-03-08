@@ -19,7 +19,7 @@ export const Home = () => {
         <>
           {romance.map((item, index) => (
             <div key={index + 1} className="keen-slider__slide">
-              <StoreProduct {...item} />
+              <StoreProduct product_name={""} photo={""} category_id={0} {...item} />
             </div>
           ))}
         </>
@@ -30,7 +30,7 @@ export const Home = () => {
         <>
           {ficcao.map((item, index) => (
             <div key={index + 1} className="keen-slider__slide">
-              <StoreProduct {...item} />
+              <StoreProduct product_name={""} photo={""} category_id={0} {...item} />
             </div>
           ))}
         </>
@@ -41,7 +41,7 @@ export const Home = () => {
         <>
           {terror.map((item, index) => (
             <div key={index + 1} className="keen-slider__slide">
-              <StoreProduct {...item} />
+              <StoreProduct product_name={""} photo={""} category_id={0} {...item} />
             </div>
           ))}
         </>
@@ -52,7 +52,7 @@ export const Home = () => {
         <>
           {futurista.map((item, index) => (
             <div key={index + 1} className="keen-slider__slide">
-              <StoreProduct {...item} />
+              <StoreProduct product_name={""} photo={""} category_id={0} {...item} />
             </div>
           ))}
         </>
