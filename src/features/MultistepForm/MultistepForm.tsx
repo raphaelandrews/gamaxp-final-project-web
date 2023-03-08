@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
-import * as C from "./styles";
+
+import * as C from "./MultiStepForm.styles";
+import { Button } from "@/components";
 
 interface AddressFormValues {
     street: string;
@@ -61,26 +63,26 @@ export const MultiStepForm = () => {
         // Do something with the form values, such as submitting them to a server
     };
 
-    const [isAddressColor, setIsAddressColor] = useState("active");
-    const [isShippingColor, setIsShippingColor] = useState("normal");
-    const [isPaymentColor, setIsPaymentColor] = useState("normal");
+    const [isAddressColor, setIsAddressColor] = useState("var(--second-color)");
+    const [isShippingColor, setIsShippingColor] = useState("transparent");
+    const [isPaymentColor, setIsPaymentColor] = useState("transparent");
 
     const handleAddressStep = (step: number) => {
         if (step == 1) {
             setStep(1)
-            setIsAddressColor("active")
-            setIsShippingColor("normal")
-            setIsPaymentColor("normal")
+            setIsAddressColor("var(--second-color)")
+            setIsShippingColor("transparent")
+            setIsPaymentColor("transparent")
         } else if (step == 2) {
             setStep(2)
-            setIsAddressColor("normal")
-            setIsShippingColor("active")
-            setIsPaymentColor("normal")
+            setIsAddressColor("transparent")
+            setIsShippingColor("var(--second-color)")
+            setIsPaymentColor("transparent")
         } else {
             setStep(3)
-            setIsAddressColor("normal")
-            setIsShippingColor("normal")
-            setIsPaymentColor("active")
+            setIsAddressColor("transparent")
+            setIsShippingColor("transparent")
+            setIsPaymentColor("var(--second-color)")
         }
     };
 
@@ -90,11 +92,33 @@ export const MultiStepForm = () => {
 
     return (
         <>
-            <C.CheckoutSteps>
-                <C.Step onClick={() => handleAddressStep(1)} color={isAddressColor}>Address</C.Step>
-                <C.Step onClick={() => handleAddressStep(2)} color={isShippingColor}>Shipping</C.Step>
-                <C.Step onClick={() => handleAddressStep(3)} color={isPaymentColor}>Payment</C.Step>
-            </C.CheckoutSteps>
+            <C.ButtonWrapper>
+                <Button
+                    action={() => handleAddressStep(1)}
+                    text="Adress"
+                    padding=".75rem 1.25rem"
+                    border="2px solid var(--bg-alt-color)"
+                    backgroundColor={isAddressColor}
+                    hoverBg="var(--second-color)"
+                />
+                <Button
+                    action={() => handleAddressStep(2)}
+                    text="Shipping"
+                    padding=".75rem 1.25rem"
+                    border="2px solid var(--bg-alt-color)"
+                    backgroundColor={isShippingColor}
+                    hoverBg="var(--second-color)"
+                />
+                <Button
+                    action={() => handleAddressStep(3)}
+                    text="Payment"
+                    padding=".75rem 1.25rem"
+                    border="2px solid var(--bg-alt-color)"
+                    backgroundColor={isPaymentColor}
+                    hoverBg="var(--second-color)"
+                />
+            </C.ButtonWrapper>
+
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                 {({ values }) => (
                     <C.Wrapper>
@@ -162,29 +186,75 @@ export const MultiStepForm = () => {
                                 )}
 
                                 {step == 1 && (
-                                    <C.Button type="button" onClick={handleNextStep}>
-                                        Continue to Shipping
-                                    </C.Button>
+                                    <Button
+                                        type="button"
+                                        action={handleNextStep}
+                                        text="Continue to Shipping"
+                                        weight="700"
+                                        textTransform="uppercase"
+                                        height="3rem"
+                                        marginTop="1rem"
+                                        borderRadius=".25rem"
+                                        backgroundColor="var(--second-color)"
+                                        hoverBg="var(--second-color-alt)"
+                                    />
                                 )}
 
                                 {step == 2 && (
                                     <>
-                                        <C.Button type="button" onClick={handlePrevStep}>
-                                            Back to Address
-                                        </C.Button>
-                                        <C.Button type="button" onClick={handleNextStep}>
-                                            Continue to Payment
-                                        </C.Button>
+                                        <Button
+                                            type="button"
+                                            action={handlePrevStep}
+                                            text="Back to Address"
+                                            weight="700"
+                                            textTransform="uppercase"
+                                            height="3rem"
+                                            marginTop="1rem"
+                                            borderRadius=".25rem"
+                                            backgroundColor="var(--second-color)"
+                                            hoverBg="var(--second-color-alt)"
+                                        />
+
+                                        <Button
+                                            type="button"
+                                            action={handleNextStep}
+                                            text="Continue to Payment"
+                                            weight="700"
+                                            textTransform="uppercase"
+                                            height="3rem"
+                                            borderRadius=".25rem"
+                                            backgroundColor="var(--second-color)"
+                                            hoverBg="var(--second-color-alt)"
+                                        />
                                     </>
                                 )}
 
 
                                 {step == 3 && (
                                     <>
-                                        <C.Button type="button" onClick={handlePrevStep}>
-                                            Back to Shipping
-                                        </C.Button>
-                                        <C.Button type="submit">Submit</C.Button>
+                                        <Button
+                                            type="button"
+                                            action={handlePrevStep}
+                                            text="Back to Shipping"
+                                            weight="700"
+                                            textTransform="uppercase"
+                                            height="3rem"
+                                            marginTop="1rem"
+                                            borderRadius=".25rem"
+                                            backgroundColor="var(--second-color)"
+                                            hoverBg="var(--second-color-alt)"
+                                        />
+
+                                        <Button
+                                            type="submit"
+                                            text="Submit"
+                                            weight="700"
+                                            textTransform="uppercase"
+                                            height="3rem"
+                                            borderRadius=".25rem"
+                                            backgroundColor="var(--second-color)"
+                                            hoverBg="var(--second-color-alt)"
+                                        />
                                     </>
                                 )}
                             </C.FormInputs>
