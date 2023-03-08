@@ -4,9 +4,17 @@ import { formatCurrency } from "@/util";
 import * as C from "./CartProduct.styles";
 import { Button } from "@/components";
 import StoreProducts from "../../data/items.json";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 type CartProductProps = {
-  id: number
+  id: number;
+  product_name?: string;
+  description?: string;
+  price: number;
+  photo?: string;
+  category_id?: number;
+  category?: any;
   quantity: number
   flexDirection?: string;
   alignItems?: string;
@@ -18,6 +26,21 @@ export function CartProduct(props: CartProductProps) {
   const item = StoreProducts.find(i => i.id === props.id)
   if (item == null) return null
 
+  const [data, setData] = useState<CartProductProps | null>(null);
+
+  async function getData() {
+    const res = await axios.get<CartProductProps>(`${import.meta.env.VITE_API_HOST}/produto/${props.id}`);
+    setData(res.data);
+  }
+
+  useEffect(() => {
+    getData();
+  }, [props.id]);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <C.CartProductWrapper flexDirection={props.flexDirection} alignItems="flex-start" gap="1rem">
       <C.ProductContent>
@@ -26,7 +49,7 @@ export function CartProduct(props: CartProductProps) {
         />
         <C.ProductInfo>
           <C.ProductName>
-            {item.name}
+            {data.product_name}
           </C.ProductName>
           <C.ProductQuantity>
             {props.quantity >= 1 && (
@@ -35,14 +58,14 @@ export function CartProduct(props: CartProductProps) {
               </span>
             )}
             <C.ProductPrice>
-              {formatCurrency(item.price)}
+              {formatCurrency(data.price)}
             </C.ProductPrice>
           </C.ProductQuantity>
         </C.ProductInfo>
       </C.ProductContent>
       <C.ProductTotal alignItems="flex-start">
         <Button
-          action={() => removeFromCart(item.id)}
+          action={() => removeFromCart(data.id)}
           display="flex"
           size=".75rem"
           padding=".5rem 1rem"

@@ -1,62 +1,26 @@
-import { StoreProduct, ProductsCarousel } from "@/features";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { SectionFilters } from "@/features";
 
 import { G } from "@/styles";
 import * as C from "./Home.styles";
 
-import StoreProducts from "../../data/items.json";
-
 export const Home = () => {
-  const romance = StoreProducts.filter((product) => product.category === 'Romance')
-  const terror = StoreProducts.filter((product) => product.category === 'Terror')
-  const futurista = StoreProducts.filter((product) => product.category === 'Ficção')
-  const ficcao = StoreProducts.filter((product) => product.category === 'Futurista')
+  const [data, setData] = useState([])
+
+  async function getData() {
+    const res = await axios.get(`${import.meta.env.VITE_API_HOST}/produto`);
+    setData(res.data);
+  }
+  
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <G.Container>
-    <C.Banner>Banner</C.Banner>
-      <C.SectionTitle>Romance</C.SectionTitle>
-      <ProductsCarousel>
-        <>
-          {romance.map((item, index) => (
-            <div key={index + 1} className="keen-slider__slide">
-              <StoreProduct product_name={""} photo={""} category_id={0} {...item} />
-            </div>
-          ))}
-        </>
-      </ProductsCarousel>
-
-      <C.SectionTitle>Fiction</C.SectionTitle>
-      <ProductsCarousel>
-        <>
-          {ficcao.map((item, index) => (
-            <div key={index + 1} className="keen-slider__slide">
-              <StoreProduct product_name={""} photo={""} category_id={0} {...item} />
-            </div>
-          ))}
-        </>
-      </ProductsCarousel>
-
-      <C.SectionTitle>Horror</C.SectionTitle>
-      <ProductsCarousel>
-        <>
-          {terror.map((item, index) => (
-            <div key={index + 1} className="keen-slider__slide">
-              <StoreProduct product_name={""} photo={""} category_id={0} {...item} />
-            </div>
-          ))}
-        </>
-      </ProductsCarousel>
-
-      <C.SectionTitle>Futuristic</C.SectionTitle>
-      <ProductsCarousel>
-        <>
-          {futurista.map((item, index) => (
-            <div key={index + 1} className="keen-slider__slide">
-              <StoreProduct product_name={""} photo={""} category_id={0} {...item} />
-            </div>
-          ))}
-        </>
-      </ProductsCarousel>
+      <C.Banner>Banner</C.Banner>
+      <SectionFilters products={data} />
     </G.Container>
   )
 }

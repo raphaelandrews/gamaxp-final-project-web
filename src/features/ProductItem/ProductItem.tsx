@@ -6,42 +6,45 @@ import * as C from "./ProductItem.styles";
 
 import img from "../../assets/img/game-of-thrones.jpg";
 
-interface ProductProps {
-    title: string;
+type ProductProps = {
+    id: number;
+    product_name: string;
     description: string;
     price: number;
-    id: number;
-    /* name: string
-     imgUrl: string*/
+    photo: string;
+    category_id: number;
+    category: any;
 }
 
-export const ProductItem = (props: ProductProps) => {
+export const ProductItem = ({ id, product_name, price, photo, description, category_id, category }: ProductProps) => {
     const {
         getItemQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
     } = useCart()
-    const quantity = getItemQuantity(props.id)
+    const quantity = getItemQuantity(id)
+
+    const productImg = `/src/assets/img/${photo}`
 
     return (
         <C.ProductContainer>
             <C.ProducImgWrapper>
-                <C.ProductImg src={img} alt="" />
+                <C.ProductImg src={productImg} alt="" />
             </C.ProducImgWrapper>
             <C.ProductContent>
                 <C.ProductTitle>
-                    {props.title}
+                    {product_name}
                 </C.ProductTitle>
                 <C.ProductPrice>
-                    {formatCurrency(props.price)}
+                    {formatCurrency(price)}
                 </C.ProductPrice>
                 <C.ProductDescription>
-                    {props.description}
+                    {description}
                 </C.ProductDescription>
                 {quantity === 0 ? (
                     <Button
-                        action={() => increaseCartQuantity(props.id)}
+                        action={() => increaseCartQuantity(id)}
                         backgroundColor="var(--second-color)"
                         marginTop="2rem"
                         width="100%"
@@ -53,14 +56,14 @@ export const ProductItem = (props: ProductProps) => {
                 ) : (
                     <C.ProductButtons>
                         <C.QuantityButtons>
-                            <Button action={() => increaseCartQuantity(props.id)} backgroundColor="transparent" padding=".5rem" text="+" />
+                            <Button action={() => increaseCartQuantity(id)} backgroundColor="transparent" padding=".5rem" text="+" />
                             <div>
                                 <span>{quantity}</span> in cart
                             </div>
-                            <C.ProductButton onClick={() => decreaseCartQuantity(props.id)} backgroundColor="transparent" padding=".5rem">-</C.ProductButton>
+                            <C.ProductButton onClick={() => decreaseCartQuantity(id)} backgroundColor="transparent" padding=".5rem">-</C.ProductButton>
                         </C.QuantityButtons>
                         <Button
-                            action={() => removeFromCart(props.id)}
+                            action={() => removeFromCart(id)}
                             backgroundColor="var(--third-color)"
                             padding="1rem 1.5rem"
                             text="Remove"

@@ -139,7 +139,7 @@ export const Header: React.FC<Props> = ({ title }) => {
                     strokeLinejoin="round">
                   </path>
                 </svg>
-
+                
                 <C.CartQuantity>
                   {cartQuantity}
                 </C.CartQuantity>

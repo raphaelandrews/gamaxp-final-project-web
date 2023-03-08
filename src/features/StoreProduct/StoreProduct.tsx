@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import { formatCurrency } from "@/util";
 
 import * as C from "./StoreProduct.styles";
@@ -14,16 +13,16 @@ type StoreProductProps = {
   category: any;
 }
 
-export function StoreProduct({ id, product_name, price, photo, category_id, category }: StoreProductProps) {
+export function StoreProduct({ id, product_name, price, photo }: StoreProductProps) {
+  const productImg = `src/assets/img/${photo}`
+
   return (
     <C.ProductPreview>
       <C.ProductImage
-        src={photo}
+        src={productImg}
       />
       <C.ProductBox>
         <C.ProductTitle>{product_name}</C.ProductTitle>
-        <C.ProductTitle>{category.category_name}</C.ProductTitle>
-        <C.ProductTitle>{category_id}</C.ProductTitle>
         <C.ProductPrice>{formatCurrency(price)}</C.ProductPrice>
         <C.ProductButton>
           <Link to={`/produto/${id}`}>
