@@ -38,14 +38,16 @@ export function CartProduct(props: CartProductProps) {
   }, [props.id]);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div>Cart is empty!</div>;
   }
+
+  const productImg = `src/assets/img/${data.photo}`
 
   return (
     <C.CartProductWrapper flexDirection={props.flexDirection} alignItems="flex-start" gap="1rem">
       <C.ProductContent>
         <C.CartProductImg
-          src={item.imgUrl}
+          src={productImg}
         />
         <C.ProductInfo>
           <C.ProductName>

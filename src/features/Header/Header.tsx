@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-import { Modal, useModal, OffCanvas, Cart, CartProduct } from "@/features";
+import { Modal, useModal, OffCanvas, CartProduct } from "@/features";
 import { useAuth, useCart, getUserLocalStorage } from "@/context";
 
 import { G } from "@/styles";
