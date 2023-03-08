@@ -5,25 +5,23 @@ import { Link } from 'react-router-dom';
 
 import * as C from "./ProductsTable.styles";
 
-import StoreProducts from "../../data/items.json";
-
 type Products = {
     price: number;
     product_name: string;
+    description: string;
     category: any;
     category_name: string;
     id: number;
     photo: string;
 };
 
-export const ProductsTable = ({ photo }: Products) => {
+export const ProductsTable = (props: Products) => {
     //Requisitar API
     const [data, setData] = useState<Products[]>([]);
 
     async function getData() {
         const res = await axios.get(`${import.meta.env.VITE_API_HOST}/produto`);
         setData(res.data);
-        console.log(res.data)
     }
 
     useEffect(() => {
