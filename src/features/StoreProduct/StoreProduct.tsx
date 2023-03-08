@@ -11,9 +11,10 @@ type StoreProductProps = {
   price: number;
   photo: string;
   category_id: number;
+  category: any;
 }
 
-export function StoreProduct({ id, product_name, price, photo, category_id }: StoreProductProps) {
+export function StoreProduct({ id, product_name, price, photo, category_id, category }: StoreProductProps) {
   return (
     <C.ProductPreview>
       <C.ProductImage
@@ -21,6 +22,7 @@ export function StoreProduct({ id, product_name, price, photo, category_id }: St
       />
       <C.ProductBox>
         <C.ProductTitle>{product_name}</C.ProductTitle>
+        <C.ProductTitle>{category.category_name}</C.ProductTitle>
         <C.ProductTitle>{category_id}</C.ProductTitle>
         <C.ProductPrice>{formatCurrency(price)}</C.ProductPrice>
         <C.ProductButton>
