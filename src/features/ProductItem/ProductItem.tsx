@@ -1,4 +1,3 @@
-import { formatCurrency } from "@/util";
 import { useCart } from "@/context";
 import { Button } from "@/components";
 
@@ -37,7 +36,7 @@ export const ProductItem = ({ id, product_name, price, photo, description, categ
                     {product_name}
                 </C.ProductTitle>
                 <C.ProductPrice>
-                    {formatCurrency(price)}
+                    ${price}
                 </C.ProductPrice>
                 <C.ProductDescription>
                     {description}

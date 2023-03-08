@@ -1,14 +1,31 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useCart } from "@/context";
-import { formatCurrency } from "@/util";
 import { CartProduct } from "@/features";
 
 import * as C from "./styles";
 import { ButtonDefault } from "@/components";
-import StoreProducts from "../../data/items.json";
 
-export function Cart() {
+interface Product {
+  id?: number;
+  price: number;
+}
+
+export function Cart(props: Product) {
   const { CartProducts } = useCart();
+
+  const [data, setData] = useState<Product[]>([]);
+
+  async function getData() {
+    const res = await axios.get(`${import.meta.env.VITE_API_HOST}/produto`);
+    setData(res.data);
+
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <C.CartWrapper>
@@ -22,10 +39,10 @@ export function Cart() {
         <C.CartSubtotal>
           <C.CartSpan>Subtotal</C.CartSpan>
           <C.CartSpan>
-            {formatCurrency(
+            ${(
               CartProducts.reduce((total, CartProduct) => {
-                const item = StoreProducts.find(i => i.id === CartProduct.id)
-                return total + (item?.price || 0) * CartProduct.quantity
+                const item = data.find(i => i.id === CartProduct.id);
+                return total + (item?.price || 0) * CartProduct.quantity;
               }, 0)
             )}
           </C.CartSpan>
@@ -40,10 +57,10 @@ export function Cart() {
         <C.CartSubtotal>
           <C.CartSpan>Total</C.CartSpan>
           <C.CartSpan>
-            {formatCurrency(
+            ${(
               CartProducts.reduce((total, CartProduct) => {
-                const item = StoreProducts.find(i => i.id === CartProduct.id)
-                return total + (item?.price || 0) * CartProduct.quantity
+                const item = data.find(i => i.id === CartProduct.id);
+                return total + (item?.price || 0) * CartProduct.quantity;
               }, 0)
             )}
           </C.CartSpan>
@@ -58,7 +75,6 @@ export function Cart() {
           <Link to="/checkout">Continue to checkout</Link>
         </ButtonDefault>
       </C.CartTotal>
-
     </C.CartWrapper>
   )
 }
