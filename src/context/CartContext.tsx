@@ -8,14 +8,9 @@ type CartProviderProps = {
 
 type CartProduct = {
   id: number;
-  product_name?: string;
-  description?: string;
-  price?: number;
-  photo?: string;
-  category_id?: number;
-  category?: any;
+  price: number;
   quantity: number;
-  
+
 }
 
 type CartContext = {
@@ -54,7 +49,7 @@ export function CartProvider({ children }: CartProviderProps) {
   function increaseCartQuantity(id: number) {
     setCartProducts(currItems => {
       if (currItems.find(item => item.id === id) == null) {
-        return [...currItems, { id, quantity: 1 }]
+        return [...currItems, { id, quantity: 1, price: 0 }]
       } else {
         return currItems.map(item => {
           if (item.id === id) {
