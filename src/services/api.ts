@@ -2,7 +2,7 @@ import axios from "axios";
 import { getUserLocalStorage } from "@/context";
 
 export const Api = axios.create({
-    baseURL: "http://localhost:5000/",
+    baseURL: `${import.meta.env.VITE_API_HOST}/`,
 });
 
 Api.interceptors.request.use(

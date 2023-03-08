@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { StoreProduct } from "@/features";
+import axios from 'axios';
 
-import * as C from "./ProductGallery.styles"
+import * as C from "./ProductGallery.styles";
+
+import { StoreProduct } from "@/features";
 
 interface Product {
   id: number;
   price: number;
-  name: string;
-  imgUrl: string;
-  category: string;
+  product_name: string;
+  photo: string;
+  category_id: number;
+  category_name: any;
   description: string;
 }
 
@@ -19,10 +22,10 @@ interface Props {
 
 export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeProducts, setActiveProducts] = useState(products);
 
+console.log(products.filter((product) => product.category_name === selectedCategory))
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
@@ -58,16 +61,18 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
   const end = start + productsPerPage;
 
   const filteredProducts =
-    selectedCategory === 'All' ? products : products.filter((product) => product.category === selectedCategory);
-
+    selectedCategory === "All" ? products : products.filter((product) => product.category_name === selectedCategory);
 
   useEffect(() => {
+
     if (selectedCategory == "All") {
       setActiveProducts(products);
     } else {
-      setActiveProducts(products.filter((product) => product.category === selectedCategory));
+      setActiveProducts(products.filter((product) => product.category_name === selectedCategory));
     }
   }, [selectedCategory]);
+
+
 
   const StoreProducts = filteredProducts.slice(start, end);
 
@@ -102,24 +107,41 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
     );
   }
 
+  const [data, setData] = useState([])
+
+  async function getData() {
+    const res = await axios.get(`${import.meta.env.VITE_API_HOST}/categoria`);
+    setData(res.data);
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  interface Item {
+    category_name: string
+  }
+  const [ids, setIds] = useState<any[]>([]);
+
+  useEffect(() => {
+    axios.get<Item[]>(`${import.meta.env.VITE_API_HOST}/categoria`)
+      .then(response => {
+        const ids = response.data.map(item => item.category_name);
+        setIds(ids);
+      })
+      .catch(error => console.log(error));
+  }, []);
+
   return (
     <C.ProductGalleryContainer>
       <C.FilterContainer>
-        <C.FilterButton active={selectedCategory === 'All'} onClick={() => handleCategoryFilter('All')}>
-          All
-        </C.FilterButton>
-        <C.FilterButton active={selectedCategory === 'Terror'} onClick={() => handleCategoryFilter('Terror')}>
-          Horror
-        </C.FilterButton>
-        <C.FilterButton active={selectedCategory === 'Romance'} onClick={() => handleCategoryFilter('Romance')}>
-          Romance
-        </C.FilterButton>
-        <C.FilterButton active={selectedCategory === 'Ficção'} onClick={() => handleCategoryFilter('Ficção')}>
-          Fiction
-        </C.FilterButton>
-        <C.FilterButton active={selectedCategory === 'Futurista'} onClick={() => handleCategoryFilter('Futurista')}>
-          Futuristic
-        </C.FilterButton>
+        {
+          ids.map((product) => (
+            <C.FilterButton active={selectedCategory === product} onClick={() => handleCategoryFilter(product)}>
+              {product}
+            </C.FilterButton>
+          ))
+        }
       </C.FilterContainer>
 
       <C.GalleryContainer>

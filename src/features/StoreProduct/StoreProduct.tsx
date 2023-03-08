@@ -6,24 +6,25 @@ import * as C from "./StoreProduct.styles";
 
 type StoreProductProps = {
   id: number;
-  name: string;
+  product_name: string;
   description: string;
   price: number;
-  imgUrl: string;
-  category: string;
+  photo: string;
+  category_id: number;
 }
 
-export function StoreProduct({ id, name, price, imgUrl }: StoreProductProps) {
+export function StoreProduct({ id, product_name, price, photo, category_id }: StoreProductProps) {
   return (
     <C.ProductPreview>
       <C.ProductImage
-        src={imgUrl}
+        src={photo}
       />
       <C.ProductBox>
-        <C.ProductTitle>{name}</C.ProductTitle>
+        <C.ProductTitle>{product_name}</C.ProductTitle>
+        <C.ProductTitle>{category_id}</C.ProductTitle>
         <C.ProductPrice>{formatCurrency(price)}</C.ProductPrice>
         <C.ProductButton>
-          <Link to={`/product/${id}`}>
+          <Link to={`/produto/${id}`}>
             Buy
           </Link>
         </C.ProductButton>

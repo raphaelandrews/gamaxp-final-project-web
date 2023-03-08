@@ -33,6 +33,7 @@ export const SignupForm: React.FC = () => {
     const onSubmit = async (values: LoginFormValues) => {
         try {
             await auth.register(values.username, values.email, values.password)
+         
             navigate("/profile");
         } catch (error) {
             if (error = 400) {
