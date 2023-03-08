@@ -9,39 +9,37 @@ import StoreProducts from "../../data/items.json";
 
 type Products = {
     price: number;
-    name: string;
-    category: string;
+    product_name: string;
+    category: any;
+    category_name: string;
     id: number;
-    imgUrl: string;
+    photo: string;
 };
 
-export const ProductsTable = () => {
+export const ProductsTable = ({ photo }: Products) => {
     //Requisitar API
-    const [data1, setData] = useState([]);
+    const [data, setData] = useState<Products[]>([]);
 
     async function getData() {
-        const res = await axios.get(`${import.meta.env.VITE_API_HOST}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_HOST}/produto`);
         setData(res.data);
+        console.log(res.data)
     }
 
     useEffect(() => {
         getData();
     }, []);
 
-    //nested data is ok, see accessorKeys in ColumnDef below
-    const data: Products[] = [StoreProducts][0];
-
-    //should be memoized or stable
     const columns = useMemo<MRT_ColumnDef<Products>[]>(
         () => [
             {
-                accessorKey: 'name',
+                accessorKey: 'product_name',
                 header: 'Name',
                 Cell: ({ row }) => (
                     <Link to={`/product/${row?.original?.id}`}>
                         <C.CellWrapper>
-                            <img src={row?.original?.imgUrl} />
-                            {row?.original?.name}
+                            <img src={`src/assets/img/${row?.original?.photo}`} />
+                            {row?.original?.product_name}
                         </C.CellWrapper>
                     </Link>
                 ),
@@ -56,11 +54,11 @@ export const ProductsTable = () => {
                 ),
             },
             {
-                accessorKey: 'category',
+                accessorKey: 'category.category_name',
                 header: 'Category',
                 Cell: ({ row }) => (
                     <Link to={`/product/${row?.original?.id}`}>
-                        {row?.original?.category}
+                        {row?.original?.category.category_name}
                     </Link>
                 ),
             },
@@ -76,7 +74,6 @@ export const ProductsTable = () => {
         ],
         [],
     );
-
 
     return (
         <C.TableWrapper>
