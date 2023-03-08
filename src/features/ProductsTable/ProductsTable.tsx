@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 import * as C from "./ProductsTable.styles";
 
 type Products = {
-    price: number;
-    product_name: string;
-    description: string;
-    category: any;
-    category_name: string;
-    id: number;
-    photo: string;
+    price?: number;
+    product_name?: string;
+    description?: string;
+    category?: any;
+    category_name?: string;
+    id?: number;
+    photo?: string;
 };
 
 export const ProductsTable = (props: Products) => {
