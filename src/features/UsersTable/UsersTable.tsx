@@ -69,7 +69,7 @@ export const UsersTable = () => {
     const [data1, setData] = useState([]);
 
     async function getData() {
-        const res = await axios.get(`http://localhost:5000/produto`);
+        const res = await axios.get(`${import.meta.env.VITE_API_HOST}`);
         setData(res.data);
     }
 

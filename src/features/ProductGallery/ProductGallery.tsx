@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { StoreProduct } from "@/features";
 
 import * as C from "./ProductGallery.styles"
+import axios from 'axios';
 
 interface Product {
   id: number;
   price: number;
-  name: string;
-  imgUrl: string;
-  category: string;
+  product_name: string;
+  category_id: number;
+  photo: string;
+  category: any;
   description: string;
 }
 
@@ -58,14 +60,14 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
   const end = start + productsPerPage;
 
   const filteredProducts =
-    selectedCategory === 'All' ? products : products.filter((product) => product.category === selectedCategory);
+    selectedCategory === 'All' ? products : products.filter((product) => product.category.category_name === selectedCategory);
 
 
   useEffect(() => {
     if (selectedCategory == "All") {
       setActiveProducts(products);
     } else {
-      setActiveProducts(products.filter((product) => product.category === selectedCategory));
+      setActiveProducts(products.filter((product) => product.category.category_name === selectedCategory));
     }
   }, [selectedCategory]);
 
@@ -102,24 +104,35 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
     );
   }
 
+  interface Item {
+    id: number;
+    category_name: string;
+  }
+  const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    axios.get<Item[]>(`${import.meta.env.VITE_API_HOST}/categoria`)
+      .then(response => {
+        const data = response.data.map(item => item.category_name);
+        setData(data);
+
+      })
+      .catch(error => console.log(error));
+  }, []);
+
   return (
     <C.ProductGalleryContainer>
       <C.FilterContainer>
-        <C.FilterButton active={selectedCategory === 'All'} onClick={() => handleCategoryFilter('All')}>
+      <C.FilterButton active={selectedCategory === "All"} onClick={() => handleCategoryFilter("All")}>
           All
         </C.FilterButton>
-        <C.FilterButton active={selectedCategory === 'Terror'} onClick={() => handleCategoryFilter('Terror')}>
-          Horror
-        </C.FilterButton>
-        <C.FilterButton active={selectedCategory === 'Romance'} onClick={() => handleCategoryFilter('Romance')}>
-          Romance
-        </C.FilterButton>
-        <C.FilterButton active={selectedCategory === 'Ficção'} onClick={() => handleCategoryFilter('Ficção')}>
-          Fiction
-        </C.FilterButton>
-        <C.FilterButton active={selectedCategory === 'Futurista'} onClick={() => handleCategoryFilter('Futurista')}>
-          Futuristic
-        </C.FilterButton>
+        {
+          data.map((category, index) => (
+            <C.FilterButton key={index+1} active={selectedCategory === category} onClick={() => handleCategoryFilter(category)}>
+              {category}
+            </C.FilterButton>
+          ))
+        }
       </C.FilterContainer>
 
       <C.GalleryContainer>

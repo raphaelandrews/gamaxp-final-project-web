@@ -14,7 +14,7 @@ interface ButtonProps {
     backgroundColor?: string;
     hoverBg?: string;
     text?: string | JSX.Element;
-    type?: string;
+    type?: "submit" | "button" | "reset";
     disabled?: boolean;
     action?: () => void;
   
@@ -35,6 +35,7 @@ export function Button(props: ButtonProps) {
             border={props.border}
             backgroundColor={props.backgroundColor}
             hoverBg={props.hoverBg}
+            type={props.type ? props.type : "button"}
             onClick={props.action}
         >
             {props.text}
