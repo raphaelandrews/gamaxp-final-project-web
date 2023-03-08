@@ -20,8 +20,24 @@ interface Props {
 }
 
 export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
+  interface Item {
+    id: number;
+    category_name: string;
+  }
+  const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    axios.get<Item[]>(`${import.meta.env.VITE_API_HOST}/categoria`)
+      .then(response => {
+        const data = response.data.map(item => item.category_name);
+        setData(data);
+
+      })
+      .catch(error => console.log(error));
+  }, []);
+
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   const [activeProducts, setActiveProducts] = useState(products);
 
@@ -104,38 +120,28 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
     );
   }
 
-  interface Item {
-    id: number;
-    category_name: string;
-  }
-  const [data, setData] = useState<any[]>([]);
+  const [isPageButtons, setIsPageButtons] = useState(false)
 
   useEffect(() => {
-    axios.get<Item[]>(`${import.meta.env.VITE_API_HOST}/categoria`)
-      .then(response => {
-        const data = response.data.map(item => item.category_name);
-        setData(data);
+    const timeoutId = setTimeout(() => {
+      setSelectedCategory("All")
+    }, 500);
 
-      })
-      .catch(error => console.log(error));
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
     <C.ProductGalleryContainer>
       <C.FilterContainer>
-      <C.FilterButton active={selectedCategory === "All"} onClick={() => handleCategoryFilter("All")}>
+        <C.FilterButton active={selectedCategory === "All"} onClick={() => handleCategoryFilter("All")}>
           All
         </C.FilterButton>
-        {
-          data.map((category, index) => (
-            <C.FilterButton key={index+1} active={selectedCategory === category} onClick={() => handleCategoryFilter(category)}>
-              {category}
-            </C.FilterButton>
-          ))
-        }
-      </C.FilterContainer>
-
-      <C.GalleryContainer>
+        {data.map((category, index) => (
+          <C.FilterButton key={index + 1} active={selectedCategory === category} onClick={() => handleCategoryFilter(category)}>
+            {category}
+          </C.FilterButton>
+        ))}
+      </C.FilterContainer><C.GalleryContainer>
         <C.GalleryContent>
           {StoreProducts.map((product) => (
             <C.ProductItem key={product.id}>
@@ -175,7 +181,7 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
               </path>
             </svg>
           </C.PageButton>
-          {pageButtons}
+              {pageButtons} 
           <C.PageButton onClick={goToNextPage} disabled={currentPage === totalPages}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

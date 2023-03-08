@@ -22,8 +22,6 @@ export function StoreProduct({ id, product_name, price, photo, category_id, cate
       />
       <C.ProductBox>
         <C.ProductTitle>{product_name}</C.ProductTitle>
-        <C.ProductTitle>{category.category_name}</C.ProductTitle>
-        <C.ProductTitle>{category_id}</C.ProductTitle>
         <C.ProductPrice>{formatCurrency(price)}</C.ProductPrice>
         <C.ProductButton>
           <Link to={`/produto/${id}`}>

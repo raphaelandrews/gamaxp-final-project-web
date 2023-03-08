@@ -16,7 +16,7 @@ export const Products = () => {
   useEffect(() => {
     getData();
   }, []);
-  
+
   return (
     <G.Container>
       <C.Title>Livros</C.Title>
