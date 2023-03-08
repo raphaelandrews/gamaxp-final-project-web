@@ -1,9 +1,8 @@
 import { useCart } from "@/context";
-import { formatCurrency } from "@/util";
 
 import * as C from "./CartProduct.styles";
 import { Button } from "@/components";
-import StoreProducts from "../../data/items.json";
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -11,7 +10,7 @@ type CartProductProps = {
   id: number;
   product_name?: string;
   description?: string;
-  price: number;
+  price?: number;
   photo?: string;
   category_id?: number;
   category?: any;
@@ -23,8 +22,6 @@ type CartProductProps = {
 
 export function CartProduct(props: CartProductProps) {
   const { removeFromCart } = useCart()
-  const item = StoreProducts.find(i => i.id === props.id)
-  if (item == null) return null
 
   const [data, setData] = useState<CartProductProps | null>(null);
 
@@ -60,7 +57,7 @@ export function CartProduct(props: CartProductProps) {
               </span>
             )}
             <C.ProductPrice>
-              {formatCurrency(data.price)}
+              ${data.price}
             </C.ProductPrice>
           </C.ProductQuantity>
         </C.ProductInfo>

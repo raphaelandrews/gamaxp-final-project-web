@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useCart } from "@/context";
-import { formatCurrency } from "@/util";
 import { CartProduct } from "@/features";
 
 import * as C from "./styles";
 import { ButtonDefault } from "@/components";
 
 interface Product {
-  id: number;
+  id?: number;
   price: number;
 }
 
@@ -40,14 +39,10 @@ export function Cart(props: Product) {
         <C.CartSubtotal>
           <C.CartSpan>Subtotal</C.CartSpan>
           <C.CartSpan>
-            {formatCurrency(
+            ${(
               CartProducts.reduce((total, CartProduct) => {
-                const item = data.length && data.find(i => i.id === CartProduct.id);
-                if (item && 'price' in item) {
-                  return total + item.price * CartProduct.quantity;
-                } else {
-                  return total;
-                }
+                const item = data.find(i => i.id === CartProduct.id);
+                return total + (item?.price || 0) * CartProduct.quantity;
               }, 0)
             )}
           </C.CartSpan>
@@ -62,7 +57,7 @@ export function Cart(props: Product) {
         <C.CartSubtotal>
           <C.CartSpan>Total</C.CartSpan>
           <C.CartSpan>
-            {formatCurrency(
+            ${(
               CartProducts.reduce((total, CartProduct) => {
                 const item = data.find(i => i.id === CartProduct.id);
                 return total + (item?.price || 0) * CartProduct.quantity;

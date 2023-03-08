@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { formatCurrency } from "@/util";
 
 import * as C from "./StoreProduct.styles";
 
@@ -23,7 +22,7 @@ export function StoreProduct({ id, product_name, price, photo }: StoreProductPro
       />
       <C.ProductBox>
         <C.ProductTitle>{product_name}</C.ProductTitle>
-        <C.ProductPrice>{formatCurrency(price)}</C.ProductPrice>
+        <C.ProductPrice>${(price)}</C.ProductPrice>
         <C.ProductButton>
           <Link to={`/product/${id}`}>
             Buy

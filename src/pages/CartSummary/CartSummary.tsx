@@ -7,7 +7,7 @@ export const CartSummary = () => {
   return (
     <G.Container>
       <C.Title>Your Cart</C.Title>
-      <Cart />
+      <Cart price={10} />
     </G.Container>
   )
 }
