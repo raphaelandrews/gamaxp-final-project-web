@@ -40,4 +40,6 @@ export { ThemeProvider } from "./ThemeProvider";
 
 export { Footer } from "./Footer/Footer";
 
-export { SectionFilters } from "./SectionFilters/SectionFilters"
+export { SectionFilters } from "./SectionFilters/SectionFilters";
+
+export { Banner } from "./Banner/Banner"; 

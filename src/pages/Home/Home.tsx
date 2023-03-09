@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { SectionFilters } from "@/features";
+import { Banner, SectionFilters } from "@/features";
 
 import { G } from "@/styles";
 import * as C from "./Home.styles";
@@ -19,7 +19,7 @@ export const Home = () => {
 
   return (
     <G.Container>
-      <C.Banner>Banner</C.Banner>
+      <Banner />
       <SectionFilters products={data} />
     </G.Container>
   )
