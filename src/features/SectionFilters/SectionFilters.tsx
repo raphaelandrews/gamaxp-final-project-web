@@ -65,11 +65,13 @@ export const SectionFilters: React.FC<Props> = ({ products }) => {
     }, []);
 
     return (
-        data.map((category, index) => (
-            <div key={index + 1}>
-                <C.SectionTitle>{category}</C.SectionTitle>
-                {filters(category)}
-            </div>
-        ))
+        <>
+            {data.map((category, index) => (
+                <div key={index + 1}>
+                    <C.SectionTitle>{category}</C.SectionTitle>
+                    {filters(category)}
+                </div>
+            ))}
+        </>
     )
 }
