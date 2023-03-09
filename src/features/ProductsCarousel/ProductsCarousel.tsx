@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
 import * as C from "./ProductsCarousel.styles";
-
 
 export function ProductsCarousel({ children }: { children: JSX.Element }) {
     const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -38,6 +37,7 @@ export function ProductsCarousel({ children }: { children: JSX.Element }) {
         slides: { perView: 1 },
     })
 
+
     return (
         <C.Wrapper>
             {<C.Slider ref={sliderRef}>
@@ -47,9 +47,7 @@ export function ProductsCarousel({ children }: { children: JSX.Element }) {
             {loaded && instanceRef.current && (
                 <>
                     <C.ArrowButton
-                        onClick={(e: any) =>
-                            e.stopPropagation() || instanceRef.current?.prev()
-                        }
+                        onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()}
                         disabled={currentSlide === 0}
                     >
                         <svg
@@ -68,15 +66,9 @@ export function ProductsCarousel({ children }: { children: JSX.Element }) {
                             </path>
                         </svg>
                     </C.ArrowButton>
-
                     <C.ArrowButtonR
-                        onClick={(e: any) =>
-                            e.stopPropagation() || instanceRef.current?.next()
-                        }
-                        disabled={
-                            currentSlide ===
-                            instanceRef.current.track.details.slides.length - 1
-                        }
+                        onClick={(e: any) => e.stopPropagation() || instanceRef.current?.next()}
+
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
