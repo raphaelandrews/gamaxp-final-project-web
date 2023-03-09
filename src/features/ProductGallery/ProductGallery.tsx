@@ -31,7 +31,6 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
       .then(response => {
         const data = response.data.map(item => item.category_name);
         setData(data);
-
       })
       .catch(error => console.log(error));
   }, []);
@@ -119,8 +118,6 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
       </C.PageButton>
     );
   }
-
-  const [isPageButtons, setIsPageButtons] = useState(false)
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
