@@ -30,7 +30,6 @@ export const Dashboard = () => {
         }
     };
 
-
     return (
         <G.Container>
             <C.Title>Admin Dashboard</C.Title>
