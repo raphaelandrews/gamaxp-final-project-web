@@ -12,7 +12,7 @@ export const Footer = () => {
     const About = useRef(null);
     const Contact = useRef(null);
     
-    const scrollToSection = (elementRef) => {
+    const scrollToSection = (elementRef : any) => {
         window.scrollTo({
             top: elementRef.current.offsetTop,
             behavior:"smooth"
