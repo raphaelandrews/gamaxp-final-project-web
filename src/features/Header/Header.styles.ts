@@ -232,3 +232,7 @@ export const CartQuantity = styled.span`
     border: 3px solid var(--bg-color);
     background-color: var(--second-color);
 `
+
+export const IconWrapper = styled.div`
+  display: flex;
+`

@@ -60,7 +60,7 @@ export const MultiStepForm = () => {
     };
 
     const handleSubmit = (values: FormData) => {
-        // Do something with the form values, such as submitting them to a server
+        console.log(values)
     };
 
     const [isAddressColor, setIsAddressColor] = useState("var(--second-color)");
