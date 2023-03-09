@@ -76,3 +76,11 @@ export const LinkWrapper = styled.div`
         }
     }
 `
+
+export const ActionsWrapper = styled.div`
+    display: flex;
+    
+    a {
+        width: inherit !important;
+    }
+`
