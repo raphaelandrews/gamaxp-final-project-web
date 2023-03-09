@@ -74,7 +74,7 @@ export const ProductsTable = (props: Products) => {
                 header: 'Actions',
                 Cell: ({ row }) => (
                     <C.ActionsWrapper>
-                        <Link to={`/delete-product/${row?.original?.id}`}>
+                        <Link to={`/edit-product/${row?.original?.id}`}>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 width="20"
                                 height="20"
@@ -103,7 +103,7 @@ export const ProductsTable = (props: Products) => {
                                 </path>
                             </svg>
                         </Link>
-                        <Link to={`/edit-product/${row?.original?.id}`}>
+                        <Link to={`/delete-product/${row?.original?.id}`}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="20"
