@@ -12,14 +12,16 @@ export const Home = () => {
     const res = await axios.get(`${import.meta.env.VITE_API_HOST}/produto`);
     setData(res.data);
   }
-  
+
   useEffect(() => {
     getData();
   }, []);
 
   return (
     <G.Container>
-      <Banner />
+      <C.Banner>
+        <Banner />
+      </C.Banner>
       <SectionFilters products={data} />
     </G.Container>
   )

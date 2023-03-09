@@ -26,6 +26,10 @@ export const GlobalStyles = createGlobalStyle`
     background: var(--bg-color);
   }
 
+  main {
+    min-height: calc(100vh - 6rem);
+  }
+
   a {
     text-decoration: none;
     color: var(--first-color);
