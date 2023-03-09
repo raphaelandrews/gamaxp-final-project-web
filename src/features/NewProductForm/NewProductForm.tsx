@@ -52,7 +52,7 @@ export const NewProductForm: React.FC = () => {
                 const imageString = reader.result as string;
             };
         }
-
+        
         try {
             await axios.post(`${import.meta.env.VITE_API_HOST}/produto`, formData, {
                 headers: { "Content-Type": "multipart/form-data", },
