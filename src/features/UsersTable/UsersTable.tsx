@@ -6,67 +6,15 @@ import { Link } from 'react-router-dom';
 import * as C from "./UsersTable.styles";
 
 type Person = {
-    name: {
-        firstName: string;
-        lastName: string;
-    };
-    address: string;
-    city: string;
-    state: string;
+    id?: number;
+    user_name?: string;
+    email?: string;
+    type?: string;
 };
 
-//nested data is ok, see accessorKeys in ColumnDef below
-const data: Person[] = [
-    {
-        name: {
-            firstName: 'Johnaaaaaaaaaaa',
-            lastName: 'Doe',
-        },
-        address: '261 Erdman Ford',
-        city: 'East Daphne',
-        state: 'Kentucky',
-    },
-    {
-        name: {
-            firstName: 'Jane',
-            lastName: 'Doe',
-        },
-        address: '769 Dominic Grove',
-        city: 'Columbus',
-        state: 'Ohio',
-    },
-    {
-        name: {
-            firstName: 'Joe',
-            lastName: 'Doe',
-        },
-        address: '566 Brakus Inlet',
-        city: 'South Linda',
-        state: 'West Virginia',
-    },
-    {
-        name: {
-            firstName: 'Kevin',
-            lastName: 'Vandy',
-        },
-        address: '722 Emie Stream',
-        city: 'Lincoln',
-        state: 'Nebraska',
-    },
-    {
-        name: {
-            firstName: 'Joshua',
-            lastName: 'Rolluffs',
-        },
-        address: '32188 Larkin Turnpike',
-        city: 'Omaha',
-        state: 'Nebraska',
-    },
-];
-
-export const UsersTable = () => {
+export const UsersTable = (props: Person) => {
     //Requisitar API
-    const [data1, setData] = useState([]);
+   /* const [data, setData] = useState<Person[]>([]);
 
     async function getData() {
         const res = await axios.get(`${import.meta.env.VITE_API_HOST}`);
@@ -77,64 +25,61 @@ export const UsersTable = () => {
         getData();
     }, []);
 
-
-
-    //should be memoized or stable
     const columns = useMemo<MRT_ColumnDef<Person>[]>(
         () => [
             {
-                accessorKey: 'name.firstName',
-                header: 'Username',
+                accessorKey: 'id',
+                header: 'ID',
                 Cell: ({ row }) => (
-                    <Link to={`/product/${row?.original?.name.firstName}`}>
-                        {row?.original?.name.firstName}
+                    <Link to={`/product/${row?.original?.id}`}>
+                        {row?.original?.id}
+                    </Link>
+                ),
+            },
+            {
+                accessorKey: 'user_name',
+                header: 'User',
+                Cell: ({ row }) => (
+                    <Link to={`/user/${row?.original?.id}`}>
+                        {row?.original?.user_name}
                     </Link>
                 ),
 
             },
             {
-                accessorKey: 'name.lastName',
+                accessorKey: 'email',
                 header: 'Email',
                 Cell: ({ row }) => (
-                    <Link to={`/product/${row?.original?.name.firstName}`}>
-                        {row?.original?.name.lastName}
+                    <Link to={`/product/${row?.original?.id}`}>
+                        {row?.original?.email}
                     </Link>
                 ),
             },
             {
-                accessorKey: 'address',
+                accessorKey: 'type',
                 header: 'Type',
                 Cell: ({ row }) => (
-                    <Link to={`/product/${row?.original?.name.firstName}`}>
-                        {row?.original?.address}
-                    </Link>
-                ),
-            },
-            {
-                accessorKey: 'city',
-                header: 'ID',
-                Cell: ({ row }) => (
-                    <Link to={`/product/${row?.original?.name.firstName}`}>
-                        {row?.original?.city}
+                    <Link to={`/product/${row?.original?.id}`}>
+                        {row?.original?.type}
                     </Link>
                 ),
             },
         ],
         [],
-    );
+    );*/
 
     return (
         <C.TableWrapper>
             <C.LinkWrapper>
                 <Link to="/createAdmin">Add new admin</Link>
             </C.LinkWrapper>
-            <MaterialReactTable
+            {/*<MaterialReactTable
                 columns={columns}
                 data={data}
                 enableColumnActions={false}
                 enableDensityToggle={false}
                 enableHiding={false}
-                enableColumnFilters={false} />
+    enableColumnFilters={false} />*/}
         </C.TableWrapper>
     )
 };
