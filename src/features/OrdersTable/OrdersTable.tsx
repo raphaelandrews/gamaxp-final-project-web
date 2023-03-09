@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 import * as C from "./OrdersTable.styles";
 
 type Orders = {
-    id: number;
-    users_id: number;
-    amount: number;
-    products_id: number;
+    id?: number;
+    users_id?: number;
+    amount?: number;
+    products_id?: number;
 };
 
 export const OrdersTable = (props: Orders) => {
