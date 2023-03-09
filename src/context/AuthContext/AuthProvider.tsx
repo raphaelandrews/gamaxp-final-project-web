@@ -18,8 +18,8 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     async function authenticate(email: string, password: string) {
         const response = await LoginRequest(email, password)
 
-        const payload = { token: response.senha, email, id: response.id, type: response.type }
-
+        const payload = { token: response }
+console.log(payload)
         setUser(payload);
         setUserLocalStorage(payload)
     }

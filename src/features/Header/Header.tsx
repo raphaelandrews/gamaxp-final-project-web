@@ -22,7 +22,7 @@ export const Header: React.FC<Props> = ({ title }) => {
   const auth = useAuth()
 
   const UserLogged = () => {
-    if (!auth.email) {
+    if (!auth.token) {
       return (
         <Link to="/login" onClick={toggle}>
           Login
@@ -32,8 +32,7 @@ export const Header: React.FC<Props> = ({ title }) => {
 
     return (
       <C.IconWrapper onClick={onLogout}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
+        <svg xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
           viewBox="0 0 24 24"
