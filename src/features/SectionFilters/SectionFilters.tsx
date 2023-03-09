@@ -30,7 +30,6 @@ export const SectionFilters: React.FC<Props> = ({ products }) => {
             .then(response => {
                 const data = response.data.map(item => item.category_name);
                 setData(data);
-                console.log(data)
             })
             .catch(error => console.log(error));
     }, []);
@@ -66,8 +65,13 @@ export const SectionFilters: React.FC<Props> = ({ products }) => {
 
     return (
         <>
-            {data.map((category, index) => (
-                <div key={index + 1}>
+            {data.filter((category) => {
+                const filtering = products.filter(
+                    (product) => product.category.category_name === category
+                );
+                return filtering.length > 0;
+            }).map((category) => (
+                <div key={category}>
                     <C.SectionTitle>{category}</C.SectionTitle>
                     {filters(category)}
                 </div>
