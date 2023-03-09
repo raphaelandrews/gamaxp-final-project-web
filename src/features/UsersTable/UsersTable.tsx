@@ -14,7 +14,7 @@ type Person = {
 
 export const UsersTable = (props: Person) => {
     //Requisitar API
-    const [data, setData] = useState<Person[]>([]);
+   /* const [data, setData] = useState<Person[]>([]);
 
     async function getData() {
         const res = await axios.get(`${import.meta.env.VITE_API_HOST}`);
@@ -66,20 +66,20 @@ export const UsersTable = (props: Person) => {
             },
         ],
         [],
-    );
+    );*/
 
     return (
         <C.TableWrapper>
             <C.LinkWrapper>
                 <Link to="/createAdmin">Add new admin</Link>
             </C.LinkWrapper>
-            <MaterialReactTable
+            {/*<MaterialReactTable
                 columns={columns}
                 data={data}
                 enableColumnActions={false}
                 enableDensityToggle={false}
                 enableHiding={false}
-                enableColumnFilters={false} />
+    enableColumnFilters={false} />*/}
         </C.TableWrapper>
     )
 };

@@ -14,7 +14,7 @@ type Orders = {
 
 export const OrdersTable = (props: Orders) => {
     //Requisitar API
-    const [data, setData] = useState<Orders[]>([]);
+    /*const [data, setData] = useState<Orders[]>([]);
 
     async function getData() {
         const res = await axios.get(`${import.meta.env.VITE_API_HOST}/orders`);
@@ -66,17 +66,17 @@ export const OrdersTable = (props: Orders) => {
             },
         ],
         [],
-    );
+    );*/
 
     return (
-        <C.TableWrapper>
-            <MaterialReactTable
+       <C.TableWrapper>
+             {/*<MaterialReactTable
                 columns={columns}
                 data={data}
                 enableColumnActions={false}
                 enableDensityToggle={false}
                 enableHiding={false}
-                enableColumnFilters={false} />
+                enableColumnFilters={false} />*/}
         </C.TableWrapper>
     )
 };
