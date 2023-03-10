@@ -1,15 +1,5 @@
 import styled from "styled-components";
 
-export const CartWrapper = styled.section`
-    padding-bottom: 4rem;
-    margin-top: 2rem;
-    @media (min-width: 800px) {
-        display: flex;
-        justify-content: space-between;
-        gap: 8rem;
-    }
-`
-
 export const CartContent = styled.div`
     display: grid;
     gap: 2rem;

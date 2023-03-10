@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { ProductsTable, UsersTable, OrdersTable } from "@/features";
 
-import { G } from "@/styles";
 import * as C from "./Dashboard.styles";
-import { Button } from "@/components";
+import { Container, Button, Title } from "@/components";
 
 export const Dashboard = () => {
     const [isDashboard, setIsDashboard] = useState(<ProductsTable />);
@@ -31,37 +30,39 @@ export const Dashboard = () => {
     };
 
     return (
-        <G.Container>
-            <C.Title>Admin Dashboard</C.Title>
+        <Container>
+            <>
+                <Title text="Admin Dashboard" margin="2rem 0 0" />
 
-            <C.ButtonWrapper>
-                <Button
-                    action={() => handleDashboard("products")}
-                    text="Products"
-                    padding=".75rem 1.25rem"
-                    border="2px solid var(--bg-alt-color)"
-                    backgroundColor={isProducts}
-                    hoverBg="var(--second-color)"
-                />
-                <Button
-                    action={() => handleDashboard("users")}
-                    text="Users"
-                    padding=".75rem 1.25rem"
-                    border="2px solid var(--bg-alt-color)"
-                    backgroundColor={isUsers}
-                    hoverBg="var(--second-color)"
-                />
-                <Button
-                    action={() => handleDashboard("orders")}
-                    text="Orders"
-                    padding=".75rem 1.25rem"
-                    border="2px solid var(--bg-alt-color)"
-                    backgroundColor={isOrders}
-                    hoverBg="var(--second-color)"
-                />
-            </C.ButtonWrapper>
+                <C.ButtonWrapper>
+                    <Button
+                        action={() => handleDashboard("products")}
+                        text="Products"
+                        padding=".75rem 1.25rem"
+                        border="2px solid var(--bg-alt-color)"
+                        backgroundColor={isProducts}
+                        hoverBg="var(--second-color)"
+                    />
+                    <Button
+                        action={() => handleDashboard("users")}
+                        text="Users"
+                        padding=".75rem 1.25rem"
+                        border="2px solid var(--bg-alt-color)"
+                        backgroundColor={isUsers}
+                        hoverBg="var(--second-color)"
+                    />
+                    <Button
+                        action={() => handleDashboard("orders")}
+                        text="Orders"
+                        padding=".75rem 1.25rem"
+                        border="2px solid var(--bg-alt-color)"
+                        backgroundColor={isOrders}
+                        hoverBg="var(--second-color)"
+                    />
+                </C.ButtonWrapper>
 
-            {isDashboard}
-        </G.Container>
+                {isDashboard}
+            </>
+        </Container>
     )
 }

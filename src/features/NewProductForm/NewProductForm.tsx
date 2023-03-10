@@ -32,7 +32,6 @@ const validationSchema = Yup.object({
     image: Yup.mixed().required("Required"),
 });
 
-
 export const NewProductForm: React.FC = () => {
     const navigate = useNavigate();
     const [previewUrl, setPreviewUrl] = useState("");

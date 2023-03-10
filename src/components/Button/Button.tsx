@@ -17,10 +17,9 @@ interface ButtonProps {
     type?: "submit" | "button" | "reset";
     disabled?: boolean;
     action?: () => void;
-  
 }
 
-export function Button(props: ButtonProps) {
+export const Button = (props: ButtonProps) => {
     return (
         <ButtonDefault
             display={props.display}
