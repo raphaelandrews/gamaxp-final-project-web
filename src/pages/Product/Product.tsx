@@ -3,8 +3,7 @@ import { useParams } from "react-router";
 import axios from "axios";
 
 import { ProductItem } from "@/features";
-
-import { G } from "@/styles";
+import { Container } from "@/components";
 
 type ProductData = {
     id: number;
@@ -35,7 +34,7 @@ export const Product = () => {
     }
 
     return (
-        <G.Container>
+        <Container>
             <ProductItem
                 product_name={data.product_name}
                 price={data.price}
@@ -45,6 +44,6 @@ export const Product = () => {
                 category={data.category}
                 category_id={data.category_id}
             />
-        </G.Container>
+        </Container>
     )
 }

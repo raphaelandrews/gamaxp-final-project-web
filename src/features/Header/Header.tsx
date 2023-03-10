@@ -4,11 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import { Modal, useModal, OffCanvas, CartProduct } from "@/features";
 import { useAuth, useCart, getUserLocalStorage } from "@/context";
+import { Container } from "@/components";
 
-import { G } from "@/styles";
 import * as C from "./Header.styles";
-
-import { User } from 'iconsax-react';
 
 interface Props {
   title: string;
@@ -85,7 +83,7 @@ export const Header: React.FC<Props> = ({ title }) => {
 
   return (
     <C.HeaderWrapper>
-      <G.Container>
+      <Container>
         <C.HeaderContainer>
           <C.Wrapper>
             <Link to="/">
@@ -244,7 +242,7 @@ export const Header: React.FC<Props> = ({ title }) => {
             </C.LoginModal>
           </Modal>
         </C.HeaderContainer>
-      </G.Container>
+      </Container>
     </C.HeaderWrapper>
   );
 };

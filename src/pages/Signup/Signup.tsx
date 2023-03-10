@@ -1,10 +1,10 @@
 import { SignupForm } from "@/features";
-import { G } from "@/styles";
+import { Container } from "@/components";
 
 export const Signup = () => {
     return (
-        <G.Container>
+        <Container>
             <SignupForm />
-        </G.Container>
+        </Container>
     )
 };

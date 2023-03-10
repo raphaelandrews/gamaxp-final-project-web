@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { ProductGallery } from "@/features";
 import axios from "axios";
 
-import { G } from "@/styles";
-import * as C from "./Products.styles";
+import { ProductGallery } from "@/features";
+import { Container, Title } from "@/components";
 
 export const Products = () => {
   const [data, setData] = useState([])
@@ -18,9 +17,11 @@ export const Products = () => {
   }, []);
 
   return (
-    <G.Container>
-      <C.Title>Livros</C.Title>
-      <ProductGallery products={data} productsPerPage={12} />
-    </G.Container>
+    <Container>
+      <>
+        <Title text="Books" />
+        <ProductGallery products={data} productsPerPage={12} />
+      </>
+    </Container>
   )
 }

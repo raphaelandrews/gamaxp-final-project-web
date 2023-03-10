@@ -1,13 +1,15 @@
 import { Cart } from "@/features";
 
-import { G } from "@/styles";
-import * as C from "./CartSummary.styles";
+import { Container } from "@/components";
+import { Title } from "@/components";
 
 export const CartSummary = () => {
   return (
-    <G.Container>
-      <C.Title>Your Cart</C.Title>
+    <Container>
+      <>
+      <Title text="Your Cart" />
       <Cart price={10} />
-    </G.Container>
+      </>
+    </Container>
   )
 }

@@ -29,9 +29,3 @@ export const LinkWrapper = styled.div`
     }
 `
 
-export const Title = styled.h1`
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 4rem;
-`;
-

@@ -1,11 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import styled from 'styled-components';
-
-export const Container = styled.div`
-    width: 90%;
-    max-width: 1180px;
-    margin: 0 auto;
-`;
 
 export const GlobalStyles = createGlobalStyle`
   *,

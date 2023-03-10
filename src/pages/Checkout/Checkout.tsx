@@ -2,20 +2,24 @@ import { useCart } from "@/context";
 import { CartProduct } from "@/features";
 import { MultiStepForm } from "@/features";
 
-import  { G } from "@/styles";
+import { Container } from "@/components";
 import * as C from "./Checkout.styles";
+import { Title } from "@/components";
 
 export const Checkout = () => {
   const { CartProducts } = useCart();
+
   return (
-    <G.Container>
-      <C.Title>Checkout</C.Title>
-      <MultiStepForm />
-      <C.CartContent>
-        {CartProducts.map(item => (
-          <CartProduct key={item.id} {...item} />
-        ))}
-      </C.CartContent>
-    </G.Container>
+    <Container>
+      <>
+        <Title text="Checkout" />
+        <MultiStepForm />
+        <C.CartContent>
+          {CartProducts.map(item => (
+            <CartProduct key={item.id} {...item} />
+          ))}
+        </C.CartContent>
+      </>
+    </Container>
   )
 }

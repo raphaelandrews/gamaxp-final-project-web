@@ -1,12 +1,11 @@
 import { LoginForm } from "@/features";
-
-import { G } from "@/styles";
+import { Container } from "@/components";
 
 export const Login = () => {
     return (
-        <G.Container>
+        <Container>
             <LoginForm />
-        </G.Container>
+        </Container>
     );
 };
 
