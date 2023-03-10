@@ -3,8 +3,6 @@ import { Button } from "@/components";
 
 import * as C from "./ProductItem.styles";
 
-import img from "../../assets/img/game-of-thrones.jpg";
-
 type ProductProps = {
     id: number;
     product_name: string;
@@ -15,7 +13,7 @@ type ProductProps = {
     category: any;
 }
 
-export const ProductItem = ({ id, product_name, price, photo, description, category_id, category }: ProductProps) => {
+export const ProductItem = ({ id, product_name, price, photo, description }: ProductProps) => {
     const {
         getItemQuantity,
         increaseCartQuantity,

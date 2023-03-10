@@ -13,7 +13,8 @@ export const ProductContent = styled.div`
     max-width: 500px;
     margin: 2rem auto 0;
     @media (min-width: 800px) {
-       margin: 0 auto;
+        width: 50%;
+        margin: 0 auto;
     }
 `
 
@@ -22,6 +23,10 @@ export const ProducImgWrapper = styled.div`
     justify-content: center;
     width: 100%;
     height: auto;
+    @media (min-width: 800px) {
+        justify-content: flex-end;
+        width: 50%;
+    }
 `
 
 export const ProductImg = styled.img`
@@ -63,7 +68,7 @@ export const ProductDescription = styled.p`
 interface ButtonProps {
     backgroundColor?: string
     marginTop?: string;
-    width?:string;
+    width?: string;
     padding?: string;
     hoverBg?: string
 }
