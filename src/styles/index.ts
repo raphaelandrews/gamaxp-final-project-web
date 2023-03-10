@@ -2,5 +2,5 @@ export * as G from "./GlobalStyles";
 
 export { GlobalStyles } from "./GlobalStyles";
 
-export { theme } from "./theme";
+export { lightTheme, darkTheme } from "./theme";
 

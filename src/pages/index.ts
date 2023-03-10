@@ -19,3 +19,5 @@ export { CreateProduct } from "./CreateProduct/CreateProduct";
 export { CreateAdmin } from "./CreateAdmin/CreateAdmin";
 
 export { DeleteProduct } from "./DeleteProduct/DeleteProduct";
+
+export { Profile } from "./Profile/Profile";

@@ -115,7 +115,7 @@ export const Header: React.FC<Props> = ({ title }) => {
                     to="/about"
                     style={({ isActive }) =>
                       isActive ? activeStyle : undefined}
-                    onClick={onLogout}>
+                    onClick={toggle}>
                     About
                   </NavLink>
                 </C.NavbarListItem>
