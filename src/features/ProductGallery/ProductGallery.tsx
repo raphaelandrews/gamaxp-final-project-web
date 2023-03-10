@@ -85,7 +85,7 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
       setActiveProducts(products.filter((product) => product.category.category_name === selectedCategory));
     }
   }, [selectedCategory]);
-
+  
   const StoreProducts = filteredProducts.slice(start, end);
 
   const pageButtons = [];
