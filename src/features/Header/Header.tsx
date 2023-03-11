@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ title }) => {
-  const { toggleDarkMode } = useContext(ThemeContext);
+  const { toggleDarkMode, toggleThemePicker } = useContext(ThemeContext);
   const { isOpen, toggle } = useModal();
   const { cartQuantity, CartProducts } = useCart()
   const user = getUserLocalStorage();
@@ -158,7 +158,7 @@ export const Header: React.FC<Props> = ({ title }) => {
               </OffCanvas>
             </C.CartWrapper>
 
-            <Button action={toggleDarkMode} display='flex' border='none' marginMD='.25rem 0 0' backgroundColor='transparent'>
+            <Button action={toggleThemePicker} display='flex' border='none' marginMD='.25rem 0 0' backgroundColor='transparent'>
               <SunIcon width="24px" height="24px" color="var(--first-color)" />
             </Button>
 
