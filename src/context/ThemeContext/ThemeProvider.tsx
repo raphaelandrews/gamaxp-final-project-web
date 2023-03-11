@@ -1,6 +1,6 @@
 // ThemeProvider.tsx
 import { useEffect, useState, ReactNode } from "react";
-import { ThemeProvider } from "@/features";
+import { ThemePicker, ThemeProvider } from "@/features";
 import { GlobalStyles, lightTheme, darkTheme } from "@/styles";
 import { ThemeContext } from "@/context";
 
@@ -9,15 +9,25 @@ type ThemeProviderProps = {
 };
 
 export function ThemeContextProvider({ children }: ThemeProviderProps) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+  const [isDarkMode, setIsDarkMode] = useState("");
+  /* const toggleDarkMode = () => {
+     setIsDarkMode(!isDarkMode);
+   };*/
+
+  const [isThemePicker, setIsThemePicker] = useState(false);
+
+  const toggleDarkMode = (e: string) => {
+    setIsDarkMode(e);
+  };
+
+  const toggleThemePicker = () => {
+    setIsThemePicker(!isThemePicker);
   };
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
-      setIsDarkMode(true);
+      setIsDarkMode("");
     }
   }, []);
 
@@ -28,12 +38,16 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
   const contextValue = {
     isDarkMode,
     toggleDarkMode,
+    toggleThemePicker,
   };
-
+console.log(isDarkMode)
   return (
     <ThemeContext.Provider value={contextValue}>
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
         <GlobalStyles />
+        {isThemePicker &&
+          <ThemePicker/>
+        }
         {children}
       </ThemeProvider>
     </ThemeContext.Provider>

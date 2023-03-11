@@ -45,3 +45,5 @@ export { SectionFilters } from "./SectionFilters/SectionFilters";
 export { Banner } from "./Banner/Banner"; 
 
 export { DeleteProductForm } from "./DeleteProductForm/DeleteProductForm";
+
+export { ThemePicker } from "./ThemePicker/ThemePicker";

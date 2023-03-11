@@ -1,12 +1,14 @@
 import { createContext } from "react";
 
 type ThemeContextType = {
-  isDarkMode: boolean;
-  toggleDarkMode: () => void;
+  isDarkMode: string;
+  toggleDarkMode: (e: string) => void;
+  toggleThemePicker: () => void;
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
-  isDarkMode: false,
+  isDarkMode: "",
   toggleDarkMode: () => {},
+  toggleThemePicker: () => {},
 });
 
