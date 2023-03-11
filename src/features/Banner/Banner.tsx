@@ -4,6 +4,7 @@ import "keen-slider/keen-slider.min.css";
 
 import { Section } from "@/components";
 import * as C from "./Banner.styles";
+import { ArrowLeft, ArrowRight } from "@/assets/svg";
 
 
 export function Banner() {
@@ -67,53 +68,20 @@ export function Banner() {
                 {loaded && instanceRef.current && (
                     <>
                         <C.ArrowButton
-                            onClick={(e: any) =>
-                                e.stopPropagation() || instanceRef.current?.prev()
-                            }
+                            onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()}
                             disabled={currentSlide === 0}
+                            left="1rem"
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none">
-                                <path
-                                    stroke="var(--alt-color)"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="2"
-                                    d="M15 19.92L8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08">
-                                </path>
-                            </svg>
+                            <ArrowLeft width="24px" height="24px" color="var(--alt-color)" />
                         </C.ArrowButton>
 
-                        <C.ArrowButtonR
-                            onClick={(e: any) =>
-                                e.stopPropagation() || instanceRef.current?.next()
-                            }
-                            disabled={
-                                currentSlide ===
-                                instanceRef.current.track.details.slides.length - 1
-                            }
+                        <C.ArrowButton
+                            onClick={(e: any) => e.stopPropagation() || instanceRef.current?.next()}
+                            disabled={currentSlide === instanceRef.current.track.details.slides.length - 1}
+                            right="1rem"
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none">
-                                <path
-                                    stroke="var(--alt-color)"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="2"
-                                    d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08">
-                                </path>
-                            </svg>
-                        </C.ArrowButtonR>
+                            <ArrowRight width="24px" height="24px" color="var(--alt-color)" />
+                        </C.ArrowButton>
                     </>
                 )}
             </>

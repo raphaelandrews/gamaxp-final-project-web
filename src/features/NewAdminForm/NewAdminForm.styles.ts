@@ -53,7 +53,6 @@ export const InputWrapper = styled.div`
         left: 1rem;
         font-size: .875rem;
         transform: translateY(-50%);
-        fill: var(--bg-alt-color);
     }
 
     input{

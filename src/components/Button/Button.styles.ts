@@ -2,13 +2,18 @@ import styled from "styled-components";
 
 interface ButtonProps {
     display?: string;
+    displayMD?: string;
     size?: string;
+    sizeMD?: string;
+    color?: string;
+    colorHover?: string;
     weight?: string;
     textTransform?: string;
     width?: string;
     height?: string;
     padding?: string;
     margin?: string;
+    marginMD?: string;
     borderRadius?: string;
     border?: string;
     backgroundColor?: string;
@@ -33,6 +38,7 @@ export const ButtonDefault = styled.button<ButtonProps>`
     cursor: pointer;
 
     &:hover {
+        color:  ${(props) => props.colorHover};
         background-color:  ${(props) => props.hoverBg};
     }
 
@@ -42,4 +48,10 @@ export const ButtonDefault = styled.button<ButtonProps>`
         height: 100%;
         padding: 1rem 0;
     }
+
+    @media (min-width: 800px) {
+        display: ${(props) => props.displayMD};
+        font-size: ${(props) => props.sizeMD};
+        margin: ${(props) => props.marginMD};
+  }
 `

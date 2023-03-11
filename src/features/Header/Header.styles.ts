@@ -117,13 +117,12 @@ export const Login = styled.div`
 `
 
 export const LoginModal = styled.div`
-display: inline-block;
+  display: inline-block;
   font-size: 1.25rem;
   text-align: center;
   border-radius: .5rem;
   padding: .5rem 1rem;
   margin-top: 4rem;
-  background-color: var(--second-color);
   a {
     transition: .5s;
   }

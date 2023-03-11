@@ -19,25 +19,17 @@ export const Slide = styled.div`
     transform: translate3d(0px, 0px, 0px);
 `
 
-export const ArrowButton = styled.button`
-    display: flex;
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    line-height: 1;
-    padding: .5rem;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-`;
+interface ArrowButtonProps {
+    left?: string;
+    right?: string;
+}
 
-export const ArrowButtonR = styled.button`
+export const ArrowButton = styled.button<ArrowButtonProps>`
     display: flex;
     position: absolute;
     top: 50%;
-    right: 1rem;
+    right: ${(props) => props.right ? props.right : "inherit"};
+    left: ${(props) => props.left ? props.left : "inherit"};
     transform: translateY(-50%);
     font-size: 2rem;
     line-height: 1;
