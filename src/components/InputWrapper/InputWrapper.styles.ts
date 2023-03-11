@@ -12,7 +12,7 @@ export const InputWrapperDefault = styled.div`
         color: var(--bg-color);
         width: 100%;
         height: 3rem;
-        padding: 0px 1.25em;
+        padding: .75rem .875em;
         margin-top: .5em;
         border: 1px solid var(--bg-color);
         border-color: var(--bg-color);

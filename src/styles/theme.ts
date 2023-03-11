@@ -1,33 +1,33 @@
 export const lightTheme = {
     colors: {
-        white: 'hsl(0, 0%, 100%)',
-        green: 'hsl(162, 100%, 26%)',
-        greenAlt: 'hsl(162, 100%, 20%)',
-        gray: 'hsl(240, 7%, 78%)',
-        grey: 'hsl(240, 9%, 89%)',
-        red: 'hsl(355, 91%, 66%)',
-        redAlt: 'hsl(355, 91%, 60%)',
-        black: 'hsl(240, 6%, 13%)',
-        dark: 'hsl(240, 5%, 7%)',
+        primary: 'hsl(0, 0%, 20%)', //gray
+        secondary: 'hsl(0, 0%, 20%)', //gray
+        secondaryAlt: 'hsl(0, 0%, 14%)',
+        tertiary: 'hsl(346, 92%, 48%)', //red
+        tertiaryAlt: 'hsl(346, 92%, 42%)',
+        quaternary: 'hsl(0, 0%, 70%)', //grey
+        alternative: 'hsl(0, 0%, 49%)', //gray
+        backgroundAlt: 'hsl(0, 0%, 93%)', //white
+        background: 'hsl(0, 0%, 100%)', //white
     },
     fonts: {
-        roboto: 'Roboto, sans-serif',
+        roboto: 'Patrick Hand, cursive',
     },
 };
 
 export const darkTheme = {
     colors: {
-        white: 'hsl(0, 0%, 0%)',
-        green: 'hsl(0, 0%, 0%)',
-        greenAlt: 'hsl(162, 100%, 20%)',
-        gray: 'hsl(240, 7%, 78%)',
-        grey: 'hsl(240, 9%, 89%)',
-        red: 'hsl(355, 91%, 66%)',
-        redAlt: 'hsl(355, 91%, 60%)',
-        black: 'hsl(240, 6%, 13%)',
-        dark: 'hsl(240, 5%, 7%)',
+        primary: 'hsl(0, 0%, 100%)',
+        secondary: 'hsl(0, 0%, 0%)',
+        secondaryAlt: 'hsl(162, 100%, 20%)',
+        tertiary: 'hsl(355, 91%, 66%)',
+        tertiaryAlt: 'hsl(355, 91%, 60%)',
+        quaternary: 'hsl(240, 9%, 89%)',
+        alternative: 'hsl(240, 7%, 78%)',
+        backgroundAlt: 'hsl(240, 6%, 13%)',
+        background: 'hsl(0, 0%, 20%)',
     },
     fonts: {
-        roboto: 'Roboto, sans-serif',
+        roboto: 'Patrick Hand, cursive',
     },
 };
