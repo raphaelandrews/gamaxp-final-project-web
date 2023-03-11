@@ -6,6 +6,9 @@ import { Section } from "@/components";
 import * as C from "./Banner.styles";
 import { ArrowLeft, ArrowRight } from "@/assets/svg";
 
+import banner1 from "../../assets/img/banner-1.png";
+import banner2 from "../../assets/img/banner-2.png";
+import banner3 from "../../assets/img/banner-3.png";
 
 export function Banner() {
     const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -57,12 +60,9 @@ export function Banner() {
         <Section>
             <>
                 {<C.Slider ref={sliderRef}>
-                    <div className="keen-slider__slide">1</div>
-                    <div className="keen-slider__slide">2</div>
-                    <div className="keen-slider__slide">3</div>
-                    <div className="keen-slider__slide">4</div>
-                    <div className="keen-slider__slide">5</div>
-                    <div className="keen-slider__slide">6</div>
+                    <div className="keen-slider__slide"><img src={banner1} alt="" /></div>
+                    <div className="keen-slider__slide"><img src={banner2} alt="" /></div>
+                    <div className="keen-slider__slide"><img src={banner3} alt="" /></div>
                 </C.Slider>}
 
                 {loaded && instanceRef.current && (

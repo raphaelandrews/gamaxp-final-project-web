@@ -14,7 +14,7 @@ declare module 'styled-components' {
       background: string;
     };
     fonts: {
-      roboto: string;
+      primary: string;
     };
   }
 }

@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ title }) => {
-  const { toggleDarkMode, toggleThemePicker } = useContext(ThemeContext);
+  const { toggleThemePicker } = useContext(ThemeContext);
   const { isOpen, toggle } = useModal();
   const { cartQuantity, CartProducts } = useCart()
   const user = getUserLocalStorage();

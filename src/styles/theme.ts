@@ -11,7 +11,7 @@ export const lightTheme = {
         background: 'hsl(0, 0%, 100%)', //white
     },
     fonts: {
-        roboto: 'Patrick Hand, cursive',
+        primary: 'Patrick Hand, cursive',
     },
 };
 
@@ -28,7 +28,7 @@ export const darkTheme = {
         background: 'hsl(0, 0%, 20%)',
     },
     fonts: {
-        roboto: 'Patrick Hand, cursive',
+        primary: 'Patrick Hand, cursive',
     },
 };
 
@@ -45,6 +45,6 @@ export const seaTheme = {
         background: 'hsl(20, 20%, 20%)',
     },
     fonts: {
-        roboto: 'Patrick Hand, cursive',
+        primary: 'Patrick Hand, cursive',
     },
 };

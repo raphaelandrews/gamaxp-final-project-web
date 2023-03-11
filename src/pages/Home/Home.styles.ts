@@ -9,7 +9,7 @@ export const Banner = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 400px;
+    aspect-ratio: 9/4;
     margin-top: 4rem;
     border-radius: .75rem;
     background-color: var(--bg-alt-color);

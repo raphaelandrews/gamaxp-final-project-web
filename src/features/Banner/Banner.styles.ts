@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Slider = styled.div`
+    border-radius: .875rem;
+    
     &:not([data-keen-slider-disabled]) {
         position: relative;
         display: flex;
@@ -11,6 +13,11 @@ export const Slider = styled.div`
         overflow: hidden;
         touch-action: pan-y;
         user-select: none;
+    }
+
+    img {
+        width: 100%;
+
     }
 `
 export const Slide = styled.div`
