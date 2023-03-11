@@ -13,3 +13,5 @@ export { Label } from './Label/Label';
 export { InputWrapper} from './InputWrapper/InputWrapper';
 
 export { Form } from './Form/Form';
+
+export { FormWrapper} from './FormWrapper/FormWrapper';
