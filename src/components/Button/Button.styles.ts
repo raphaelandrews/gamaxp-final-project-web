@@ -8,7 +8,7 @@ interface ButtonProps {
     width?: string;
     height?: string;
     padding?: string;
-    marginTop?: string;
+    margin?: string;
     borderRadius?: string;
     border?: string;
     backgroundColor?: string;
@@ -17,17 +17,17 @@ interface ButtonProps {
 
 export const ButtonDefault = styled.button<ButtonProps>`
     display: ${(props) => props.display};
-    font-size: ${(props) => props.size ? props.size : "1rem"};
-    font-weight: ${(props) => props.weight ? props.weight : 600};
-    color: var(--first-color);
+    font-size: ${(props) => props.size };
+    font-weight: ${(props) => props.weight};
+    color: ${(props) => props.color};
     text-transform: ${(props) => props.textTransform};
     width: ${(props) => props.width};
     height: ${(props) => props.height};
-    border-radius: .75rem;
-    padding: ${(props) => props.padding};
-    margin-top: ${(props) => props.marginTop};
     border-radius: ${(props) => props.borderRadius};
-    border: ${(props) => props.border ? props.border : "none"};
+    padding: ${(props) => props.padding};
+    margin: ${(props) => props.margin};
+    border-radius: ${(props) => props.borderRadius};
+    border: ${(props) => props.border};
     background-color: ${(props) => props.backgroundColor};
     transition: .5s;
     cursor: pointer;

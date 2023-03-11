@@ -8,3 +8,6 @@ export { AuthProvider } from "./AuthContext/AuthProvider";
 
 export { CartProvider } from "./CartContext";
 
+export { ThemeContext } from "./ThemeContext/ThemeContext";
+
+export { ThemeContextProvider} from "./ThemeContext/ThemeProvider";

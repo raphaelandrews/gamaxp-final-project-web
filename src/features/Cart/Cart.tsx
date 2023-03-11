@@ -76,7 +76,7 @@ export function Cart(props: Product) {
 
           <ButtonDefault
             width="100%"
-            marginTop="1.25rem"
+            margin="1.25rem 0 0"
             backgroundColor="var(--second-color)"
             hoverBg="var(--second-color-alt)"
           >

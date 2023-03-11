@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 import { Modal, useModal, OffCanvas, CartProduct } from "@/features";
-import { useAuth, useCart, getUserLocalStorage } from "@/context";
-import { Container } from "@/components";
+import { useAuth, useCart, getUserLocalStorage, ThemeContext } from "@/context";
+import { Button, ButtonDefault, Container } from "@/components";
+import { SunIcon, UserIcon } from '@/assets/svg';
 
 import * as C from "./Header.styles";
 
@@ -13,6 +14,7 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ title }) => {
+  const { toggleDarkMode } = useContext(ThemeContext);
   const { isOpen, toggle } = useModal();
   const { cartQuantity, CartProducts } = useCart()
   const user = getUserLocalStorage();
@@ -29,20 +31,7 @@ export const Header: React.FC<Props> = ({ title }) => {
     }
 
     return (
-      <C.IconWrapper onClick={onLogout}>
-        <svg xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none">
-          <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10ZM20.59 22c0-3.87-3.85-7-8.59-7s-8.59 3.13-8.59 7"
-            stroke="var(--first-color)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round">
-          </path>
-        </svg>
-      </C.IconWrapper>
+      <UserIcon width="24px" height="24px" color="var(--first-color)" />
     )
   };
 
@@ -176,6 +165,10 @@ export const Header: React.FC<Props> = ({ title }) => {
               </OffCanvas>
             </C.CartWrapper>
 
+            <Button action={toggleDarkMode} display='flex' border='none' margin='.25rem 0 0' backgroundColor='transparent'>
+              <SunIcon width="24px" height="24px" color="var(--first-color)" />
+            </Button>
+
             <C.Hamburger onClick={toggle}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -189,10 +182,9 @@ export const Header: React.FC<Props> = ({ title }) => {
                 </path>
               </svg>
             </C.Hamburger>
-
-            <C.Login>
+            <Button action={onLogout} display='flex' border='none' margin='.25rem 0 0' backgroundColor='transparent'>
               {UserLogged()}
-            </C.Login>
+            </Button>
           </C.Wrapper>
 
           <Modal isOpen={isOpen} toggle={toggle}>

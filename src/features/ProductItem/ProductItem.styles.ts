@@ -67,7 +67,7 @@ export const ProductDescription = styled.p`
 
 interface ButtonProps {
     backgroundColor?: string
-    marginTop?: string;
+    margin?: string;
     width?: string;
     padding?: string;
     hoverBg?: string
@@ -80,7 +80,7 @@ export const ProductButton = styled.button<ButtonProps>`
     width: ${(props) => props.width};
     border-radius: .75rem;
     padding: ${(props) => props.padding};
-    margin-top: ${(props) => props.marginTop};
+    margin: ${(props) => props.margin};
     border: none;
     background-color: ${(props) => props.backgroundColor};
     transition: .5s;
