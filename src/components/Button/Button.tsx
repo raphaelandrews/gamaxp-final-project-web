@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { ButtonDefault } from "./Button.styles";
 
 interface ButtonProps {
@@ -8,7 +9,7 @@ interface ButtonProps {
     width?: string;
     height?: string;
     padding?: string;
-    marginTop?: string;
+    margin?: string;
     borderRadius?: string;
     border?: string;
     backgroundColor?: string;
@@ -17,6 +18,7 @@ interface ButtonProps {
     type?: "submit" | "button" | "reset";
     disabled?: boolean;
     action?: () => void;
+    children?: ReactNode;
 }
 
 export const Button = (props: ButtonProps) => {
@@ -29,7 +31,7 @@ export const Button = (props: ButtonProps) => {
             width={props.width}
             height={props.height}
             padding={props.padding}
-            marginTop={props.marginTop}
+            margin={props.margin}
             borderRadius={props.borderRadius}
             border={props.border}
             backgroundColor={props.backgroundColor}
@@ -38,6 +40,7 @@ export const Button = (props: ButtonProps) => {
             onClick={props.action}
         >
             {props.text}
+            {props.children}
         </ButtonDefault>
     );
 }
