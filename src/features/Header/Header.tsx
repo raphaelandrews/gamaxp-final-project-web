@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { Modal, useModal, OffCanvas, CartProduct } from "@/features";
 import { useAuth, useCart, getUserLocalStorage, ThemeContext } from "@/context";
-import { Button, ButtonDefault, Container } from "@/components";
-import { SunIcon, UserIcon } from '@/assets/svg';
+import { Button, Container } from "@/components";
+import { SunIcon, UserIcon, CartIcon, HamburgerIcon } from '@/assets/svg';
 
 import * as C from "./Header.styles";
 
@@ -31,7 +31,13 @@ export const Header: React.FC<Props> = ({ title }) => {
     }
 
     return (
-      <UserIcon width="24px" height="24px" color="var(--first-color)" />
+      <Button
+        action={onLogout}
+        display='flex'
+        border='none'
+        backgroundColor='transparent'>
+        <UserIcon width="24px" height="24px" color="var(--first-color)" />
+      </Button>
     )
   };
 
@@ -127,20 +133,7 @@ export const Header: React.FC<Props> = ({ title }) => {
           <C.Wrapper>
             <C.CartWrapper>
               <C.CartIcon onClick={handleOpen}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none">
-                  <path d="M2 2h1.74c1.08 0 1.93.93 1.84 2l-.83 9.96a2.796 2.796 0 0 0 2.79 3.03h10.65c1.44 0 2.7-1.18 2.81-2.61l.54-7.5c.12-1.66-1.14-3.01-2.81-3.01H5.82M16.25 22a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM8.25 22a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM9 8h12"
-                    stroke="var(--alt-color)"
-                    strokeWidth="2"
-                    strokeMiterlimit="10"
-                    strokeLinecap="round"
-                    strokeLinejoin="round">
-                  </path>
-                </svg>
+                <CartIcon width='20px' height='20px' color='var(--alt-color)' />
 
                 <C.CartQuantity>
                   {cartQuantity}
@@ -165,26 +158,16 @@ export const Header: React.FC<Props> = ({ title }) => {
               </OffCanvas>
             </C.CartWrapper>
 
-            <Button action={toggleDarkMode} display='flex' border='none' margin='.25rem 0 0' backgroundColor='transparent'>
+            <Button action={toggleDarkMode} display='flex' border='none' marginMD='.25rem 0 0' backgroundColor='transparent'>
               <SunIcon width="24px" height="24px" color="var(--first-color)" />
             </Button>
 
             <C.Hamburger onClick={toggle}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24"
-                viewBox="0 0 24 24"
-                fill="none">
-                <path d="M3 7h18M3 12h18M3 17h18"
-                  stroke="var(--first-color)"
-                  strokeWidth="2"
-                  strokeLinecap="round">
-                </path>
-              </svg>
+              <HamburgerIcon width='24px' height='24px' color='var(--alt-color)' />
             </C.Hamburger>
-            <Button action={onLogout} display='flex' border='none' margin='.25rem 0 0' backgroundColor='transparent'>
+            <C.Login>
               {UserLogged()}
-            </Button>
+            </C.Login>
           </C.Wrapper>
 
           <Modal isOpen={isOpen} toggle={toggle}>
