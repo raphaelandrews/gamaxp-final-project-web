@@ -12,14 +12,6 @@ export const Wrapper = styled.div`
         flex-direction: row;
         gap: 8rem;
     }
-    
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 400px;
-        max-width: 80%;
-        margin-top: 2rem;
-    }
 `;
 
 export const FormInputs = styled.section`

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 import * as C from "./DeleteProductForm.styles";
-import { Button, InputWrapper, Label } from "@/components";
+import { Button, Form, InputWrapper, Label } from "@/components";
 
 
 export const DeleteProductForm: React.FC = () => {
@@ -40,7 +40,7 @@ export const DeleteProductForm: React.FC = () => {
 
     return (
         <C.Wrapper>
-            <form>
+            <Form>
                 <C.FormInputs>
                     <InputWrapper>
                         <Label text="Product" htmlFor="product_name" />
@@ -75,7 +75,7 @@ export const DeleteProductForm: React.FC = () => {
                         hoverBg="var(--third-color-alt)"
                     />
                 </C.FormInputs>
-            </form>
+            </Form>
         </C.Wrapper>
     )
 }
