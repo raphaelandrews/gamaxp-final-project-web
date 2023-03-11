@@ -26,15 +26,15 @@ export const GlobalStyles = createGlobalStyle`
 
   :root {
     //===== Color =====//
-    --first-color: ${({ theme }) => theme.colors.white};
-    --second-color: ${({ theme }) => theme.colors.green};
-    --second-color-alt: ${({ theme }) => theme.colors.greenAlt};
-    --third-color: ${({ theme }) => theme.colors.red};
-    --third-color-alt: ${({ theme }) => theme.colors.redAlt};
-    --fourth-color: ${({ theme }) => theme.colors.grey};
-    --alt-color: ${({ theme }) => theme.colors.gray};
-    --bg-alt-color: ${({ theme }) => theme.colors.black};
-    --bg-color: ${({ theme }) => theme.colors.dark};
+    --first-color: ${({ theme }) => theme.colors.primary};
+    --second-color: ${({ theme }) => theme.colors.secondary};
+    --second-color-alt: ${({ theme }) => theme.colors.secondaryAlt};
+    --third-color: ${({ theme }) => theme.colors.tertiary};
+    --third-color-alt: ${({ theme }) => theme.colors.tertiaryAlt};
+    --fourth-color: ${({ theme }) => theme.colors.quaternary};
+    --alt-color: ${({ theme }) => theme.colors.alternative};
+    --bg-alt-color: ${({ theme }) => theme.colors.backgroundAlt};
+    --bg-color: ${({ theme }) => theme.colors.background};
 
     //===== Fonts =====//
     --first-font: ${({ theme }) => theme.fonts.roboto}

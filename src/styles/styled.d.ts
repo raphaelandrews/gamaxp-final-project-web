@@ -3,15 +3,15 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
-      white: string;
-      green: string;
-      greenAlt: string;
-      gray: string;
-      grey: string;
-      black: string;
-      dark: string;
-      red: string;
-      redAlt: string;
+      primary: string;
+      secondary: string;
+      secondaryAlt: string;
+      tertiary: string;
+      tertiaryAlt: string;
+      quaternary: string;
+      alternative: string;
+      backgroundAlt: string;
+      background: string;
     };
     fonts: {
       roboto: string;
