@@ -68,7 +68,7 @@ export const DeleteProductForm: React.FC = () => {
                         weight="700"
                         textTransform="uppercase"
                         height="3rem"
-                        marginTop="1rem"
+                        margin="1rem 0 0"
                         borderRadius=".25rem"
                         backgroundColor="var(--third-color)"
                         hoverBg="var(--third-color-alt)"

@@ -43,7 +43,7 @@ export const ProductItem = ({ id, product_name, price, photo, description }: Pro
                     <Button
                         action={() => increaseCartQuantity(id)}
                         backgroundColor="var(--second-color)"
-                        marginTop="2rem"
+                        margin="2rem 0 0"
                         width="100%"
                         padding="1rem .75rem"
                         hoverBg="var(--second-color-alt)"

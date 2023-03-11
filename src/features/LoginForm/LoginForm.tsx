@@ -82,7 +82,7 @@ export const LoginForm: React.FC = () => {
                                 weight="700"
                                 textTransform="uppercase"
                                 height="3rem"
-                                marginTop="1rem"
+                                margin="1rem 0 0"
                                 borderRadius=".25rem"
                                 backgroundColor="var(--second-color)"
                                 hoverBg="var(--second-color-alt)"
