@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 import { Modal, useModal, OffCanvas, CartProduct } from "@/features";
-import { useAuth, useCart, getUserLocalStorage } from "@/context";
+import { useAuth, useCart, getUserLocalStorage, ThemeContext } from "@/context";
 import { Container } from "@/components";
 
 import * as C from "./Header.styles";
@@ -13,6 +13,7 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ title }) => {
+  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
   const { isOpen, toggle } = useModal();
   const { cartQuantity, CartProducts } = useCart()
   const user = getUserLocalStorage();
@@ -189,7 +190,7 @@ export const Header: React.FC<Props> = ({ title }) => {
                 </path>
               </svg>
             </C.Hamburger>
-
+<button onClick={toggleDarkMode}>Toggle</button>
             <C.Login>
               {UserLogged()}
             </C.Login>
