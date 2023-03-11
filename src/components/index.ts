@@ -1,9 +1,13 @@
-export { Button } from "./Button/Button";
+export { Button } from './Button/Button';
 
-export { ButtonDefault } from "./Button/Button.styles";
+export { ButtonDefault } from './Button/Button.styles';
 
-export { Title } from "./Title/Title";
+export { Title } from './Title/Title';
 
-export { Container } from "./Container/Container";
+export { Container } from './Container/Container';
 
-export { Section } from "./Section/Section";
+export { Section } from './Section/Section';
+
+export { Label } from './Label/Label';
+
+export { InputWrapper} from './InputWrapper/InputWrapper';
