@@ -1,7 +1,7 @@
 // ThemeProvider.tsx
 import { useEffect, useState, ReactNode } from "react";
 import { ThemePicker, ThemeProvider } from "@/features";
-import { GlobalStyles, lightTheme, darkTheme } from "@/styles";
+import { GlobalStyles, lightTheme, darkTheme, seaTheme } from "@/styles";
 import { ThemeContext } from "@/context";
 
 type ThemeProviderProps = {
@@ -10,9 +10,6 @@ type ThemeProviderProps = {
 
 export function ThemeContextProvider({ children }: ThemeProviderProps) {
   const [isDarkMode, setIsDarkMode] = useState("");
-  /* const toggleDarkMode = () => {
-     setIsDarkMode(!isDarkMode);
-   };*/
 
   const [isThemePicker, setIsThemePicker] = useState(false);
 
@@ -26,27 +23,60 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDarkMode("");
+    if (savedTheme === "dark" || savedTheme === "light" || savedTheme === "sea") {
+      setIsDarkMode(savedTheme);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    function setTheme() {
+      localStorage.setItem("theme", isDarkMode);
+    }
+
+    setTheme()
   }, [isDarkMode]);
+
+  type Theme = {
+    colors: {
+      primary: string;
+      secondary: string;
+      secondaryAlt: string;
+      tertiary: string;
+      tertiaryAlt: string;
+      quaternary: string;
+      alternative: string;
+      backgroundAlt: string;
+      background: string;
+    };
+    fonts: {
+      roboto: string;
+    };
+  };
+
+  function getThemeObject(theme: string): Theme {
+    if (theme === "dark") {
+      return darkTheme
+    } else if (theme === "light") {
+      return lightTheme
+    } else if (theme == "sea") {
+      return seaTheme
+    }
+
+    return theme === "corinthians" ? darkTheme : lightTheme;
+  }
 
   const contextValue = {
     isDarkMode,
     toggleDarkMode,
     toggleThemePicker,
   };
-console.log(isDarkMode)
+
   return (
     <ThemeContext.Provider value={contextValue}>
-      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <ThemeProvider theme={getThemeObject(isDarkMode)}>
         <GlobalStyles />
         {isThemePicker &&
-          <ThemePicker/>
+          <ThemePicker />
         }
         {children}
       </ThemeProvider>

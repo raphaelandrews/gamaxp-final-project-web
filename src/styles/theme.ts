@@ -31,3 +31,20 @@ export const darkTheme = {
         roboto: 'Patrick Hand, cursive',
     },
 };
+
+export const seaTheme = {
+    colors: {
+        primary: 'hsl(0, 0%, 50%)',
+        secondary: 'hsl(0, 0%, 50%)',
+        secondaryAlt: 'hsl(162, 100%, 20%)',
+        tertiary: 'hsl(50, 50%, 50%)',
+        tertiaryAlt: 'hsl(355, 91%, 60%)',
+        quaternary: 'hsl(240, 9%, 89%)',
+        alternative: 'hsl(240, 7%, 78%)',
+        backgroundAlt: 'hsl(240, 6%, 13%)',
+        background: 'hsl(20, 20%, 20%)',
+    },
+    fonts: {
+        roboto: 'Patrick Hand, cursive',
+    },
+};
