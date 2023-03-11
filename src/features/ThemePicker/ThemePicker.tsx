@@ -14,8 +14,8 @@ export const ThemePicker = (props: ThemePickerProps) => {
     return (
         <ThemePickerDefault>
             <button onClick={() => toggleDarkMode("dark")}>cor1</button>
-            <button>cor2</button>
-            <button>cor3</button>
+            <button onClick={() => toggleDarkMode("light")}>cor2</button>
+            <button onClick={() => toggleDarkMode("sea")}>cor3</button>
             <button>cor4</button>
         </ThemePickerDefault>
     )
