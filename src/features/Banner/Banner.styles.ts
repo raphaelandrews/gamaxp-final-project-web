@@ -1,8 +1,23 @@
 import styled from "styled-components";
 
+interface BannerProps {
+    backgroundImage: string;
+    backgroundImageMD: string;
+}
+
+export const Div = styled.div<BannerProps>`
+    background-image: url(${(props) => props.backgroundImage});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (min-width: 800px) {
+        background-image: url(${(props) => props.backgroundImageMD});
+    }
+`
+
 export const Slider = styled.div`
-    border-radius: .875rem;
-    
+  
     &:not([data-keen-slider-disabled]) {
         position: relative;
         display: flex;
@@ -17,7 +32,10 @@ export const Slider = styled.div`
 
     img {
         width: 100%;
+    }
 
+    @media (min-width: 800px) {
+        border-radius: .875rem;
     }
 `
 export const Slide = styled.div`
@@ -32,7 +50,7 @@ interface ArrowButtonProps {
 }
 
 export const ArrowButton = styled.button<ArrowButtonProps>`
-    display: flex;
+    display: none;
     position: absolute;
     top: 50%;
     right: ${(props) => props.right ? props.right : "inherit"};
@@ -44,4 +62,8 @@ export const ArrowButton = styled.button<ArrowButtonProps>`
     border: none;
     background-color: transparent;
     cursor: pointer;
+
+    @media (min-width: 800px) {
+        display: flex;
+    }
 `;
