@@ -20,7 +20,7 @@ export const ProductBox = styled.div`
 `
 
 export const ProductTitle = styled.h2`
-    font-size: 1.25rem;
+    font-size: var(--fs-7);
     font-weight: 500;
     margin-bottom: 1.5em;
     display: -webkit-box;
@@ -31,7 +31,7 @@ export const ProductTitle = styled.h2`
 `
 
 export const ProductPrice = styled.span`
-    font-size: 1.25rem;
+    font-size: var(--fs-7);
     font-weight: 700;
 `
 

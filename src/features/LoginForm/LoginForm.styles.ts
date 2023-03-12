@@ -17,8 +17,6 @@ export const Wrapper = styled.div`
         flex-direction: column;
         width: 480px;
         max-width: 80%;
-        padding: 4rem;
-        background-color: var(--bg-alt-color);
         border-radius: .25rem;
     }
 `;

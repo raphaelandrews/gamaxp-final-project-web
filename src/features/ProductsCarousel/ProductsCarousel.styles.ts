@@ -42,7 +42,7 @@ export const ArrowButton = styled.button`
     top: 50%;
     left: -3rem;
     transform: translateY(-50%);
-    font-size: 2rem;
+    font-size: var(--fs-10);
     line-height: 1;
     padding: .5rem;
     border: none;
@@ -56,7 +56,7 @@ export const ArrowButtonR = styled.button`
     top: 50%;
     right: -3rem;
     transform: translateY(-50%);
-    font-size: 2rem;
+    font-size: var(--fs-10);
     line-height: 1;
     padding: .5rem;
     border: none;

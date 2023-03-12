@@ -211,7 +211,7 @@ export const Header: React.FC<Props> = ({ title }) => {
                 </C.NavbarListItem>
               </C.NavbarList>
             </C.NavbarModal>
-
+            
             <C.LoginModal>
               {UserLogged()}
             </C.LoginModal>

@@ -42,19 +42,19 @@ export const ProductImg = styled.img`
 `
 
 export const ProductTitle = styled.h2`
-    font-size: 2rem;
+    font-size: var(--fs-10);
     margin-bottom: .25em;
     @media (min-width: 800px) {
-        font-size: 2.5rem;
+        font-size: var(--fs-12);
     }
 `
 
 export const ProductPrice = styled.span`
     display: block;
-    font-size: 1.5rem;
+    font-size: var(--fs-8);
     margin-bottom: 1em;
     @media (min-width: 800px) {
-        font-size: 2rem;
+        font-size: var(--fs-10);
     }
 `
 
@@ -74,7 +74,7 @@ interface ButtonProps {
 }
 
 export const ProductButton = styled.button<ButtonProps>`
-    font-size: 1rem;
+    font-size: var(--fs-5);
     font-weight: 600;
     color: var(--first-color);
     width: ${(props) => props.width};

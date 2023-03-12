@@ -47,17 +47,17 @@ export const LoginForm: React.FC = () => {
         >
             {({ isSubmitting }) => (
                 <C.Wrapper>
-                    <Title text="Welcome back" fontSize="2rem" fontSizeMD="2.5rem" margin="0 0 1em" />
+                    <Title text="Welcome back" fontSize="var(--fs-10)" fontSizeMD="var(--fs-12)" margin="0 0 1em" />
                     <Form>
                         <FormWrapper>
                             <InputWrapper>
-                                <Label text="Email" htmlFor="email" />
+                                <Label text="Email" htmlFor="email" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
                                 <Field type="email" name="email" placeholder="Email" />
                             </InputWrapper>
                             <ErrorMessage name="email">{msg => <C.Message>{msg}</C.Message>}</ErrorMessage>
 
                             <InputWrapper>
-                                <Label text="Passowrd" htmlFor="password" />
+                                <Label text="Passoword" htmlFor="password" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7)" />
                                 <Field type="password" name="password" placeholder="Login" />
                             </InputWrapper>
                             <ErrorMessage name="password">{msg => <C.Message>{msg}</C.Message>}</ErrorMessage>
@@ -66,6 +66,7 @@ export const LoginForm: React.FC = () => {
                                 type="submit"
                                 disabled={isSubmitting}
                                 text="Login"
+                                color="var(--bg-color)"
                                 weight="700"
                                 textTransform="uppercase"
                                 height="3rem"

@@ -26,7 +26,7 @@ export const FilterContainer = styled.div`
 `;
 
 export const FilterButton = styled.button<{ active?: boolean }>`
-  font-size: 1rem;
+  font-size: var(--fs-5);
   color: ${({ active }) => (active ? 'var(--second-color)' : 'var(--alt-color)')};
   border: none;
   background-color: transparent;
@@ -85,7 +85,7 @@ export const PaginationContainer = styled.div`
 `;
 
 export const PageButton = styled.button<{ active?: boolean }>`
-  font-size: 1rem;
+  font-size: var(--fs-5);
   color: ${({ active }) => (active ? 'var(--second-color)' : 'var(--alt-color)')};
   margin: 0 5px;
   border: none;

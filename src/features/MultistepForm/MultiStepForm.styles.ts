@@ -57,13 +57,13 @@ export const InputWrapper = styled.div`
         position: absolute;
         top: 50%;
         left: 1rem;
-        font-size: .875rem;
+        font-size: var(--fs-4);
         transform: translateY(-50%);
         fill: var(--bg-alt-color);
     }
 
     input{
-        font-size: 1rem;
+        font-size: var(--fs-5);
         color: var(--bg-color);
         width: 100%;
         height: 3rem;
@@ -105,7 +105,7 @@ export const InputWrapperRadio = styled.div`
 `
 
 export const Button = styled.button`
-    font-size: 1rem;
+    font-size: var(--fs-5);
     font-weight: 700;
     height: 3rem;
     border: 0px;

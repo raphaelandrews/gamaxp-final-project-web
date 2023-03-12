@@ -16,7 +16,7 @@ export const CartTotal = styled.div`
 `
 
 export const CartSummary = styled.h2`
-    font-size: 1.25rem;
+    font-size: var(--fs-7);
     margin-bottom: 1em;
 `
 
@@ -44,7 +44,7 @@ export const CartSpan = styled.span<CartSpanProps>`
 `
 
 export const CartButton = styled.button`
-    font-size: 1rem;
+    font-size: var(--fs-5);
     font-weight: 700;
     width: 100%;
     padding: 1em .75em;
