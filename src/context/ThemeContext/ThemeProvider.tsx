@@ -52,22 +52,22 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
       primary: string;
     };
     fontSizes: {
-      fontSize1: '.5rem',
-      fontSize2: '.625rem',
-      fontSize3: '.75rem',
-      fontSize4: '.875rem',
-      fontSize5: '1rem',
-      fontSize6: '1.125rem',
-      fontSize7: '1.25rem',
-      fontSize8: '1.5rem',
-      fontSize9: '1.75rem',
-      fontSize10: '2rem',
-      fontSize11: '2.25rem',
-      fontSize12: '2.5rem',
-      fontSize13: '3rem',
-      fontSize14: '3.25rem',
-      fontSize15: '3.5rem',
-    }
+      fontSize1: string;
+      fontSize2: string;
+      fontSize3: string;
+      fontSize4: string;
+      fontSize5: string;
+      fontSize6: string;
+      fontSize7: string;
+      fontSize8: string;
+      fontSize9: string;
+      fontSize10: string;
+      fontSize11: string;
+      fontSize12: string;
+      fontSize13: string;
+      fontSize14: string;
+      fontSize15: string;
+    };
   };
 
   function getThemeObject(theme: string): Theme {
