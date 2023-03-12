@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Modal, useModal, OffCanvas, CartProduct } from "@/features";
 import { useAuth, useCart, getUserLocalStorage, ThemeContext } from "@/context";
 import { Button, Container } from "@/components";
-import { SunIcon, UserIcon, CartIcon, HamburgerIcon } from '@/assets/svg';
+import { SunIcon, UserIcon, CartIcon, HamburgerIcon, LogoIcon } from '@/assets/svg';
 
 import * as C from "./Header.styles";
 
@@ -82,7 +82,7 @@ export const Header: React.FC<Props> = ({ title }) => {
         <C.HeaderContainer>
           <C.Wrapper>
             <Link to="/">
-              <C.Title>{title}</C.Title>
+              <LogoIcon display='block' width='6rem' height='calc(6rem / 2.25)' />
             </Link>
 
             <C.Navbar>

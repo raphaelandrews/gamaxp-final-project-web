@@ -72,7 +72,6 @@ export function Banner() {
                     <>
                         <C.ArrowButton
                             onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()}
-                            disabled={currentSlide === 0}
                             left="1rem"
                         >
                             <ArrowLeft width="24px" height="24px" color="var(--alt-color)" />
@@ -80,7 +79,6 @@ export function Banner() {
 
                         <C.ArrowButton
                             onClick={(e: any) => e.stopPropagation() || instanceRef.current?.next()}
-                            disabled={currentSlide === instanceRef.current.track.details.slides.length - 1}
                             right="1rem"
                         >
                             <ArrowRight width="24px" height="24px" color="var(--alt-color)" />

@@ -145,6 +145,10 @@ export const Wrapper = styled.div`
   gap: 2rem;
 `
 
+export const Logo = styled.img`
+  width: 1.25rem;
+`
+
 export const CartTitle = styled.span`
   font-size: 1.5rem;
 `

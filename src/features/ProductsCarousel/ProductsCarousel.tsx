@@ -48,7 +48,6 @@ export function ProductsCarousel({ children }: { children: JSX.Element }) {
                 <>
                     <C.ArrowButton
                         onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()}
-                        disabled={currentSlide === 0}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
