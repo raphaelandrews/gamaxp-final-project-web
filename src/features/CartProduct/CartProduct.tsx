@@ -66,7 +66,8 @@ export function CartProduct(props: CartProductProps) {
         <Button
           action={() => removeFromCart(data.id)}
           display="flex"
-          size="var(--fs-3)"
+          size="var(--fs-4)"
+          color="var(--bg-color)"
           padding=".5rem 1rem"
           border="none"
           borderRadius=".5rem"

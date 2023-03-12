@@ -27,6 +27,14 @@ export const Wrapper = styled.div`
         width: 480px;
         max-width: 80%;
         border-radius: .25rem;
+
+        a {
+            font-size: var(--fs-6);
+
+            @media (min-width: 800px) {
+                font-size: var(--fs-7);
+            }
+        }
     }
 `;
 

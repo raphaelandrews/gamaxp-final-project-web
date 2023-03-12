@@ -104,14 +104,14 @@ export const Login = styled.div`
   }
   &:hover {
     cursor: pointer;
-    a{
-    color: var(--second-color);
+    a {
+      color: var(--alt-color);
     }
   }
   
   @media (min-width: 800px) {
     display: block;
-    font-size: var(--fs-6);
+    font-size: var(--fs-7);
     margin-top: .25rem;
   }
 `
@@ -153,7 +153,7 @@ export const Logo = styled.img`
 `
 
 export const CartTitle = styled.span`
-  font-size: var(--fs-8);
+  font-size: var(--fs-9);
 `
 
 export const CartWrapper = styled.div`
@@ -188,6 +188,7 @@ export const OffCanvasWrapper = styled.div`
 
   a {
     display: block;
+    color: var(--bg-color);
     text-align: center;
     padding: .75rem 0;
     border-radius: .75rem;
@@ -233,10 +234,10 @@ export const CartQuantity = styled.span`
     height: 1.5rem;
     font-size:var(--fs-3);
     font-weight: 700;
-    color: var(--first-color);
+    color: var(--bg-color);
     border-radius: 50%;
     border: 3px solid var(--bg-color);
-    background-color: var(--second-color);
+    background-color: var(--third-color);
 `
 
 export const IconWrapper = styled.div`

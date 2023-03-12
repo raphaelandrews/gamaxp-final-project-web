@@ -14,9 +14,10 @@ export const ThemePickerDefault = styled.div<ThemePickerProps>`
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    max-width: 1200px;
+    max-width: 1400px;
     height: 10rem;
     padding: 2rem;
+    margin: 0 auto;
     background-color: var(--bg-alt-color);
     overflow: scroll hidden;
     transition: 10rem .4s cubic-bezier(.4, 0, .2, 1);

@@ -75,8 +75,12 @@ export function Cart(props: Product) {
           </C.CartSubtotal>
 
           <ButtonDefault
+            size="var(--fs-6)"
+            sizeMD="var(--fs-7)"
             width="100%"
             margin="1.25rem 0 0"
+            border="none"
+            borderRadius=".5rem"
             backgroundColor="var(--second-color)"
             hoverBg="var(--second-color-alt)"
           >

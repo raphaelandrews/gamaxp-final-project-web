@@ -26,7 +26,8 @@ export const FilterContainer = styled.div`
 `;
 
 export const FilterButton = styled.button<{ active?: boolean }>`
-  font-size: var(--fs-5);
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-size: var(--fs-7);
   color: ${({ active }) => (active ? 'var(--second-color)' : 'var(--alt-color)')};
   border: none;
   background-color: transparent;

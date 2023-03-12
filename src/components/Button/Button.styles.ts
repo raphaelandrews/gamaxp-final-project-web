@@ -48,6 +48,7 @@ export const ButtonDefault = styled.button<ButtonProps>`
 
     a {
         display: block;
+        color: var(--bg-color);
         width: 100%;
         height: 100%;
         padding: 1rem 0;
