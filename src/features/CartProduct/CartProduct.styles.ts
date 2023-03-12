@@ -39,13 +39,14 @@ export const ProductInfo = styled.div`
 `
 
 export const ProductName = styled.span`
-    font-size: var(--fs-7);
+    font-size: var(--fs-9);
     font-weight: 500;
     margin-bottom: .25em;
 `
 
 export const ProductQuantity = styled.div`
     display: flex;
+    font-size: var(--fs-7);
     gap: .25rem;
     margin-top: .25rem;
 `

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 
 import * as C from "./MultiStepForm.styles";
-import { Button } from "@/components";
+import { Button, FormWrapper, InputWrapper, Label, Title } from "@/components";
 
 interface AddressFormValues {
     street: string;
@@ -63,26 +63,26 @@ export const MultiStepForm = () => {
         console.log(values)
     };
 
-    const [isAddressColor, setIsAddressColor] = useState("var(--second-color)");
-    const [isShippingColor, setIsShippingColor] = useState("transparent");
-    const [isPaymentColor, setIsPaymentColor] = useState("transparent");
+    const [isAddressColor, setIsAddressColor] = useState(["var(--first-color)", "var(--bg-color)"]);
+    const [isShippingColor, setIsShippingColor] = useState(["transparent"]);
+    const [isPaymentColor, setIsPaymentColor] = useState(["transparent"]);
 
     const handleAddressStep = (step: number) => {
         if (step == 1) {
             setStep(1)
-            setIsAddressColor("var(--second-color)")
-            setIsShippingColor("transparent")
-            setIsPaymentColor("transparent")
+            setIsAddressColor(["var(--first-color)", "var(--bg-color)"])
+            setIsShippingColor(["transparent"])
+            setIsPaymentColor(["transparent"])
         } else if (step == 2) {
             setStep(2)
-            setIsAddressColor("transparent")
-            setIsShippingColor("var(--second-color)")
-            setIsPaymentColor("transparent")
+            setIsAddressColor(["transparent"])
+            setIsShippingColor(["var(--first-color)", "var(--bg-color)"])
+            setIsPaymentColor(["transparent"])
         } else {
             setStep(3)
-            setIsAddressColor("transparent")
-            setIsShippingColor("transparent")
-            setIsPaymentColor("var(--second-color)")
+            setIsAddressColor(["transparent"])
+            setIsShippingColor(["transparent"])
+            setIsPaymentColor(["var(--first-color)", "var(--bg-color)"])
         }
     };
 
@@ -96,25 +96,37 @@ export const MultiStepForm = () => {
                 <Button
                     action={() => handleAddressStep(1)}
                     text="Adress"
+                    size='var(--fs-6)'
+                    color={isAddressColor[1]}
+                    colorHover='var(--bg-color)'
                     padding=".75rem 1.25rem"
-                    border="2px solid var(--bg-alt-color)"
-                    backgroundColor={isAddressColor}
+                    border="2px solid var(--first-color)"
+                    borderRadius='.5rem'
+                    backgroundColor={isAddressColor[0]}
                     hoverBg="var(--second-color)"
                 />
                 <Button
                     action={() => handleAddressStep(2)}
                     text="Shipping"
+                    size='var(--fs-6)'
+                    color={isShippingColor[1]}
+                    colorHover='var(--bg-color)'
                     padding=".75rem 1.25rem"
-                    border="2px solid var(--bg-alt-color)"
-                    backgroundColor={isShippingColor}
+                    border="2px solid var(--first-color)"
+                    borderRadius='.5rem'
+                    backgroundColor={isShippingColor[0]}
                     hoverBg="var(--second-color)"
                 />
                 <Button
                     action={() => handleAddressStep(3)}
                     text="Payment"
+                    size='var(--fs-6)'
+                    color={isPaymentColor[1]}
+                    colorHover='var(--bg-color)'
                     padding=".75rem 1.25rem"
-                    border="2px solid var(--bg-alt-color)"
-                    backgroundColor={isPaymentColor}
+                    border="2px solid var(--first-color)"
+                    borderRadius='.5rem'
+                    backgroundColor={isPaymentColor[0]}
                     hoverBg="var(--second-color)"
                 />
             </C.ButtonWrapper>
@@ -123,25 +135,25 @@ export const MultiStepForm = () => {
                 {({ values }) => (
                     <C.Wrapper>
                         <Form>
-                            <C.FormInputs>
+                            <FormWrapper>
                                 {step === 1 && (
                                     <>
-                                        <C.InputWrapper>
-                                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                                        <InputWrapper>
+                                            <Label text="Street" htmlFor="address.street" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
                                             <Field id="address.street" name="address.street" placeholder="Street" />
-                                        </C.InputWrapper>
-                                        <C.InputWrapper>
-                                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                                        </InputWrapper>
+                                        <InputWrapper>
+                                            <Label text="City" htmlFor="address.city" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
                                             <Field id="address.city" name="address.city" placeholder="City" />
-                                        </C.InputWrapper>
-                                        <C.InputWrapper>
-                                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                                        </InputWrapper>
+                                        <InputWrapper>
+                                            <Label text="State" htmlFor="address.state" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
                                             <Field id="address.state" name="address.state" placeholder="State" />
-                                        </C.InputWrapper>
-                                        <C.InputWrapper>
-                                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                                        </InputWrapper>
+                                        <InputWrapper>
+                                            <Label text="Zipcode" htmlFor="address.zipcode" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
                                             <Field id="address.zipcode" name="address.zipcode" placeholder="Zipcode" />
-                                        </C.InputWrapper>
+                                        </InputWrapper>
                                     </>
                                 )}
 
@@ -166,22 +178,22 @@ export const MultiStepForm = () => {
 
                                 {step === 3 && (
                                     <>
-                                        <C.InputWrapper>
-                                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                                        <InputWrapper>
+                                            <Label text="Card Number" htmlFor="payment.cardNumber" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
                                             <Field id="payment.cardNumber" name="payment.cardNumber" placeholder="Card Number" />
-                                        </C.InputWrapper>
-                                        <C.InputWrapper>
-                                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                                        </InputWrapper>
+                                        <InputWrapper>
+                                            <Label text="Card Holder Number" htmlFor="payment.cardholderName" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
                                             <Field id="payment.cardholderName" name="payment.cardholderName" placeholder="Cardholder Name" />
-                                        </C.InputWrapper>
-                                        <C.InputWrapper>
-                                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                                        </InputWrapper>
+                                        <InputWrapper>
+                                            <Label text="Expiration Date" htmlFor="payment.expirationDate" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
                                             <Field id="payment.expirationDate" name="payment.expirationDate" placeholder="Expiration Date" />
-                                        </C.InputWrapper>
-                                        <C.InputWrapper>
-                                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                                        </InputWrapper>
+                                        <InputWrapper>
+                                            <Label text="CVV" htmlFor="payment.cvv" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
                                             <Field id="payment.cvv" name="payment.cvv" placeholder="CVV" />
-                                        </C.InputWrapper>
+                                        </InputWrapper>
                                     </>
                                 )}
 
@@ -190,11 +202,14 @@ export const MultiStepForm = () => {
                                         type="button"
                                         action={handleNextStep}
                                         text="Continue to Shipping"
+                                        size='var(--fs-5)'
+                                        color='var(--bg-color)'
                                         weight="700"
                                         textTransform="uppercase"
                                         height="3rem"
                                         margin="1rem 0 0"
-                                        borderRadius=".25rem"
+                                        border='none'
+                                        borderRadius=".5rem"
                                         backgroundColor="var(--second-color)"
                                         hoverBg="var(--second-color-alt)"
                                     />
@@ -206,11 +221,14 @@ export const MultiStepForm = () => {
                                             type="button"
                                             action={handlePrevStep}
                                             text="Back to Address"
+                                            size='var(--fs-5)'
+                                            color='var(--bg-color)'
                                             weight="700"
                                             textTransform="uppercase"
                                             height="3rem"
                                             margin="1rem 0 0"
-                                            borderRadius=".25rem"
+                                            border='none'
+                                            borderRadius=".5rem"
                                             backgroundColor="var(--second-color)"
                                             hoverBg="var(--second-color-alt)"
                                         />
@@ -219,10 +237,13 @@ export const MultiStepForm = () => {
                                             type="button"
                                             action={handleNextStep}
                                             text="Continue to Payment"
+                                            size='var(--fs-5)'
+                                            color='var(--bg-color)'
                                             weight="700"
                                             textTransform="uppercase"
                                             height="3rem"
-                                            borderRadius=".25rem"
+                                            border='none'
+                                            borderRadius=".5rem"
                                             backgroundColor="var(--second-color)"
                                             hoverBg="var(--second-color-alt)"
                                         />
@@ -236,11 +257,14 @@ export const MultiStepForm = () => {
                                             type="button"
                                             action={handlePrevStep}
                                             text="Back to Shipping"
+                                            size='var(--fs-5)'
+                                            color='var(--bg-color)'
                                             weight="700"
                                             textTransform="uppercase"
                                             height="3rem"
                                             margin="1rem 0 0"
-                                            borderRadius=".25rem"
+                                            border='none'
+                                            borderRadius=".5rem"
                                             backgroundColor="var(--second-color)"
                                             hoverBg="var(--second-color-alt)"
                                         />
@@ -248,16 +272,19 @@ export const MultiStepForm = () => {
                                         <Button
                                             type="submit"
                                             text="Submit"
+                                            size='var(--fs-5)'
+                                            color='var(--bg-color)'
                                             weight="700"
                                             textTransform="uppercase"
                                             height="3rem"
-                                            borderRadius=".25rem"
+                                            border='none'
+                                            borderRadius=".5rem"
                                             backgroundColor="var(--second-color)"
                                             hoverBg="var(--second-color-alt)"
                                         />
                                     </>
                                 )}
-                            </C.FormInputs>
+                            </FormWrapper>
                         </Form>
                     </C.Wrapper>
                 )}

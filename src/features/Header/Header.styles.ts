@@ -98,7 +98,7 @@ export const Hamburger = styled.button`
 
 export const Login = styled.div`
   display: none;
-  font-size: var(--fs-5);
+  font-size: var(--fs-6);
   a {
     transition: .5s;
   }
@@ -111,7 +111,7 @@ export const Login = styled.div`
   
   @media (min-width: 800px) {
     display: block;
-    font-size: var(--fs-7);
+    font-size: var(--fs-8);
     margin-top: .25rem;
   }
 `

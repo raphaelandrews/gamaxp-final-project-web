@@ -66,14 +66,14 @@ export function CartProduct(props: CartProductProps) {
         <Button
           action={() => removeFromCart(data.id)}
           display="flex"
-          size="var(--fs-4)"
+          size="var(--fs-5)"
           color="var(--bg-color)"
           padding=".5rem 1rem"
           border="none"
           borderRadius=".5rem"
           backgroundColor="var(--third-color)"
           hoverBg="var(--third-color-alt)"
-          text="Remover"
+          text="Remove"
         />
       </C.ProductTotal>
     </C.CartProductWrapper >
