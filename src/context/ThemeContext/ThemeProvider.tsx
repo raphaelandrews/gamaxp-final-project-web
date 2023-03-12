@@ -51,6 +51,23 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
     fonts: {
       primary: string;
     };
+    fontSizes: {
+      fontSize1: '.5rem',
+      fontSize2: '.625rem',
+      fontSize3: '.75rem',
+      fontSize4: '.875rem',
+      fontSize5: '1rem',
+      fontSize6: '1.125rem',
+      fontSize7: '1.25rem',
+      fontSize8: '1.5rem',
+      fontSize9: '1.75rem',
+      fontSize10: '2rem',
+      fontSize11: '2.25rem',
+      fontSize12: '2.5rem',
+      fontSize13: '3rem',
+      fontSize14: '3.25rem',
+      fontSize15: '3.5rem',
+    }
   };
 
   function getThemeObject(theme: string): Theme {
