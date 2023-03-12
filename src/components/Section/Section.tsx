@@ -6,6 +6,7 @@ interface SectionProps {
     justifyContentMD?: string;
     gapMD?: string;
     width?: string;
+    widthMD?: string;
     height?: string;
     padding?: string;
     margin?: string;
@@ -20,6 +21,7 @@ export const Section = (props: SectionProps) => {
             justifyContentMD={props.justifyContentMD}
             gapMD={props.gapMD}
             width={props.width}
+            widthMD={props.widthMD}
             height={props.height}
             padding={props.padding}
             margin={props.padding}

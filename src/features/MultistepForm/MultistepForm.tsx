@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 
 import * as C from "./MultiStepForm.styles";
-import { Button, FormWrapper, InputWrapper, Label, Title } from "@/components";
+import { Button, FormWrapper, InputWrapper, Label, Section, Title } from "@/components";
 
 interface AddressFormValues {
     street: string;
@@ -88,175 +88,121 @@ export const MultiStepForm = () => {
 
     useEffect(() => {
         handleAddressStep(step);
-    }, [handlePrevStep]);
+    }, [step]);
 
     return (
-        <>
-            <C.ButtonWrapper>
-                <Button
-                    action={() => handleAddressStep(1)}
-                    text="Adress"
-                    size='var(--fs-6)'
-                    color={isAddressColor[1]}
-                    colorHover='var(--bg-color)'
-                    padding=".75rem 1.25rem"
-                    border="2px solid var(--first-color)"
-                    borderRadius='.5rem'
-                    backgroundColor={isAddressColor[0]}
-                    hoverBg="var(--second-color)"
-                />
-                <Button
-                    action={() => handleAddressStep(2)}
-                    text="Shipping"
-                    size='var(--fs-6)'
-                    color={isShippingColor[1]}
-                    colorHover='var(--bg-color)'
-                    padding=".75rem 1.25rem"
-                    border="2px solid var(--first-color)"
-                    borderRadius='.5rem'
-                    backgroundColor={isShippingColor[0]}
-                    hoverBg="var(--second-color)"
-                />
-                <Button
-                    action={() => handleAddressStep(3)}
-                    text="Payment"
-                    size='var(--fs-6)'
-                    color={isPaymentColor[1]}
-                    colorHover='var(--bg-color)'
-                    padding=".75rem 1.25rem"
-                    border="2px solid var(--first-color)"
-                    borderRadius='.5rem'
-                    backgroundColor={isPaymentColor[0]}
-                    hoverBg="var(--second-color)"
-                />
-            </C.ButtonWrapper>
+        <Section widthMD='50%'> 
+            <>
+                <C.ButtonWrapper>
+                    <Button
+                        action={() => handleAddressStep(1)}
+                        text="Adress"
+                        size='var(--fs-6)'
+                        color={isAddressColor[1]}
+                        colorHover='var(--bg-color)'
+                        padding=".75rem 1.25rem"
+                        border="2px solid var(--first-color)"
+                        borderRadius='.5rem'
+                        backgroundColor={isAddressColor[0]}
+                        hoverBg="var(--second-color)"
+                    />
+                    <Button
+                        action={() => handleAddressStep(2)}
+                        text="Shipping"
+                        size='var(--fs-6)'
+                        color={isShippingColor[1]}
+                        colorHover='var(--bg-color)'
+                        padding=".75rem 1.25rem"
+                        border="2px solid var(--first-color)"
+                        borderRadius='.5rem'
+                        backgroundColor={isShippingColor[0]}
+                        hoverBg="var(--second-color)"
+                    />
+                    <Button
+                        action={() => handleAddressStep(3)}
+                        text="Payment"
+                        size='var(--fs-6)'
+                        color={isPaymentColor[1]}
+                        colorHover='var(--bg-color)'
+                        padding=".75rem 1.25rem"
+                        border="2px solid var(--first-color)"
+                        borderRadius='.5rem'
+                        backgroundColor={isPaymentColor[0]}
+                        hoverBg="var(--second-color)"
+                    />
+                </C.ButtonWrapper>
 
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-                {({ values }) => (
-                    <C.Wrapper>
-                        <Form>
-                            <FormWrapper>
-                                {step === 1 && (
-                                    <>
-                                        <InputWrapper>
-                                            <Label text="Street" htmlFor="address.street" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
-                                            <Field id="address.street" name="address.street" placeholder="Street" />
-                                        </InputWrapper>
-                                        <InputWrapper>
-                                            <Label text="City" htmlFor="address.city" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
-                                            <Field id="address.city" name="address.city" placeholder="City" />
-                                        </InputWrapper>
-                                        <InputWrapper>
-                                            <Label text="State" htmlFor="address.state" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
-                                            <Field id="address.state" name="address.state" placeholder="State" />
-                                        </InputWrapper>
-                                        <InputWrapper>
-                                            <Label text="Zipcode" htmlFor="address.zipcode" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
-                                            <Field id="address.zipcode" name="address.zipcode" placeholder="Zipcode" />
-                                        </InputWrapper>
-                                    </>
-                                )}
+                <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+                    {({ values }) => (
+                        <C.Wrapper>
+                            <Form>
+                                <FormWrapper>
+                                    {step === 1 && (
+                                        <>
+                                            <InputWrapper>
+                                                <Label text="Street" htmlFor="address.street" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
+                                                <Field id="address.street" name="address.street" placeholder="Street" />
+                                            </InputWrapper>
+                                            <InputWrapper>
+                                                <Label text="City" htmlFor="address.city" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
+                                                <Field id="address.city" name="address.city" placeholder="City" />
+                                            </InputWrapper>
+                                            <InputWrapper>
+                                                <Label text="State" htmlFor="address.state" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
+                                                <Field id="address.state" name="address.state" placeholder="State" />
+                                            </InputWrapper>
+                                            <InputWrapper>
+                                                <Label text="Zipcode" htmlFor="address.zipcode" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
+                                                <Field id="address.zipcode" name="address.zipcode" placeholder="Zipcode" />
+                                            </InputWrapper>
+                                        </>
+                                    )}
 
-                                {step === 2 && (
-                                    <>
-                                        <C.InputWrapperRadio>
-                                            <Field type="radio" id="shipping.shippingMethod" name='shipping.shippingMethod' placeholder="Shipping Method" value="standard" checked />
-                                            <div>
-                                                <strong>Standard</strong>
-                                                <p>10 - 15 Business Days</p>
-                                            </div>
-                                        </C.InputWrapperRadio>
-                                        <C.InputWrapperRadio>
-                                            <Field type="radio" id="shipping.shippingMethod" name='shipping.shippingMethod' placeholder="Shipping Method" value="express" />
-                                            <div>
-                                                <strong>Standard</strong>
-                                                <p>4 - 7 Business Days</p>
-                                            </div>
-                                        </C.InputWrapperRadio>
-                                    </>
-                                )}
+                                    {step === 2 && (
+                                        <>
+                                            <C.InputWrapperRadio>
+                                                <Field type="radio" id="shipping.shippingMethod" name='shipping.shippingMethod' placeholder="Shipping Method" value="standard" checked />
+                                                <div>
+                                                    <strong>Standard</strong>
+                                                    <p>10 - 15 Business Days</p>
+                                                </div>
+                                            </C.InputWrapperRadio>
+                                            <C.InputWrapperRadio>
+                                                <Field type="radio" id="shipping.shippingMethod" name='shipping.shippingMethod' placeholder="Shipping Method" value="express" />
+                                                <div>
+                                                    <strong>Standard</strong>
+                                                    <p>4 - 7 Business Days</p>
+                                                </div>
+                                            </C.InputWrapperRadio>
+                                        </>
+                                    )}
 
-                                {step === 3 && (
-                                    <>
-                                        <InputWrapper>
-                                            <Label text="Card Number" htmlFor="payment.cardNumber" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
-                                            <Field id="payment.cardNumber" name="payment.cardNumber" placeholder="Card Number" />
-                                        </InputWrapper>
-                                        <InputWrapper>
-                                            <Label text="Card Holder Number" htmlFor="payment.cardholderName" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
-                                            <Field id="payment.cardholderName" name="payment.cardholderName" placeholder="Cardholder Name" />
-                                        </InputWrapper>
-                                        <InputWrapper>
-                                            <Label text="Expiration Date" htmlFor="payment.expirationDate" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
-                                            <Field id="payment.expirationDate" name="payment.expirationDate" placeholder="Expiration Date" />
-                                        </InputWrapper>
-                                        <InputWrapper>
-                                            <Label text="CVV" htmlFor="payment.cvv" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
-                                            <Field id="payment.cvv" name="payment.cvv" placeholder="CVV" />
-                                        </InputWrapper>
-                                    </>
-                                )}
+                                    {step === 3 && (
+                                        <>
+                                            <InputWrapper>
+                                                <Label text="Card Number" htmlFor="payment.cardNumber" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
+                                                <Field id="payment.cardNumber" name="payment.cardNumber" placeholder="Card Number" />
+                                            </InputWrapper>
+                                            <InputWrapper>
+                                                <Label text="Card Holder Number" htmlFor="payment.cardholderName" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
+                                                <Field id="payment.cardholderName" name="payment.cardholderName" placeholder="Cardholder Name" />
+                                            </InputWrapper>
+                                            <InputWrapper>
+                                                <Label text="Expiration Date" htmlFor="payment.expirationDate" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
+                                                <Field id="payment.expirationDate" name="payment.expirationDate" placeholder="Expiration Date" />
+                                            </InputWrapper>
+                                            <InputWrapper>
+                                                <Label text="CVV" htmlFor="payment.cvv" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7);" />
+                                                <Field id="payment.cvv" name="payment.cvv" placeholder="CVV" />
+                                            </InputWrapper>
+                                        </>
+                                    )}
 
-                                {step == 1 && (
-                                    <Button
-                                        type="button"
-                                        action={handleNextStep}
-                                        text="Continue to Shipping"
-                                        size='var(--fs-5)'
-                                        color='var(--bg-color)'
-                                        weight="700"
-                                        textTransform="uppercase"
-                                        height="3rem"
-                                        margin="1rem 0 0"
-                                        border='none'
-                                        borderRadius=".5rem"
-                                        backgroundColor="var(--second-color)"
-                                        hoverBg="var(--second-color-alt)"
-                                    />
-                                )}
-
-                                {step == 2 && (
-                                    <>
-                                        <Button
-                                            type="button"
-                                            action={handlePrevStep}
-                                            text="Back to Address"
-                                            size='var(--fs-5)'
-                                            color='var(--bg-color)'
-                                            weight="700"
-                                            textTransform="uppercase"
-                                            height="3rem"
-                                            margin="1rem 0 0"
-                                            border='none'
-                                            borderRadius=".5rem"
-                                            backgroundColor="var(--second-color)"
-                                            hoverBg="var(--second-color-alt)"
-                                        />
-
+                                    {step == 1 && (
                                         <Button
                                             type="button"
                                             action={handleNextStep}
-                                            text="Continue to Payment"
-                                            size='var(--fs-5)'
-                                            color='var(--bg-color)'
-                                            weight="700"
-                                            textTransform="uppercase"
-                                            height="3rem"
-                                            border='none'
-                                            borderRadius=".5rem"
-                                            backgroundColor="var(--second-color)"
-                                            hoverBg="var(--second-color-alt)"
-                                        />
-                                    </>
-                                )}
-
-
-                                {step == 3 && (
-                                    <>
-                                        <Button
-                                            type="button"
-                                            action={handlePrevStep}
-                                            text="Back to Shipping"
+                                            text="Continue to Shipping"
                                             size='var(--fs-5)'
                                             color='var(--bg-color)'
                                             weight="700"
@@ -268,27 +214,83 @@ export const MultiStepForm = () => {
                                             backgroundColor="var(--second-color)"
                                             hoverBg="var(--second-color-alt)"
                                         />
+                                    )}
 
-                                        <Button
-                                            type="submit"
-                                            text="Submit"
-                                            size='var(--fs-5)'
-                                            color='var(--bg-color)'
-                                            weight="700"
-                                            textTransform="uppercase"
-                                            height="3rem"
-                                            border='none'
-                                            borderRadius=".5rem"
-                                            backgroundColor="var(--second-color)"
-                                            hoverBg="var(--second-color-alt)"
-                                        />
-                                    </>
-                                )}
-                            </FormWrapper>
-                        </Form>
-                    </C.Wrapper>
-                )}
-            </Formik>
-        </>
+                                    {step == 2 && (
+                                        <>
+                                            <Button
+                                                type="button"
+                                                action={handlePrevStep}
+                                                text="Back to Address"
+                                                size='var(--fs-5)'
+                                                color='var(--bg-color)'
+                                                weight="700"
+                                                textTransform="uppercase"
+                                                height="3rem"
+                                                margin="1rem 0 0"
+                                                border='none'
+                                                borderRadius=".5rem"
+                                                backgroundColor="var(--second-color)"
+                                                hoverBg="var(--second-color-alt)"
+                                            />
+
+                                            <Button
+                                                type="button"
+                                                action={handleNextStep}
+                                                text="Continue to Payment"
+                                                size='var(--fs-5)'
+                                                color='var(--bg-color)'
+                                                weight="700"
+                                                textTransform="uppercase"
+                                                height="3rem"
+                                                border='none'
+                                                borderRadius=".5rem"
+                                                backgroundColor="var(--second-color)"
+                                                hoverBg="var(--second-color-alt)"
+                                            />
+                                        </>
+                                    )}
+
+
+                                    {step == 3 && (
+                                        <>
+                                            <Button
+                                                type="button"
+                                                action={handlePrevStep}
+                                                text="Back to Shipping"
+                                                size='var(--fs-5)'
+                                                color='var(--bg-color)'
+                                                weight="700"
+                                                textTransform="uppercase"
+                                                height="3rem"
+                                                margin="1rem 0 0"
+                                                border='none'
+                                                borderRadius=".5rem"
+                                                backgroundColor="var(--second-color)"
+                                                hoverBg="var(--second-color-alt)"
+                                            />
+
+                                            <Button
+                                                type="submit"
+                                                text="Submit"
+                                                size='var(--fs-5)'
+                                                color='var(--bg-color)'
+                                                weight="700"
+                                                textTransform="uppercase"
+                                                height="3rem"
+                                                border='none'
+                                                borderRadius=".5rem"
+                                                backgroundColor="var(--second-color)"
+                                                hoverBg="var(--second-color-alt)"
+                                            />
+                                        </>
+                                    )}
+                                </FormWrapper>
+                            </Form>
+                        </C.Wrapper>
+                    )}
+                </Formik>
+            </>
+        </Section>
     )
 }

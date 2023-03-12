@@ -6,6 +6,7 @@ interface SectionProps {
     justifyContentMD?: string;
     gapMD?: string;
     width?: string;
+    widthMD?: string;
     height?: string;
     padding?: string;
     margin?: string;
@@ -22,5 +23,6 @@ export const SectionDefault = styled.section<SectionProps>`
         display: ${(props) => props.displayMD};
         justify-content: ${(props) => props.justifyContentMD};
         gap: ${(props) => props.gapMD};
+        width: ${(props) => props.widthMD ? props.widthMD : "100%"};
     }
 `
