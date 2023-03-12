@@ -70,7 +70,7 @@ export const ProductsTable = (props: Products) => {
                 ),
             },
             {
-                accessorKey: 'id',
+                accessorKey: 'a',
                 header: 'Actions',
                 Cell: ({ row }) => (
                     <C.ActionsWrapper>
@@ -125,7 +125,7 @@ export const ProductsTable = (props: Products) => {
         ],
         [],
     );
-    
+
     return (
         <C.TableWrapper>
             <C.LinkWrapper>

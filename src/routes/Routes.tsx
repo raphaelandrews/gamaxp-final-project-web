@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProtectedLayout, ProtectedDashboard, Header, Footer } from '@/features';
 
-import { Home, Login, Signup, Profile, Products, Product, CartSummary, Checkout, Dashboard, CreateProduct, CreateAdmin, DeleteProduct } from "@/pages";
+import { Home, Login, Signup, Profile, Products, Product, CartSummary, Checkout, Dashboard, CreateProduct, CreateAdmin, DeleteProduct, EditProduct } from "@/pages";
 
 function RoutesApp() {
 
@@ -25,6 +25,7 @@ function RoutesApp() {
             element={<ProtectedLayout><Profile /></ProtectedLayout>}
           >
           </Route>
+          <Route path='/edit-product/:id' element={<EditProduct />}></Route>
           <Route path='/delete-product/:id' element={<DeleteProduct />}></Route>
         </Routes>
       </main>

@@ -58,6 +58,11 @@ export const TableWrapper = styled.div`
    .MuiSvgIcon-root  {
         color: var(--alt-color) !important;
     }
+
+    .MuiTablePagination-selectLabel,
+    .MuiTablePagination-displayedRows {
+        color: var(--first-color) !important;
+    }
 `
 
 export const CellWrapper = styled.div`

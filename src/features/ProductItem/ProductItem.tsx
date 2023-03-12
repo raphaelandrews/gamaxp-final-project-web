@@ -42,28 +42,53 @@ export const ProductItem = ({ id, product_name, price, photo, description }: Pro
                 {quantity === 0 ? (
                     <Button
                         action={() => increaseCartQuantity(id)}
-                        backgroundColor="var(--second-color)"
-                        margin="2rem 0 0"
-                        width="100%"
-                        padding="1rem .75rem"
-                        hoverBg="var(--second-color-alt)"
                         text="Add to cart"
+                        size="var(--fs-6)"
+                        sizeMD="var(--fs-7)"
+                        color="var(--bg-color)"
+                        width="100%"
+                        margin="2rem 0 0"
+                        padding="1rem .75rem"
+                        border="none"
+                        borderRadius=".5rem"
+                        backgroundColor="var(--second-color)"
+                        hoverBg="var(--second-color-alt)"
                     />
 
                 ) : (
                     <C.ProductButtons>
                         <C.QuantityButtons>
-                            <Button action={() => increaseCartQuantity(id)} backgroundColor="transparent" padding=".5rem" text="+" />
+                            <Button
+                                action={() => increaseCartQuantity(id)}
+                                text="+"
+                                size="var(--fs-6)"
+                                sizeMD="var(--fs-7)"
+                                padding=".5rem"
+                                border="none"
+                                backgroundColor="transparent"
+                            />
                             <div>
                                 <span>{quantity}</span> in cart
                             </div>
-                            <C.ProductButton onClick={() => decreaseCartQuantity(id)} backgroundColor="transparent" padding=".5rem">-</C.ProductButton>
+                            <Button
+                                action={() => decreaseCartQuantity(id)}
+                                text="-"
+                                size="var(--fs-6)"
+                                sizeMD="var(--fs-7)"
+                                padding=".5rem"
+                                border="none"
+                                backgroundColor="transparent" />
                         </C.QuantityButtons>
                         <Button
                             action={() => removeFromCart(id)}
-                            backgroundColor="var(--third-color)"
-                            padding="1rem 1.5rem"
                             text="Remove"
+                            size="var(--fs-6)"
+                            sizeMD="var(--fs-7)"
+                            color="var(--bg-color)"
+                            padding="1rem 1.5rem"
+                            border="none"
+                            borderRadius=".5rem"
+                            backgroundColor="var(--third-color)"
                         />
                     </C.ProductButtons>
                 )}
