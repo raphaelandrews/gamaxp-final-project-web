@@ -125,7 +125,7 @@ export const ProductsTable = (props: Products) => {
         ],
         [],
     );
-
+    
     return (
         <C.TableWrapper>
             <C.LinkWrapper>
