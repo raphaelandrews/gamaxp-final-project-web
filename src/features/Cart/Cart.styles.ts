@@ -11,13 +11,17 @@ export const CartTotal = styled.div`
     padding-top: 4rem;
 
     @media (min-width: 800px) {
-        padding-top: 1rem;
+        padding-top: .5rem;
     }
 `
 
 export const CartSummary = styled.h2`
-    font-size: 1.25rem;
+    font-size: var(--fs-8);
     margin-bottom: 1em;
+
+    @media (min-width: 800px) {
+        font-size: var(--fs-9);
+    }
 `
 
 interface SubtotalProps {
@@ -39,12 +43,13 @@ interface CartSpanProps {
 }
 
 export const CartSpan = styled.span<CartSpanProps>`
+    font-size: var(--fs-6);
     font-weight: 500;
     text-align: ${(props) => props.textAlign ?  props.textAlign : "left"};
 `
 
 export const CartButton = styled.button`
-    font-size: 1rem;
+    font-size: var(--fs-5);
     font-weight: 700;
     width: 100%;
     padding: 1em .75em;

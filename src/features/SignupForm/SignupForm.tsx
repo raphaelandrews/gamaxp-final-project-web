@@ -51,23 +51,23 @@ export const SignupForm: React.FC = () => {
         >
             {({ isSubmitting }) => (
                 <C.Wrapper>
-                    <Title text="Create your account" fontSize="2rem" fontSizeMD="2.5rem" margin="0 0 1em" />
+                    <Title text="Create your account" fontSize="var(--fs-10)" fontSizeMD="var(--fs-12)" margin="0 0 1em" />
                     <Form>
                         <FormWrapper>
                             <InputWrapper>
-                                <Label text="Username" htmlFor="username" />
+                                <Label text="Username" htmlFor="username" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7)" />
                                 <Field type="text" name="username" placeholder="Username" />
                             </InputWrapper>
                             <ErrorMessage name="username">{msg => <C.Message>{msg}</C.Message>}</ErrorMessage>
 
                             <InputWrapper>
-                                <Label text="Email" htmlFor="email" />
+                                <Label text="Email" htmlFor="email" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7)" />
                                 <Field type="email" name="email" placeholder="Email" />
                             </InputWrapper>
                             <ErrorMessage name="email">{msg => <C.Message>{msg}</C.Message>}</ErrorMessage>
 
                             <InputWrapper>
-                                <Label text="Passoword" htmlFor="password" />
+                                <Label text="Passoword" htmlFor="password" fontSize="var(--fs-5)" fontSizeMD="var(--fs-7)" />
                                 <Field type="password" name="password" placeholder="Password" />
                             </InputWrapper>
                             <ErrorMessage name="password">{msg => <C.Message>{msg}</C.Message>}</ErrorMessage>
@@ -76,6 +76,7 @@ export const SignupForm: React.FC = () => {
                                 type="submit"
                                 disabled={isSubmitting}
                                 text="Register"
+                                color="var(--bg-color)"
                                 weight="700"
                                 textTransform="uppercase"
                                 height="3rem"

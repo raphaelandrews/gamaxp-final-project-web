@@ -11,6 +11,7 @@ interface ButtonProps {
     weight?: string;
     textTransform?: string;
     width?: string;
+    minWidth?: string;
     height?: string;
     padding?: string;
     margin?: string;
@@ -29,6 +30,7 @@ export const ButtonDefault = styled.button<ButtonProps>`
     color: ${(props) => props.color};
     text-transform: ${(props) => props.textTransform};
     width: ${(props) => props.width};
+    min-width: ${(props) => props.minWidth};
     height: ${(props) => props.height};
     border-radius: ${(props) => props.borderRadius};
     padding: ${(props) => props.padding};
@@ -46,6 +48,7 @@ export const ButtonDefault = styled.button<ButtonProps>`
 
     a {
         display: block;
+        color: var(--bg-color);
         width: 100%;
         height: 100%;
         padding: 1rem 0;
@@ -55,5 +58,5 @@ export const ButtonDefault = styled.button<ButtonProps>`
         display: ${(props) => props.displayMD};
         font-size: ${(props) => props.sizeMD};
         margin: ${(props) => props.marginMD};
-  }
+    }
 `

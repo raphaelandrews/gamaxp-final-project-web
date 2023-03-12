@@ -25,7 +25,7 @@ export const SignupFooter = styled.div`
 
 a {
       color: var(--alt-color);
-      font-size: 1.25rem;
+      font-size: var(--fs-7);
       transition: .5s;
   }
 
@@ -38,7 +38,7 @@ a {
   @media (min-width: 800px) {
       margin-top: .25rem;
       a {
-          font-size: 1.125rem;
+          font-size: var(--fs-6);
       }
   }
 `
@@ -54,7 +54,7 @@ export const ShopItem = styled.div`
       padding: 1rem;
       a {
             color: var(--alt-color);
-            font-size: 1rem;
+            font-size: var(--fs-5);
             transition: .5s;
         }
       
@@ -67,7 +67,7 @@ export const ShopItem = styled.div`
         @media (min-width: 800px) {
             margin-top: .25rem;
             a {
-                font-size: 0.98rem;
+                font-size: var(--fs-5);
             }
         }
 `;
@@ -75,6 +75,6 @@ export const ShopItem = styled.div`
 export const Copyrights = styled.div`
       position: relative;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: var(--fs-4);
       color: var(--alt-color)
 `;

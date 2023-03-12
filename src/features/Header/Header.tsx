@@ -133,7 +133,7 @@ export const Header: React.FC<Props> = ({ title }) => {
           <C.Wrapper>
             <C.CartWrapper>
               <C.CartIcon onClick={handleOpen}>
-                <CartIcon width='20px' height='20px' color='var(--alt-color)' />
+                <CartIcon width='20px' height='20px' color='var(--first-color)' />
 
                 <C.CartQuantity>
                   {cartQuantity}
@@ -211,7 +211,7 @@ export const Header: React.FC<Props> = ({ title }) => {
                 </C.NavbarListItem>
               </C.NavbarList>
             </C.NavbarModal>
-
+            
             <C.LoginModal>
               {UserLogged()}
             </C.LoginModal>

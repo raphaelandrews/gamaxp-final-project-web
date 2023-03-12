@@ -4,13 +4,22 @@ interface ThemePickerProps {
     height?: string;
 }
 
+export const ThemePickerContainer = styled.section`
+    width: 100%;
+    background-color: var(--bg-alt-color);
+`
+
 export const ThemePickerDefault = styled.div<ThemePickerProps>`
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 1rem;
+    max-width: 1400px;
     height: 10rem;
+    padding: 2rem;
+    margin: 0 auto;
     background-color: var(--bg-alt-color);
+    overflow: scroll hidden;
     transition: 10rem .4s cubic-bezier(.4, 0, .2, 1);
 `
 

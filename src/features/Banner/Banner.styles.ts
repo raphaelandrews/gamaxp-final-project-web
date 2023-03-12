@@ -56,7 +56,7 @@ export const ArrowButton = styled.button<ArrowButtonProps>`
     right: ${(props) => props.right ? props.right : "inherit"};
     left: ${(props) => props.left ? props.left : "inherit"};
     transform: translateY(-50%);
-    font-size: 2rem;
+    font-size: var(--fs-10);
     line-height: 1;
     padding: .5rem;
     border: none;

@@ -20,25 +20,31 @@ export const ProductBox = styled.div`
 `
 
 export const ProductTitle = styled.h2`
-    font-size: 1.25rem;
+    font-size: var(--fs-7);
     font-weight: 500;
-    margin-bottom: 1.5em;
+    margin-bottom: .5em;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     min-height: 3rem;
+
+    @media (min-width: 600px) {
+        font-size: var(--fs-8);
+    }
 `
 
 export const ProductPrice = styled.span`
-    font-size: 1.25rem;
+    font-size: var(--fs-7);
     font-weight: 700;
 `
 
 export const ProductButton = styled.div`
     a {
         display: block;
+        font-size: var(--fs-5);
         font-weight: 600;
+        color: var(--bg-color);
         width: 100%;
         text-align: center;
         border-radius: .75rem;
@@ -50,6 +56,10 @@ export const ProductButton = styled.div`
 
         &:hover {
             background-color: var(--second-color-alt);
+        }
+
+        @media (min-width: 600px) {
+            font-size: var(--fs-6);
         }
     }
 `

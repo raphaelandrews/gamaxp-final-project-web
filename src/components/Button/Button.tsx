@@ -11,6 +11,7 @@ interface ButtonProps {
     weight?: string;
     textTransform?: string;
     width?: string;
+    minWidth?: string;
     height?: string;
     padding?: string;
     margin?: string;
@@ -38,6 +39,7 @@ export const Button = (props: ButtonProps) => {
             weight={props.weight}
             textTransform={props.textTransform}
             width={props.width}
+            minWidth={props.minWidth}
             height={props.height}
             padding={props.padding}
             margin={props.margin}

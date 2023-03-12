@@ -13,12 +13,14 @@ export const Checkout = () => {
     <Container>
       <>
         <Title text="Checkout" />
-        <MultiStepForm />
-        <C.CartContent>
-          {CartProducts.map(item => (
-            <CartProduct key={item.id} {...item} />
-          ))}
-        </C.CartContent>
+        <C.CheckoutWrapper>
+          <MultiStepForm />
+          <C.CartContent>
+            {CartProducts.map(item => (
+              <CartProduct key={item.id} {...item} />
+            ))}
+          </C.CartContent>
+        </C.CheckoutWrapper>
       </>
     </Container>
   )

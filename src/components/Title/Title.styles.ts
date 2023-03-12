@@ -8,11 +8,11 @@ interface TitleProps {
 }
 
 export const TitleDefault = styled.h1<TitleProps>`
-    font-size: ${(props) => props.fontSize ? props.fontSize : "1.5rem"};
+    font-size: ${(props) => props.fontSize ? props.fontSize : "var(--fs-8)"};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : "700"};
     margin: ${(props) => props.margin ? props.margin : "0"};
 
     @media (min-width: 800px) {
-        font-size: ${(props) => props.fontSizeMD ? props.fontSizeMD : "1.75rem"};
+        font-size: ${(props) => props.fontSizeMD ? props.fontSizeMD : "var(--fs-9)"};
     }
 `

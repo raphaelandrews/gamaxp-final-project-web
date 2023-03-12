@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SectionTitle = styled.h2`
-    font-size: 1.125rem;
+    font-size: var(--fs-6);
     width: 80%;
     margin: 4rem auto 0;
 
@@ -10,7 +10,7 @@ export const SectionTitle = styled.h2`
     }
 
     @media (min-width: 800px) {
-        font-size: 1.25rem;
+        font-size: var(--fs-7);
         width: 94%;
     }
 

@@ -17,6 +17,7 @@ export const OffCanvasContainer = styled.div<{ isCanvasOpen: boolean }>`
 export const Button = styled.button`
     position: absolute;
     right: 1.5rem;
+    padding-top: .5rem;
     border: none;
     background: none;
 

@@ -16,11 +16,11 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 1.25rem;
+  font-size: var(--fs-7);
   font-weight: 700;
   transition: .5s;
   @media (min-width: 800px) {
-    font-size: 1.5rem;
+    font-size: var(--fs-8);
   }
 `;
 
@@ -65,7 +65,7 @@ export const NavbarList = styled.ul`
 export const NavbarListItem = styled.li`
     a {
         color: var(--alt-color);
-        font-size: 1.25rem;
+        font-size: var(--fs-8); 
         transition: .5s;
     }
 
@@ -78,7 +78,7 @@ export const NavbarListItem = styled.li`
     @media (min-width: 800px) {
         margin-top: .25rem;
         a {
-            font-size: 1.125rem;
+            font-size: var(--fs-8);
         }
     }
 `;
@@ -98,32 +98,35 @@ export const Hamburger = styled.button`
 
 export const Login = styled.div`
   display: none;
-  font-size: 1rem;
+  font-size: var(--fs-6);
   a {
     transition: .5s;
   }
   &:hover {
     cursor: pointer;
-    a{
-    color: var(--second-color);
+    a {
+      color: var(--alt-color);
     }
   }
   
   @media (min-width: 800px) {
     display: block;
-    font-size: 1.125rem;
+    font-size: var(--fs-8);
     margin-top: .25rem;
   }
 `
 
 export const LoginModal = styled.div`
   display: inline-block;
-  font-size: 1.25rem;
+  font-size: var(--fs-7);
+  color: var(--bg-color);
   text-align: center;
   border-radius: .5rem;
-  padding: .5rem 1rem;
+  padding: .5rem 1.5rem;
   margin-top: 4rem;
+  background-color: var(--first-color);
   a {
+    color: var(--bg-color);
     transition: .5s;
   }
 
@@ -150,7 +153,7 @@ export const Logo = styled.img`
 `
 
 export const CartTitle = styled.span`
-  font-size: 1.5rem;
+  font-size: var(--fs-9);
 `
 
 export const CartWrapper = styled.div`
@@ -185,6 +188,7 @@ export const OffCanvasWrapper = styled.div`
 
   a {
     display: block;
+    color: var(--bg-color);
     text-align: center;
     padding: .75rem 0;
     border-radius: .75rem;
@@ -228,12 +232,12 @@ export const CartQuantity = styled.span`
     align-items: center;
     width: 1.5rem;
     height: 1.5rem;
-    font-size: .75rem;
+    font-size:var(--fs-3);
     font-weight: 700;
-    color: var(--first-color);
+    color: var(--bg-color);
     border-radius: 50%;
     border: 3px solid var(--bg-color);
-    background-color: var(--second-color);
+    background-color: var(--third-color);
 `
 
 export const IconWrapper = styled.div`

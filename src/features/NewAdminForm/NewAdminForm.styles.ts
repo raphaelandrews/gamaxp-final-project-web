@@ -51,12 +51,12 @@ export const InputWrapper = styled.div`
         position: absolute;
         top: 50%;
         left: 1rem;
-        font-size: .875rem;
+        font-size: var(--fs-4);
         transform: translateY(-50%);
     }
 
     input{
-        font-size: 1rem;
+        font-size: var(--fs-5);
         color: var(--bg-color);
         width: 100%;
         height: 3rem;
@@ -104,7 +104,7 @@ export const Message = styled.span`
 `
 
 export const Button = styled.button`
-    font-size: 1rem;
+    font-size: var(--fs-5);
     font-weight: 700;
     text-transform: uppercase;
     height: 3rem;

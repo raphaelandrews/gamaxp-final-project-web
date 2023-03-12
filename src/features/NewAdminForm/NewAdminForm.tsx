@@ -74,7 +74,7 @@ export const NewAdminForm: React.FC = () => {
                   position="absolute"
                   top="50%"
                   left="1rem"
-                  fontSize=".875rem"
+                  fontSize="var(--fs-4)"
                   transform="translateY(-50%)"
                 />
                 <Field type="text" name="username" placeholder="Username" />
@@ -89,7 +89,7 @@ export const NewAdminForm: React.FC = () => {
                   position="absolute"
                   top="50%"
                   left="1rem"
-                  fontSize=".875rem"
+                  fontSize="var(--fs-4)"
                   transform="translateY(-50%)"
                 />
                 <Field type="email" name="email" placeholder="Email" />
@@ -104,7 +104,7 @@ export const NewAdminForm: React.FC = () => {
                   position="absolute"
                   top="50%"
                   left="1rem"
-                  fontSize=".875rem"
+                  fontSize="var(--fs-4)"
                   transform="translateY(-50%)"
                 />
                 <Field type="password" name="password" placeholder="Senha" />
@@ -119,7 +119,7 @@ export const NewAdminForm: React.FC = () => {
                   position="absolute"
                   top="50%"
                   left="1rem"
-                  fontSize=".875rem"
+                  fontSize="var(--fs-4)"
                   transform="translateY(-50%)"
                 />                <Field type="text" name="type" placeholder="Admin" disabled={true} />
               </C.InputWrapper>
