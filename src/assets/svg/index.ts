@@ -15,3 +15,5 @@ export { HamburgerIcon } from './Hamburger';
 export { EmailIcon } from './Email';
 
 export { PasswordIcon} from './Password';
+
+export { LogoIcon } from './Logo';

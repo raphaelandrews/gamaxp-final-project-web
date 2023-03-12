@@ -14,7 +14,7 @@ type Theme = {
     background: string;
   };
   fonts: {
-    roboto: string;
+    primary: string;
   };
 };
 

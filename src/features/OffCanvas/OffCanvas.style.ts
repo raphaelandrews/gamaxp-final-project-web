@@ -8,7 +8,7 @@ export const OffCanvasContainer = styled.div<{ isCanvasOpen: boolean }>`
   max-width: 320px;
   height: 100%;
   padding: 1.5rem;
-  background-color: var(--bg-alt-color);
+  background-color: var(--bg-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   z-index: 5;

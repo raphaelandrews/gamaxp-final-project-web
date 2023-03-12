@@ -18,13 +18,16 @@ export const Home = () => {
   }, []);
 
   return (
-    <Container>
-      <>
-        <C.Banner>
-          <Banner />
-        </C.Banner>
-        <SectionFilters products={data} />
-      </>
-    </Container>
+    <>
+      <C.Banner>
+        <Banner />
+      </C.Banner>
+      <Container>
+        <>
+
+          <SectionFilters products={data} />
+        </>
+      </Container>
+    </>
   )
 }

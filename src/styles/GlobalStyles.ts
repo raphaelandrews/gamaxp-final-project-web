@@ -37,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
     --bg-color: ${({ theme }) => theme.colors.background};
 
     //===== Fonts =====//
-    --first-font: ${({ theme }) => theme.fonts.roboto}
+    --first-font: ${({ theme }) => theme.fonts.primary}
   }
 
   /*=============== SCROLL BAR ===============*/

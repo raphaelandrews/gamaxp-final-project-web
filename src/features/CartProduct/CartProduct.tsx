@@ -68,6 +68,8 @@ export function CartProduct(props: CartProductProps) {
           display="flex"
           size=".75rem"
           padding=".5rem 1rem"
+          border="none"
+          borderRadius=".5rem"
           backgroundColor="var(--third-color)"
           hoverBg="var(--third-color-alt)"
           text="Remover"

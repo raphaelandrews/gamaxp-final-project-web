@@ -9,12 +9,12 @@ type ThemeProviderProps = {
 };
 
 export function ThemeContextProvider({ children }: ThemeProviderProps) {
-  const [isDarkMode, setIsDarkMode] = useState("");
+  const [isSetTheme, setIsSetTheme] = useState("");
 
   const [isThemePicker, setIsThemePicker] = useState(false);
 
-  const toggleDarkMode = (e: string) => {
-    setIsDarkMode(e);
+  const toggleSetTheme = (e: string) => {
+    setIsSetTheme(e);
   };
 
   const toggleThemePicker = () => {
@@ -24,17 +24,17 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark" || savedTheme === "light" || savedTheme === "sea") {
-      setIsDarkMode(savedTheme);
+      setIsSetTheme(savedTheme);
     }
   }, []);
 
   useEffect(() => {
     function setTheme() {
-      localStorage.setItem("theme", isDarkMode);
+      localStorage.setItem("theme", isSetTheme);
     }
 
     setTheme()
-  }, [isDarkMode]);
+  }, [isSetTheme]);
 
   type Theme = {
     colors: {
@@ -49,7 +49,7 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
       background: string;
     };
     fonts: {
-      roboto: string;
+      primary: string;
     };
   };
 
@@ -66,14 +66,14 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
   }
 
   const contextValue = {
-    isDarkMode,
-    toggleDarkMode,
+    isSetTheme,
+    toggleSetTheme,
     toggleThemePicker,
   };
 
   return (
     <ThemeContext.Provider value={contextValue}>
-      <ThemeProvider theme={getThemeObject(isDarkMode)}>
+      <ThemeProvider theme={getThemeObject(isSetTheme)}>
         <GlobalStyles />
         {isThemePicker &&
           <ThemePicker />

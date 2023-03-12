@@ -6,6 +6,12 @@ import { Section } from "@/components";
 import * as C from "./Banner.styles";
 import { ArrowLeft, ArrowRight } from "@/assets/svg";
 
+import banner1 from "../../assets/img/banner-1.png";
+import banner2 from "../../assets/img/banner-2.png";
+import banner3 from "../../assets/img/banner-3.png";
+import banner4 from "../../assets/img/banner-4.png";
+import banner5 from "../../assets/img/banner-5.png";
+import banner6 from "../../assets/img/banner-6.png";
 
 export function Banner() {
     const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -57,19 +63,15 @@ export function Banner() {
         <Section>
             <>
                 {<C.Slider ref={sliderRef}>
-                    <div className="keen-slider__slide">1</div>
-                    <div className="keen-slider__slide">2</div>
-                    <div className="keen-slider__slide">3</div>
-                    <div className="keen-slider__slide">4</div>
-                    <div className="keen-slider__slide">5</div>
-                    <div className="keen-slider__slide">6</div>
+                    <C.Div className="keen-slider__slide" backgroundImage={banner4} backgroundImageMD={banner1}></C.Div>
+                    <C.Div className="keen-slider__slide" backgroundImage={banner5} backgroundImageMD={banner2}></C.Div>
+                    <C.Div className="keen-slider__slide" backgroundImage={banner6} backgroundImageMD={banner3}></C.Div>
                 </C.Slider>}
 
                 {loaded && instanceRef.current && (
                     <>
                         <C.ArrowButton
                             onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()}
-                            disabled={currentSlide === 0}
                             left="1rem"
                         >
                             <ArrowLeft width="24px" height="24px" color="var(--alt-color)" />
@@ -77,7 +79,6 @@ export function Banner() {
 
                         <C.ArrowButton
                             onClick={(e: any) => e.stopPropagation() || instanceRef.current?.next()}
-                            disabled={currentSlide === instanceRef.current.track.details.slides.length - 1}
                             right="1rem"
                         >
                             <ArrowRight width="24px" height="24px" color="var(--alt-color)" />

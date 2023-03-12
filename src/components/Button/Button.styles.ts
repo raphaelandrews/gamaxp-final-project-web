@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface ButtonProps {
     display?: string;
     displayMD?: string;
+    fontFamily?: string;
     size?: string;
     sizeMD?: string;
     color?: string;
@@ -22,6 +23,7 @@ interface ButtonProps {
 
 export const ButtonDefault = styled.button<ButtonProps>`
     display: ${(props) => props.display};
+    font-family: ${({ theme }) => theme.fonts.primary};
     font-size: ${(props) => props.size };
     font-weight: ${(props) => props.weight};
     color: ${(props) => props.color};
