@@ -9,6 +9,7 @@ interface Product {
   price: number;
   product_name: string;
   category_id: number;
+  categoria: number;
   photo: string;
   category: any;
   description: string;
@@ -22,14 +23,14 @@ interface Props {
 export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
   interface Item {
     id: number;
-    category_name: string;
+    nome: string;
   }
   const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
     axios.get<Item[]>(`${import.meta.env.VITE_API_HOST}/categoria`)
       .then(response => {
-        const data = response.data.map(item => item.category_name);
+        const data = response.data.map(item => item.nome);
         setData(data);
       })
       .catch(error => console.log(error));
@@ -75,14 +76,14 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
   const end = start + productsPerPage;
 
   const filteredProducts =
-    selectedCategory === 'All' ? products : products.filter((product) => product.category.category_name === selectedCategory);
+    selectedCategory === 'All' ? products : products.filter((product) => product.category.nome === selectedCategory);
 
 
   useEffect(() => {
     if (selectedCategory == "All") {
       setActiveProducts(products);
     } else {
-      setActiveProducts(products.filter((product) => product.category.category_name === selectedCategory));
+      setActiveProducts(products.filter((product) => product.category.nome === selectedCategory));
     }
   }, [selectedCategory]);
   

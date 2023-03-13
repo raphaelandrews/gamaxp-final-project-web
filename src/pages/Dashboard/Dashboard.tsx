@@ -6,26 +6,26 @@ import { Container, Button, Title } from "@/components";
 
 export const Dashboard = () => {
     const [isDashboard, setIsDashboard] = useState(<ProductsTable />);
-    const [isProducts, setIsProducts] = useState("var(--second-color)");
-    const [isUsers, setIsUsers] = useState("transparent");
-    const [isOrders, setIsOrders] = useState("transparent");
+    const [isProducts, setIsProducts] = useState(["var(--first-color)", "var(--bg-color)"]);
+    const [isUsers, setIsUsers] = useState(["transparent"]);
+    const [isOrders, setIsOrders] = useState(["transparent"]);
 
     const handleDashboard = (dashboard: string) => {
         if (dashboard === "products") {
             setIsDashboard(<ProductsTable />)
-            setIsProducts("var(--second-color)")
-            setIsUsers("transparent")
-            setIsOrders("transparent")
+            setIsProducts(["var(--first-color)", "var(--bg-color)"])
+            setIsUsers(["transparent"])
+            setIsOrders(["transparent"])
         } else if (dashboard === "users") {
             setIsDashboard(<UsersTable />)
-            setIsProducts("transparent")
-            setIsUsers("var(--second-color)")
-            setIsOrders("transparent")
+            setIsProducts(["transparent"])
+            setIsUsers(["var(--first-color)", "var(--bg-color)"])
+            setIsOrders(["transparent"])
         } else {
             setIsDashboard(<OrdersTable />)
-            setIsProducts("transparent")
-            setIsUsers("transparent")
-            setIsOrders("var(--second-color)")
+            setIsProducts(["transparent"])
+            setIsUsers(["transparent"])
+            setIsOrders(["var(--first-color)", "var(--bg-color)"])
         }
     };
 
@@ -38,25 +38,37 @@ export const Dashboard = () => {
                     <Button
                         action={() => handleDashboard("products")}
                         text="Products"
+                         size='var(--fs-6)'
+                        color={isProducts[1]}
+                        colorHover='var(--bg-color)'
                         padding=".75rem 1.25rem"
-                        border="2px solid var(--bg-alt-color)"
-                        backgroundColor={isProducts}
+                        border="2px solid var(--first-color)"
+                        borderRadius=".5rem"
+                        backgroundColor={isProducts[0]}
                         hoverBg="var(--second-color)"
                     />
                     <Button
                         action={() => handleDashboard("users")}
                         text="Users"
+                         size='var(--fs-6)'
+                        color={isUsers[1]}
+                        colorHover='var(--bg-color)'
                         padding=".75rem 1.25rem"
-                        border="2px solid var(--bg-alt-color)"
-                        backgroundColor={isUsers}
+                        border="2px solid var(--first-color)"
+                        borderRadius=".5rem"
+                        backgroundColor={isUsers[0]}
                         hoverBg="var(--second-color)"
                     />
                     <Button
                         action={() => handleDashboard("orders")}
                         text="Orders"
+                         size='var(--fs-6)'
+                        color={isOrders[1]}
+                        colorHover='var(--bg-color)'
                         padding=".75rem 1.25rem"
-                        border="2px solid var(--bg-alt-color)"
-                        backgroundColor={isOrders}
+                        border="2px solid var(--first-color)"
+                        borderRadius=".5rem"
+                        backgroundColor={isOrders[0]}
                         hoverBg="var(--second-color)"
                     />
                 </C.ButtonWrapper>

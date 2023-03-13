@@ -10,7 +10,7 @@ type Products = {
     product_name?: string;
     description?: string;
     category?: any;
-    category_name?: string;
+    nome?: string;
     id?: number;
     photo?: string;
 };
@@ -52,11 +52,11 @@ export const ProductsTable = (props: Products) => {
                 ),
             },
             {
-                accessorKey: 'category.category_name',
+                accessorKey: 'category.nome',
                 header: 'Category',
                 Cell: ({ row }) => (
                     <Link to={`/product/${row?.original?.id}`}>
-                        {row?.original?.category.category_name}
+                        {row?.original?.category.nome}
                     </Link>
                 ),
             },
@@ -70,7 +70,7 @@ export const ProductsTable = (props: Products) => {
                 ),
             },
             {
-                accessorKey: 'id',
+                accessorKey: 'a',
                 header: 'Actions',
                 Cell: ({ row }) => (
                     <C.ActionsWrapper>

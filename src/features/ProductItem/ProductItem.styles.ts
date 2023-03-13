@@ -24,7 +24,6 @@ export const ProducImgWrapper = styled.div`
     width: 100%;
     height: auto;
     @media (min-width: 800px) {
-        justify-content: flex-end;
         width: 50%;
     }
 `

@@ -47,3 +47,5 @@ export { Banner } from "./Banner/Banner";
 export { DeleteProductForm } from "./DeleteProductForm/DeleteProductForm";
 
 export { ThemePicker } from "./ThemePicker/ThemePicker";
+
+export { EditProductForm } from "./EditProductForm/EditProductForm";
