@@ -10,7 +10,7 @@ interface Product {
     product_name: string;
     category_id: number;
     photo: string;
-    category: any;
+    categoria: any;
     description: string;
 }
 
@@ -21,21 +21,27 @@ interface Props {
 export const SectionFilters: React.FC<Props> = ({ products }) => {
     interface Item {
         id: number;
-        category_name: string;
+        nome: string;
     }
-    const [data, setData] = useState<any[]>([]);
+    const [data, setData] = useState<string[]>([]);
 
     useEffect(() => {
-        axios.get<Item[]>(`${import.meta.env.VITE_API_HOST}/categoria`)
-            .then(response => {
-                const data = response.data.map(item => item.category_name);
+        async function getData() {
+            try {
+                const res = await axios.get<Item[]>(`${import.meta.env.VITE_API_HOST}/categoria`)
+                const data = res.data.map(item => item.nome);
                 setData(data);
-            })
-            .catch(error => console.log(error));
+            } catch (err) {
+                if (err) {
+                    return alert("Ops, something wrong. Try again.")
+                }
+            }
+        }
+        getData()
     }, []);
 
     function filters(category: string) {
-        const filtering = products.filter((product) => product.category.category_name === category)
+        const filtering = products.filter((product) => product.categoria.nome === category)
         return (
             <>
                 {filter &&
@@ -67,7 +73,7 @@ export const SectionFilters: React.FC<Props> = ({ products }) => {
         <>
             {data.filter((category) => {
                 const filtering = products.filter(
-                    (product) => product.category.category_name === category
+                    (product) => product.categoria.nome === category
                 );
                 return filtering.length > 0;
             }).map((category) => (
