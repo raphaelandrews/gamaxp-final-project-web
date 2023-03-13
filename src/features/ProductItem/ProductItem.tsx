@@ -61,6 +61,7 @@ export const ProductItem = ({ id, product_name, price, photo, description }: Pro
                             <Button
                                 action={() => increaseCartQuantity(id)}
                                 text="+"
+                                color="var(--first-color)"
                                 size="var(--fs-6)"
                                 sizeMD="var(--fs-7)"
                                 padding=".5rem"
@@ -73,6 +74,7 @@ export const ProductItem = ({ id, product_name, price, photo, description }: Pro
                             <Button
                                 action={() => decreaseCartQuantity(id)}
                                 text="-"
+                                color="var(--first-color)"
                                 size="var(--fs-6)"
                                 sizeMD="var(--fs-7)"
                                 padding=".5rem"
@@ -89,6 +91,7 @@ export const ProductItem = ({ id, product_name, price, photo, description }: Pro
                             border="none"
                             borderRadius=".5rem"
                             backgroundColor="var(--third-color)"
+                            hoverBg="var(--third-color-alt)"
                         />
                     </C.ProductButtons>
                 )}

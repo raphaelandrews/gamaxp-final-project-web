@@ -18,7 +18,7 @@ export const DeleteProductForm: React.FC = () => {
     }
 
     useEffect(() => {
-        getData();
+       getData();
     }, []);
 
     const handleSubmit = async () => {

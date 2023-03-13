@@ -38,10 +38,10 @@ export const NewProductForm: React.FC = () => {
 
     const handleSubmit = async (values: ProductFormValues) => {
         const formData = new FormData();
-        formData.append("nome", values.name);
-        formData.append("preco", values.price);
-        formData.append("categoria", values.category);
-        formData.append("descricao", values.description);
+        formData.append("product_name", values.name);
+        formData.append("price", values.price);
+        formData.append("category_id", values.category);
+        formData.append("description", values.description);
         formData.append("photo", values.image as string);
         if (values.image) {
             const reader = new FileReader();

@@ -7,24 +7,24 @@ import { Container, Button, Title } from "@/components";
 export const Dashboard = () => {
     const [isDashboard, setIsDashboard] = useState(<ProductsTable />);
     const [isProducts, setIsProducts] = useState(["var(--first-color)", "var(--bg-color)"]);
-    const [isUsers, setIsUsers] = useState(["transparent"]);
-    const [isOrders, setIsOrders] = useState(["transparent"]);
+    const [isUsers, setIsUsers] = useState(["transparent", "var(--first-color)"]);
+    const [isOrders, setIsOrders] = useState(["transparent","var(--first-color)"]);
 
     const handleDashboard = (dashboard: string) => {
         if (dashboard === "products") {
             setIsDashboard(<ProductsTable />)
             setIsProducts(["var(--first-color)", "var(--bg-color)"])
-            setIsUsers(["transparent"])
-            setIsOrders(["transparent"])
+            setIsUsers(["transparent", "var(--first-color)"])
+            setIsOrders(["transparent", "var(--first-color)"])
         } else if (dashboard === "users") {
             setIsDashboard(<UsersTable />)
-            setIsProducts(["transparent"])
+            setIsProducts(["transparent", "var(--first-color)"])
             setIsUsers(["var(--first-color)", "var(--bg-color)"])
-            setIsOrders(["transparent"])
+            setIsOrders(["transparent", "var(--first-color)"])
         } else {
             setIsDashboard(<OrdersTable />)
-            setIsProducts(["transparent"])
-            setIsUsers(["transparent"])
+            setIsProducts(["transparent", "var(--first-color)"])
+            setIsUsers(["transparent", "var(--first-color)"])
             setIsOrders(["var(--first-color)", "var(--bg-color)"])
         }
     };
@@ -38,7 +38,7 @@ export const Dashboard = () => {
                     <Button
                         action={() => handleDashboard("products")}
                         text="Products"
-                         size='var(--fs-6)'
+                        size='var(--fs-6)'
                         color={isProducts[1]}
                         colorHover='var(--bg-color)'
                         padding=".75rem 1.25rem"
@@ -50,7 +50,7 @@ export const Dashboard = () => {
                     <Button
                         action={() => handleDashboard("users")}
                         text="Users"
-                         size='var(--fs-6)'
+                        size='var(--fs-6)'
                         color={isUsers[1]}
                         colorHover='var(--bg-color)'
                         padding=".75rem 1.25rem"
@@ -62,7 +62,7 @@ export const Dashboard = () => {
                     <Button
                         action={() => handleDashboard("orders")}
                         text="Orders"
-                         size='var(--fs-6)'
+                        size='var(--fs-6)'
                         color={isOrders[1]}
                         colorHover='var(--bg-color)'
                         padding=".75rem 1.25rem"

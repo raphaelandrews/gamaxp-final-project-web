@@ -9,7 +9,7 @@ type StoreProductProps = {
   price: number;
   photo: string;
   category_id: number;
-  categoria: any;
+  category: any;
 }
 
 export function StoreProduct({ id, product_name, price, photo }: StoreProductProps) {

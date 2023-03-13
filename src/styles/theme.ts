@@ -35,14 +35,14 @@ export const lightTheme = {
 export const darkTheme = {
     colors: {
         primary: 'hsl(0, 0%, 100%)',
-        secondary: 'hsl(0, 0%, 0%)',
-        secondaryAlt: 'hsl(162, 100%, 20%)',
+        secondary: 'hsl(0, 0%, 100%)',
+        secondaryAlt: 'hsl(0, 0%, 80%)',
         tertiary: 'hsl(355, 91%, 66%)',
         tertiaryAlt: 'hsl(355, 91%, 60%)',
         quaternary: 'hsl(240, 9%, 89%)',
         alternative: 'hsl(240, 7%, 78%)',
         backgroundAlt: 'hsl(240, 6%, 13%)',
-        background: 'hsl(0, 0%, 20%)',
+        background: 'hsl(0, 0%, 6%)',
     },
     fonts: {
         primary: 'Patrick Hand, cursive',
