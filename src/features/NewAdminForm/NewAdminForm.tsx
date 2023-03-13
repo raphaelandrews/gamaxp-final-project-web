@@ -39,7 +39,6 @@ export const NewAdminForm: React.FC = () => {
     formData.append("email", values.email);
     formData.append("password", values.password);
     formData.append("type", values.type);
-    console.log(values.username, values.email, values.password, values.type)
 
     try {
       await axios.post(`${import.meta.env.VITE_API_HOST}/usuario`, formData, {

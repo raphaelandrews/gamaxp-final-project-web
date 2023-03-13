@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     async function authenticate(email: string, password: string) {
         const response = await LoginRequest(email, password)
         
-        const payload = { token: response }
+        const payload = { token: response.acessToken }
 
         setUser(payload);
         setUserLocalStorage(payload)
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     async function register(username: string, email: string, password: string) {
         const response = await SignUpRequest(username, email, password)
 
-        const payload = { token: response.senha, email: response.email , id: response.id, type: "user" }
+        const payload = { token: response.acessToken }
   
         setUser(payload);
         setUserLocalStorage(payload)

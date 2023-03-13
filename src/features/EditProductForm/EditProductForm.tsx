@@ -60,8 +60,7 @@ export const EditProductForm: React.FC = () => {
         formData.append("photo", values.image as string);
         if (values.image) {
             const reader = new FileReader();
-            //reader.readAsDataURL(values.image);
-            console.log()
+            //reader.readAsDataURL(values.image)
 
             reader.onloadend = () => {
                 const imageString = reader.result as string;

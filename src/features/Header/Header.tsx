@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,7 @@ import { Button, Container } from "@/components";
 import { SunIcon, UserIcon, CartIcon, HamburgerIcon, LogoIcon } from '@/assets/svg';
 
 import * as C from "./Header.styles";
+import axios from 'axios';
 
 interface Props {
   title: string;
@@ -16,10 +17,10 @@ interface Props {
 export const Header: React.FC<Props> = ({ title }) => {
   const { toggleThemePicker } = useContext(ThemeContext);
   const { isOpen, toggle } = useModal();
-  const { cartQuantity, CartProducts } = useCart()
+  const { cartQuantity, CartProducts } = useCart();
   const user = getUserLocalStorage();
 
-  const auth = useAuth()
+  const auth = useAuth();
 
   const UserLogged = () => {
     if (!auth.token) {
@@ -42,7 +43,39 @@ export const Header: React.FC<Props> = ({ title }) => {
   };
 
   const AdminPanel = () => {
-    if (user.type === "admin") {
+    interface User {
+      name: string;
+      email: string;
+      admin: boolean;
+    }
+    
+    const [userData, setUserData] = useState<User>({ name: "", email: "", admin: false });
+
+    useEffect(() => {
+      async function getData() {
+        const tokenString = localStorage.getItem("u");
+
+        if (tokenString !== null) {
+          const tokenObject = JSON.parse(tokenString);
+          const token = tokenObject.token;
+
+          const response = await axios({
+            method: "GET",
+            url: `${import.meta.env.VITE_API_HOST}/user-logged`,
+            headers: {
+              authorization: `Bearer ${token}`,
+            },
+          })
+
+          setUserData(response.data)
+        } else {
+          console.error("Token string is null");
+        }
+      }
+      getData()
+    }, [])
+
+    if (userData.admin === true) {
       return (
         <NavLink to="/dashboard" onClick={toggle}
           style={({ isActive }) =>
@@ -211,7 +244,7 @@ export const Header: React.FC<Props> = ({ title }) => {
                 </C.NavbarListItem>
               </C.NavbarList>
             </C.NavbarModal>
-            
+
             <C.LoginModal>
               {UserLogged()}
             </C.LoginModal>

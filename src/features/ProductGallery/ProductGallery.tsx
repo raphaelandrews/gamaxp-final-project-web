@@ -9,7 +9,6 @@ interface Product {
   price: number;
   product_name: string;
   category_id: number;
-  categoria: number;
   photo: string;
   category: any;
   description: string;
@@ -23,17 +22,24 @@ interface Props {
 export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) => {
   interface Item {
     id: number;
-    nome: string;
+    category_name: string;
   }
   const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get<Item[]>(`${import.meta.env.VITE_API_HOST}/categoria`)
-      .then(response => {
-        const data = response.data.map(item => item.nome);
+    async function getData() {
+      try {
+        const res = await axios.get<Item[]>(`${import.meta.env.VITE_API_HOST}/categoria`)
+        const data = res.data.map(item => item.category_name);
         setData(data);
-      })
-      .catch(error => console.log(error));
+      } catch (err) {
+        if (err) {
+          return alert("Ops, something wrong. Try again.")
+        }
+      }
+    }
+    getData()
+
   }, []);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -76,17 +82,17 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
   const end = start + productsPerPage;
 
   const filteredProducts =
-    selectedCategory === 'All' ? products : products.filter((product) => product.category.nome === selectedCategory);
+    selectedCategory === 'All' ? products : products.filter((product) => product.category.category_name === selectedCategory);
 
 
   useEffect(() => {
     if (selectedCategory == "All") {
       setActiveProducts(products);
     } else {
-      setActiveProducts(products.filter((product) => product.category.nome === selectedCategory));
+      setActiveProducts(products.filter((product) => product.category.category_name === selectedCategory));
     }
   }, [selectedCategory]);
-  
+
   const StoreProducts = filteredProducts.slice(start, end);
 
   const pageButtons = [];
@@ -179,7 +185,7 @@ export const ProductGallery: React.FC<Props> = ({ products, productsPerPage }) =
               </path>
             </svg>
           </C.PageButton>
-              {pageButtons} 
+          {pageButtons}
           <C.PageButton onClick={goToNextPage} disabled={currentPage === totalPages}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

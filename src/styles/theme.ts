@@ -35,14 +35,14 @@ export const lightTheme = {
 export const darkTheme = {
     colors: {
         primary: 'hsl(0, 0%, 100%)',
-        secondary: 'hsl(0, 0%, 0%)',
-        secondaryAlt: 'hsl(162, 100%, 20%)',
+        secondary: 'hsl(0, 0%, 100%)',
+        secondaryAlt: 'hsl(0, 0%, 80%)',
         tertiary: 'hsl(355, 91%, 66%)',
         tertiaryAlt: 'hsl(355, 91%, 60%)',
         quaternary: 'hsl(240, 9%, 89%)',
         alternative: 'hsl(240, 7%, 78%)',
         backgroundAlt: 'hsl(240, 6%, 13%)',
-        background: 'hsl(0, 0%, 20%)',
+        background: 'hsl(0, 0%, 4%)',
     },
     fonts: {
         primary: 'Patrick Hand, cursive',
@@ -66,17 +66,17 @@ export const darkTheme = {
     }
 };
 
-export const seaTheme = {
+export const cyberpunkTheme = {
     colors: {
-        primary: 'hsl(0, 0%, 50%)',
-        secondary: 'hsl(0, 0%, 50%)',
-        secondaryAlt: 'hsl(162, 100%, 20%)',
-        tertiary: 'hsl(50, 50%, 50%)',
+        primary: 'hsl(0, 0%, 100%)',
+        secondary: 'hsl(34, 88%, 50%)',
+        secondaryAlt: 'hsl(34, 88%, 44%)',
+        tertiary: 'hsl(355, 91%, 66%)',
         tertiaryAlt: 'hsl(355, 91%, 60%)',
         quaternary: 'hsl(240, 9%, 89%)',
         alternative: 'hsl(240, 7%, 78%)',
-        backgroundAlt: 'hsl(240, 6%, 13%)',
-        background: 'hsl(20, 20%, 20%)',
+        backgroundAlt: 'hsl(240, 100%, 5%)',
+        background: 'hsl(240, 100%, 7%)',
     },
     fonts: {
         primary: 'Patrick Hand, cursive',

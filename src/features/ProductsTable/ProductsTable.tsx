@@ -10,7 +10,7 @@ type Products = {
     product_name?: string;
     description?: string;
     category?: any;
-    nome?: string;
+    category_name?: string;
     id?: number;
     photo?: string;
 };
@@ -25,7 +25,7 @@ export const ProductsTable = (props: Products) => {
     }
 
     useEffect(() => {
-        getData();
+       getData();
     }, []);
 
     const columns = useMemo<MRT_ColumnDef<Products>[]>(
@@ -52,11 +52,11 @@ export const ProductsTable = (props: Products) => {
                 ),
             },
             {
-                accessorKey: 'category.nome',
+                accessorKey: 'category.category_name',
                 header: 'Category',
                 Cell: ({ row }) => (
                     <Link to={`/product/${row?.original?.id}`}>
-                        {row?.original?.category.nome}
+                       {row?.original?.category.category_name}
                     </Link>
                 ),
             },

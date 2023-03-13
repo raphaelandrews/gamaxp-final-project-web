@@ -64,24 +64,24 @@ export const MultiStepForm = () => {
     };
 
     const [isAddressColor, setIsAddressColor] = useState(["var(--first-color)", "var(--bg-color)"]);
-    const [isShippingColor, setIsShippingColor] = useState(["transparent"]);
-    const [isPaymentColor, setIsPaymentColor] = useState(["transparent"]);
+    const [isShippingColor, setIsShippingColor] = useState(["transparent", "var(--first-color)"]);
+    const [isPaymentColor, setIsPaymentColor] = useState(["transparent", "var(--first-color)"]);
 
     const handleAddressStep = (step: number) => {
         if (step == 1) {
             setStep(1)
             setIsAddressColor(["var(--first-color)", "var(--bg-color)"])
-            setIsShippingColor(["transparent"])
-            setIsPaymentColor(["transparent"])
+            setIsShippingColor(["transparent", "var(--first-color)"])
+            setIsPaymentColor(["transparent", "var(--first-color)"])
         } else if (step == 2) {
             setStep(2)
-            setIsAddressColor(["transparent"])
+            setIsAddressColor(["transparent", "var(--first-color)"])
             setIsShippingColor(["var(--first-color)", "var(--bg-color)"])
-            setIsPaymentColor(["transparent"])
+            setIsPaymentColor(["transparent", "var(--first-color)"])
         } else {
             setStep(3)
-            setIsAddressColor(["transparent"])
-            setIsShippingColor(["transparent"])
+            setIsAddressColor(["transparent", "var(--first-color)"])
+            setIsShippingColor(["transparent", "var(--first-color)"])
             setIsPaymentColor(["var(--first-color)", "var(--bg-color)"])
         }
     };
