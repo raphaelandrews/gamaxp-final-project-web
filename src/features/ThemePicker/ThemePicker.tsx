@@ -186,7 +186,7 @@ export const ThemePicker = (props: ThemePickerProps) => {
                         </Span>
                     </Button>
                     <Button
-                        action={() => toggleSetTheme("sea")}
+                        action={() => toggleSetTheme("cyberpunk")}
                         minWidth="136px"
                         padding="1rem"
                         border={`2px solid ${lightTheme.colors.primary}`}

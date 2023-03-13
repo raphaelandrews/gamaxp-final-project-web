@@ -1,7 +1,7 @@
 // ThemeProvider.tsx
 import { useEffect, useState, ReactNode } from "react";
 import { ThemePicker, ThemeProvider } from "@/features";
-import { GlobalStyles, lightTheme, darkTheme, seaTheme } from "@/styles";
+import { GlobalStyles, lightTheme, darkTheme, cyberpunkTheme } from "@/styles";
 import { ThemeContext } from "@/context";
 
 type ThemeProviderProps = {
@@ -23,7 +23,7 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark" || savedTheme === "light" || savedTheme === "sea") {
+    if (savedTheme === "dark" || savedTheme === "light" || savedTheme === "cyberpunk") {
       setIsSetTheme(savedTheme);
     }
   }, []);
@@ -72,11 +72,11 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
 
   function getThemeObject(theme: string): Theme {
     if (theme === "dark") {
-      return darkTheme
+      return darkTheme;
     } else if (theme === "light") {
-      return lightTheme
-    } else if (theme == "sea") {
-      return seaTheme
+      return lightTheme;
+    } else if (theme == "cyberpunk") {
+      return cyberpunkTheme;
     }
 
     return theme === "corinthians" ? darkTheme : lightTheme;
