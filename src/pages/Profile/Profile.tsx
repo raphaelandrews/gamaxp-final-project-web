@@ -11,7 +11,6 @@ export const Profile = () => {
     useEffect(() => {
         //getData();
         const token = getUserLocalStorage();
-        console.log(token)
 
         async function getData() {
             const res = await axios.get(`${import.meta.env.VITE_API_HOST}/user/`, {
